@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Data\\C#\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj": {}
+    "E:\\Practices\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj": {}
   },
   "projects": {
-    "E:\\Data\\C#\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj": {
+    "E:\\Practices\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Data\\C#\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj",
+        "projectUniqueName": "E:\\Practices\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj",
         "projectName": "CSVFILE",
-        "projectPath": "E:\\Data\\C#\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj",
+        "projectPath": "E:\\Practices\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj",
         "packagesPath": "C:\\Users\\GRL\\.nuget\\packages\\",
-        "outputPath": "E:\\Data\\C#\\sample programs\\CSVFILE\\CSVFILE\\obj\\",
+        "outputPath": "E:\\Practices\\Practices\\sample programs\\CSVFILE\\CSVFILE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\GRL\\AppData\\Roaming\\NuGet\\NuGet.Config",

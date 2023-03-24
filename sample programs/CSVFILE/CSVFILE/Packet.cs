@@ -30,9 +30,10 @@ namespace CSVFILE
         }
         public enum CmdType
         {
-          
-            Rd,
+
+           
             Wr,
+            Rd,
             ACK_A,
             ACK_I,
             DMA_Config,
@@ -45,145 +46,169 @@ namespace CSVFILE
             HPD_Removed,
             HPD_Asserted
         }
+        public CmdType CmdValue;
+        public MsgType MsgValue;
+        public TransactType TransactValue;
         public int Address;
         public int DataLength;
         public string PayloadData;
-         
-        public  List<double>  TimeStampList = new List<double>();
-        public List<CmdType>  CmdTypeList = new List<CmdType>();
-        public List<TransactType> TransactTypeList= new List<TransactType>();
-        public List<MsgType>  MsgTypeList= new List<MsgType>();
-        public List<string> PayloadDataList = new List<string>();
-        public List<int> DataLengthList = new List<int>();
-        public List<int> AddressList = new List<int>();
-        public List<string> SeperatedPayloadDataList= new List<string>();   
-        public void ToTimeStampList(string TimeStamp)
+
+       
+        public void ToTimeStamp(string TimeStampstring)
         {
-            double value = double.Parse(TimeStamp);
-            TimeStampList.Add(value);
-          
+            double value = double.Parse(TimeStampstring);
+
+            TimeStamp = value;
         }
         public void DisplayTimeStamp()
         {
-           foreach (var t in TimeStampList)
-           {
-              Console.WriteLine(t);
-           }
-        }
-       public void ToCmdTypeList(string stringValue)
-        {
-            CmdType value = (CmdType)Enum.Parse(typeof(CmdType), stringValue);
-            CmdTypeList.Add(value);
-        }
         
-       public void DisplayCmdType()
+                Console.WriteLine(TimeStamp);
+            
+        }
+        public void ToCmdType(string stringValue)
         {
-            foreach(var item in CmdTypeList)
+            
+            try
             {
-                Console.WriteLine(item);
+                CmdValue = (CmdType)Enum.Parse(typeof(CmdType), stringValue);
+
             }
+            catch (System.ArgumentException ax)
+            {
+                Console.WriteLine("the argument is missing in the CmdType" );
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
     
-        }
-        public void ToTransactTypeList(string stringValue)
+      public void DisplayCmdValue()
         {
-            TransactType value = (TransactType)Enum.Parse(typeof(TransactType), stringValue);
-            TransactTypeList.Add(value);
-        }
-
-        public void DisplayTransactType()
-        {
-            foreach (var item in TransactTypeList)
-            {
-                Console.WriteLine(item);
-            }
+                Console.WriteLine(CmdValue);
+            
 
         }
-        public void ToMsgTypeList(string stringValue)
+        public void ToTransactType(string stringValue)
         {
-            MsgType value = (MsgType)Enum.Parse(typeof(MsgType), stringValue);
-            MsgTypeList.Add(value);
-        }
-
-        public void DisplayMsgType()
-        {
-            foreach (var item in MsgTypeList)
-            {
-                Console.WriteLine(item);
-            }
-
-        }
-        public void ToAddressList(string Address)
-        {
-            int value= Convert.ToInt32(Address,16);
-            AddressList.Add(value);
-        }
-        public void DisplayAddress() 
-        { 
-            foreach (var item in AddressList)
-            { 
-                Console.WriteLine(item); 
-            }
-        }
-        public void ToDataLength(string DataLength)
-        {
-            int value;
-           if(DataLength == "")
-            {
-                value= 0;
-            }
-           else
-            {
-                value = int.Parse(DataLength);
-            }
-      
            
-      
-           DataLengthList.Add(value);
+            try
+            {
+                TransactValue = (TransactType)Enum.Parse(typeof(TransactType), stringValue);
+
+            }
+            catch (System.ArgumentException ax)
+            {
+                Console.WriteLine("the argument is missing in the TransactType");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }
+
+        public void DisplayTransactValue()
+        {
+            Console.WriteLine(TransactValue);
+
+        }
+        public void ToMsgType(string stringValue)
+        {
+            try
+            {
+                MsgValue = (MsgType)Enum.Parse(typeof(MsgType), stringValue);
+            }
+            catch (System.ArgumentException ax)
+            {
+                Console.WriteLine("the argument is missing in the MsgType ");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+     
+        }
+
+        public void DisplayMsg()
+        {
+            Console.WriteLine(MsgValue);
+
+        }
+        public void ToAddressList(string StringAddress)
+        {
+           Address  = Convert.ToInt32(StringAddress, 16);
+            
+        }
+        public void DisplayAddress()
+        {
+            Console.WriteLine(Address);
+        }
+        public void ToDataLength(string DataLengthString)
+        {
+           
+            if (DataLengthString == "")
+            {
+                DataLength = 0;
+            }
+            else
+            {
+                DataLength = int.Parse(DataLengthString);
+            }
+
+
+
+            
         }
         public void DisplayDataLength()
         {
-            foreach (var item in DataLengthList)
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine(DataLength);
         }
-        public void ToPayloadDataList(string PayloadData)
+        public void ToPayloadData(string PayloadDataString)
         {
-            PayloadDataList.Add(PayloadData);
+            PayloadData = PayloadDataString;
         }
         public void DisplayPayloadData()
         {
-            foreach(var item in PayloadDataList)
-            {
-                Console.WriteLine( item);
-            }
+            Console.WriteLine(PayloadData);
         }
 
-        public void payloadSeparate()
+       /* public void payloadSeparate(List<string> PayloadDataList, int index)
         {
-            Console.WriteLine(PayloadDataList[127]);
-            string[]datas= PayloadDataList[127].Split(':');
+
+            string[] datas = PayloadDataList[index].Split(':');
+
+
+
             foreach (var item in datas)
             {
 
                 if (item != "")
                 {
-                  
+
                     SeperatedPayloadDataList.Add(item.Trim());
-                    
+
                 }
-            
+
             }
-            foreach (var item in SeperatedPayloadDataList)
-            {
-                Console.WriteLine(item);
-            }
+
             //Console.WriteLine(datas);
             //     datas.First();
-            if (datas[0].Contains("MAIN_LINK_CHANNEL_CODING_SET")) 
+            if (datas[0].Contains("MAIN_LINK_CHANNEL_CODING_SET"))
             {
                 Console.WriteLine("it contain");
             }
+
         }
+        public void DisplayPayloadSeparate()
+        {
+            foreach (var item in SeperatedPayloadDataList)
+            {
+                Console.WriteLine(item);
+                //
+            }
+        }
+     */
     }
 }
