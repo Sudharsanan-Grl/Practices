@@ -44,7 +44,24 @@ namespace CSVFILES
                 Console.WriteLine(PacketList[3].Address);
                 Console.WriteLine(PacketList[4].Address);
                 Console.WriteLine(PacketList[5].Address);
+             if   (PacketList[0].TransactValue.Equals("Nat"))
+                {
+                    Console.WriteLine("Nat is contains");
 
+                }
+             else
+                {
+                    Console.WriteLine("Nat is not contains");
+                }
+             if(   PacketList[0].TransactValue.Equals("I2C"))
+                {
+                    Console.WriteLine("I2C is contains");
+
+                }
+             else
+                {
+                    Console.WriteLine("I2C is not contains");
+                }
                 /*    if(CmdTypes.Contains("TestStart")) 
                   {
                        int c = CmdTypes.IndexOf("HPD_Removed");
