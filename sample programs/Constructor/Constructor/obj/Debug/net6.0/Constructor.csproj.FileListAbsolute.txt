@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\Constructor\Constructor\bin\Debug\net6.0\Constructor.exe
+E:\Data\C#\sample programs\Constructor\Constructor\bin\Debug\net6.0\Constructor.deps.json
+E:\Data\C#\sample programs\Constructor\Constructor\bin\Debug\net6.0\Constructor.runtimeconfig.json
+E:\Data\C#\sample programs\Constructor\Constructor\bin\Debug\net6.0\Constructor.dll
+E:\Data\C#\sample programs\Constructor\Constructor\bin\Debug\net6.0\Constructor.pdb
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\Constructor.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\Constructor.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\Constructor.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\Constructor.AssemblyInfo.cs
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\Constructor.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\Constructor.dll
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\refint\Constructor.dll
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\Constructor.pdb
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\Constructor.genruntimeconfig.cache
+E:\Data\C#\sample programs\Constructor\Constructor\obj\Debug\net6.0\ref\Constructor.dll

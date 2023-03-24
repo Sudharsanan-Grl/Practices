@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "N+Qo9WyfZ9kYK3A3Udo7VFnMoeyPbRGD51q3VNiuDc5O4tYcHPNCDiK3sO11KTlBjBNEDjULKqd0RCL4S+ltLQ==",
+  "success": true,
+  "projectFilePath": "E:\\Data\\C#\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\GRL\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.8\\microsoft.windowsdesktop.app.ref.6.0.8.nupkg.sha512",
+    "C:\\Users\\GRL\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.8\\microsoft.netcore.app.ref.6.0.8.nupkg.sha512",
+    "C:\\Users\\GRL\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.8\\microsoft.aspnetcore.app.ref.6.0.8.nupkg.sha512",
+    "C:\\Users\\GRL\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.8\\microsoft.netcore.app.host.win-x64.6.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\bin\Debug\net6.0\SwallowDeepCopy.exe
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\bin\Debug\net6.0\SwallowDeepCopy.deps.json
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\bin\Debug\net6.0\SwallowDeepCopy.runtimeconfig.json
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\bin\Debug\net6.0\SwallowDeepCopy.dll
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\bin\Debug\net6.0\SwallowDeepCopy.pdb
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\SwallowDeepCopy.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\SwallowDeepCopy.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\SwallowDeepCopy.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\SwallowDeepCopy.AssemblyInfo.cs
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\SwallowDeepCopy.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\SwallowDeepCopy.dll
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\refint\SwallowDeepCopy.dll
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\SwallowDeepCopy.pdb
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\SwallowDeepCopy.genruntimeconfig.cache
+E:\Data\C#\sample programs\SwallowDeepCopy\SwallowDeepCopy\obj\Debug\net6.0\ref\SwallowDeepCopy.dll

@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\inheritance example.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\inheritance example.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\inheritance example.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\inheritance example.AssemblyInfo.cs
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\inheritance example.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\bin\Debug\net6.0\inheritance example.exe
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\bin\Debug\net6.0\inheritance example.deps.json
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\bin\Debug\net6.0\inheritance example.runtimeconfig.json
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\bin\Debug\net6.0\inheritance example.dll
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\bin\Debug\net6.0\inheritance example.pdb
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\inheritance example.dll
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\refint\inheritance example.dll
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\inheritance example.pdb
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\inheritance example.genruntimeconfig.cache
+E:\Data\C#\sample programs\inheritance\inheritance example\inheritance example\obj\Debug\net6.0\ref\inheritance example.dll

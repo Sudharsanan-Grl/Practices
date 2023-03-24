@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\DateFormat\DateFormat\bin\Debug\net6.0\DateFormat.exe
+E:\Data\C#\sample programs\DateFormat\DateFormat\bin\Debug\net6.0\DateFormat.deps.json
+E:\Data\C#\sample programs\DateFormat\DateFormat\bin\Debug\net6.0\DateFormat.runtimeconfig.json
+E:\Data\C#\sample programs\DateFormat\DateFormat\bin\Debug\net6.0\DateFormat.dll
+E:\Data\C#\sample programs\DateFormat\DateFormat\bin\Debug\net6.0\DateFormat.pdb
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\DateFormat.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\DateFormat.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\DateFormat.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\DateFormat.AssemblyInfo.cs
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\DateFormat.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\DateFormat.dll
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\refint\DateFormat.dll
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\DateFormat.pdb
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\DateFormat.genruntimeconfig.cache
+E:\Data\C#\sample programs\DateFormat\DateFormat\obj\Debug\net6.0\ref\DateFormat.dll

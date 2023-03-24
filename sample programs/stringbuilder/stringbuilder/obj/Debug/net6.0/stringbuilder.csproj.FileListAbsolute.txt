@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\bin\Debug\net6.0\stringbuilder.exe
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\bin\Debug\net6.0\stringbuilder.deps.json
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\bin\Debug\net6.0\stringbuilder.runtimeconfig.json
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\bin\Debug\net6.0\stringbuilder.dll
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\bin\Debug\net6.0\stringbuilder.pdb
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\stringbuilder.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\stringbuilder.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\stringbuilder.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\stringbuilder.AssemblyInfo.cs
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\stringbuilder.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\stringbuilder.dll
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\refint\stringbuilder.dll
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\stringbuilder.pdb
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\stringbuilder.genruntimeconfig.cache
+E:\Data\C#\sample programs\stringbuilder\stringbuilder\obj\Debug\net6.0\ref\stringbuilder.dll

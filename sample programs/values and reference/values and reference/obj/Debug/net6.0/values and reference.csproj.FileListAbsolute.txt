@@ -1,0 +1,30 @@
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\bin\Debug\net6.0\values and reference.exe
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\bin\Debug\net6.0\values and reference.deps.json
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\bin\Debug\net6.0\values and reference.runtimeconfig.json
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\bin\Debug\net6.0\values and reference.dll
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\bin\Debug\net6.0\values and reference.pdb
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\values and reference.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\values and reference.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\values and reference.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\values and reference.AssemblyInfo.cs
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\values and reference.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\values and reference.dll
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\refint\values and reference.dll
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\values and reference.pdb
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\values and reference.genruntimeconfig.cache
+E:\Data\C#\sample programs\operators sample\values and reference\values and reference\obj\Debug\net6.0\ref\values and reference.dll
+E:\Data\C#\sample programs\values and reference\values and reference\bin\Debug\net6.0\values and reference.exe
+E:\Data\C#\sample programs\values and reference\values and reference\bin\Debug\net6.0\values and reference.deps.json
+E:\Data\C#\sample programs\values and reference\values and reference\bin\Debug\net6.0\values and reference.runtimeconfig.json
+E:\Data\C#\sample programs\values and reference\values and reference\bin\Debug\net6.0\values and reference.dll
+E:\Data\C#\sample programs\values and reference\values and reference\bin\Debug\net6.0\values and reference.pdb
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\values and reference.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\values and reference.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\values and reference.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\values and reference.AssemblyInfo.cs
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\values and reference.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\values and reference.dll
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\refint\values and reference.dll
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\values and reference.pdb
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\values and reference.genruntimeconfig.cache
+E:\Data\C#\sample programs\values and reference\values and reference\obj\Debug\net6.0\ref\values and reference.dll

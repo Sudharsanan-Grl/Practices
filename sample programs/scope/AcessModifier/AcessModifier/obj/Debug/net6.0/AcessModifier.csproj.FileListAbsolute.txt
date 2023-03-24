@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\bin\Debug\net6.0\AcessModifier.exe
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\bin\Debug\net6.0\AcessModifier.deps.json
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\bin\Debug\net6.0\AcessModifier.runtimeconfig.json
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\bin\Debug\net6.0\AcessModifier.dll
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\bin\Debug\net6.0\AcessModifier.pdb
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\AcessModifier.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\AcessModifier.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\AcessModifier.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\AcessModifier.AssemblyInfo.cs
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\AcessModifier.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\AcessModifier.dll
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\refint\AcessModifier.dll
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\AcessModifier.pdb
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\AcessModifier.genruntimeconfig.cache
+E:\Data\C#\sample programs\scope\AcessModifier\AcessModifier\obj\Debug\net6.0\ref\AcessModifier.dll

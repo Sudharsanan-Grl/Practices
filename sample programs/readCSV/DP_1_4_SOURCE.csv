@@ -1,0 +1,13 @@
+
+
+
+
+Test_Result_Summary
+
+
+DP_1_4_SOURCE Result Summary:
+
+
+Sl No,  Test ID, Test Name, Test Result
+1,TD_4_2_1_1,TD_4_2_1_1 Source DUT Retry on No Reply,PASS
+2,TD_4_2_1_2,TD_4_2_1_2 Source Retry on Invalid Reply,PASS

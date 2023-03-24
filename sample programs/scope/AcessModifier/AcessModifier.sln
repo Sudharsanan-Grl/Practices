@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcessModifier", "AcessModifier\AcessModifier.csproj", "{1643DF96-2627-4CD7-8856-8DE0C588BB71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "assembly2", "..\..\AccessModifiers\assembly2\assembly2.csproj", "{A7008919-FE70-4820-BE45-D35883D935FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1643DF96-2627-4CD7-8856-8DE0C588BB71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1643DF96-2627-4CD7-8856-8DE0C588BB71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1643DF96-2627-4CD7-8856-8DE0C588BB71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1643DF96-2627-4CD7-8856-8DE0C588BB71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7008919-FE70-4820-BE45-D35883D935FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7008919-FE70-4820-BE45-D35883D935FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7008919-FE70-4820-BE45-D35883D935FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7008919-FE70-4820-BE45-D35883D935FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62724888-AA77-4859-A13C-153632497307}
+	EndGlobalSection
+EndGlobal
