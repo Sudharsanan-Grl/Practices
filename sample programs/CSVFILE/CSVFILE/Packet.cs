@@ -173,42 +173,134 @@ namespace CSVFILE
         {
             Console.WriteLine(PayloadData);
         }
-
-       /* public void payloadSeparate(List<string> PayloadDataList, int index)
+        public int FirstNatIndex(List<Packet>PacketList)
         {
-
-            string[] datas = PayloadDataList[index].Split(':');
-
-
-
-            foreach (var item in datas)
+            int index=0;
+            for(int i=0;i<PacketList.Count;i++)
             {
-
-                if (item != "")
+                if (PacketList[i].TransactValue == TransactType.Nat)
                 {
-
-                    SeperatedPayloadDataList.Add(item.Trim());
-
+                    index = i;
+                        break;
                 }
-
             }
-
-            //Console.WriteLine(datas);
-            //     datas.First();
-            if (datas[0].Contains("MAIN_LINK_CHANNEL_CODING_SET"))
-            {
-                Console.WriteLine("it contain");
-            }
-
+            return index;
         }
-        public void DisplayPayloadSeparate()
+        public int LastNatIndex(List<Packet> PacketList)
         {
-            foreach (var item in SeperatedPayloadDataList)
+            int index=0;
+            for (int i = 0; i < PacketList.Count; i++)
             {
-                Console.WriteLine(item);
-                //
+                if (PacketList[i].TransactValue == TransactType.Nat)
+                    index = i;
             }
+            return index;
         }
-     */
+        public int FirstI2CIndex(List<Packet> PacketList)
+        {
+            int index=0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].TransactValue == TransactType.I2C)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+        public int LastI2CIndex(List<Packet> PacketList)
+        {
+            int index = 0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].TransactValue == TransactType.I2C)
+                    index = i;
+            }
+            return index;
+        }
+        public int FirstNatWrIndex(List<Packet> PacketList)
+        {
+            int index=0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].TransactValue == TransactType.Nat && PacketList[i].CmdValue == CmdType.Wr)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+        public int LastNatWrIndex(List<Packet> PacketList)
+        {
+            int index = 0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].TransactValue == TransactType.Nat && PacketList[i].CmdValue == CmdType.Wr)
+                    index = i;
+            }
+            return index;
+        }
+        public int FirstI2CWrIndex(List<Packet> PacketList)
+        {
+            int index=0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].TransactValue == TransactType.I2C && PacketList[i].CmdValue == CmdType.Wr)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+        public int LastI2CWrIndex(List<Packet> PacketList)
+        {
+            int index = 0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].TransactValue == TransactType.I2C && PacketList[i].CmdValue == CmdType.Wr)
+                    index = i;
+            }
+            return index;
+        }
+
+        /* public void payloadSeparate(List<string> PayloadDataList, int index)
+         {
+
+             string[] datas = PayloadDataList[index].Split(':');
+
+
+
+             foreach (var item in datas)
+             {
+
+                 if (item != "")
+                 {
+
+                     SeperatedPayloadDataList.Add(item.Trim());
+
+                 }
+
+             }
+
+             //Console.WriteLine(datas);
+             //     datas.First();
+             if (datas[0].Contains("MAIN_LINK_CHANNEL_CODING_SET"))
+             {
+                 Console.WriteLine("it contain");
+             }
+
+         }
+         public void DisplayPayloadSeparate()
+         {
+             foreach (var item in SeperatedPayloadDataList)
+             {
+                 Console.WriteLine(item);
+                 //
+             }
+         }
+      */
     }
 }
