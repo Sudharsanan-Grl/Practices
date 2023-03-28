@@ -27,7 +27,6 @@ namespace CSVFILES
                     Packet CurrPkt = new Packet();
                     string[] row = csvLines[i].Split(',');
                       CurrPkt.ToTimeStamp(row[1]);
-                      CurrPkt.ToCmdType(row[5]);
                       CurrPkt.ToMsgType(row[3]);
                       CurrPkt.ToTransactType(row[4]);
                       CurrPkt.ToCmdType(row[5]);
@@ -42,17 +41,19 @@ namespace CSVFILES
         
             }
             
-            Packet O= new Packet();
+            Packet O  = new Packet();
             int FNatIndex = O.FirstNatIndex(PacketList);
             int LNatIndex = O.LastNatIndex(PacketList);
             int FI2CIndex = O.FirstI2CIndex(PacketList);
-            //
-            int LI2CIndex = O.LastI2CIndex(PacketList);
+            
+            int LI2CIndex   = O.LastI2CIndex(PacketList);
             int FNatWrIndex = O.FirstNatWrIndex(PacketList);
             int LNatWrIndex = O.LastNatWrIndex(PacketList);
             int FI2CWrIndex = O.FirstI2CWrIndex(PacketList);
             int LI2CWrIndex = O.LastI2CWrIndex(PacketList);
-
+            int ReqOccIndex   = O.ReqOccuranceIndex(PacketList,3);
+            int ResOccIndex = O.ResOccuranceIndex(PacketList,4);
+            
             Console.WriteLine("the first occurance of the Nat is comes with the index of "+FNatIndex);
             Console.WriteLine("the Last occurance of the Nat is comes with the index of " + LNatIndex);
             Console.WriteLine("the first occurance of the I2C is comes with the index of " + FI2CIndex);
@@ -61,7 +62,9 @@ namespace CSVFILES
             Console.WriteLine("the Last occurance of the Nat Write is comes with the index of " + LNatWrIndex);
             Console.WriteLine("the first occurance of the I2C Write is comes with the index of " + FI2CWrIndex);
             Console.WriteLine("the Last occurance of the I2C Write is comes with the index of " + LI2CWrIndex);
-            Console.ReadKey();
+            Console.WriteLine("the Third occurance of Req is "+ReqOccIndex);
+            Console.WriteLine("the fourth occurance of Res  is "+ResOccIndex);
+            Console.ReadLine();
             //     O.DisplayTimeStamp();
             //    O.DisplayCmdType();
             //      O.DisplayTransactType();

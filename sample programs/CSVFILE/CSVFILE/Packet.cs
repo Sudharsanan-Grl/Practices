@@ -26,7 +26,7 @@ namespace CSVFILE
         {
             FW_Assert,
             Req,
-            Res
+            Re
         }
         public enum CmdType
         {
@@ -46,8 +46,8 @@ namespace CSVFILE
             HPD_Removed,
             HPD_Asserted
         }
-        public CmdType CmdValue;
         public MsgType MsgValue;
+        public CmdType CmdValue;
         public TransactType TransactValue;
         public int Address;
         public int DataLength;
@@ -262,6 +262,50 @@ namespace CSVFILE
             {
                 if (PacketList[i].TransactValue == TransactType.I2C && PacketList[i].CmdValue == CmdType.Wr)
                     index = i;
+            }
+            return index;
+        }
+        public int ReqOccuranceIndex(List<Packet> PacketList,int NumOfOcc)
+        {
+            int index = 0;
+            int times = 0;
+            for (int i = 0;i < PacketList.Count; i++)
+             {
+                if (PacketList[i].MsgValue == MsgType.Req)
+                {
+                   
+                    times++;
+                    if (times == NumOfOcc)
+                    {
+                        index=i; 
+                        break;
+                    }
+                   
+                }
+                    
+                
+             }
+            return index;
+        }
+        public int ResOccuranceIndex(List<Packet> PacketList, int NumOfOcc)
+        {
+            int index = 0;
+            int times = 0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].MsgValue == MsgType.Res)
+                {
+
+                    times++;
+                    if (times == NumOfOcc)
+                    {
+                        index = i;
+                        break;
+                    }
+
+                }
+
+
             }
             return index;
         }
