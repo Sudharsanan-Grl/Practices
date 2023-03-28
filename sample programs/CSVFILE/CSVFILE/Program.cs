@@ -34,7 +34,7 @@ namespace CSVFILES
                       CurrPkt.ToDataLength(row[7]);
                       CurrPkt.ToPayloadData(row[9]);
                       PacketList.Add(CurrPkt);
-                    
+                   
 
                 }
                
@@ -51,8 +51,8 @@ namespace CSVFILES
             int LNatWrIndex = O.LastNatWrIndex(PacketList);
             int FI2CWrIndex = O.FirstI2CWrIndex(PacketList);
             int LI2CWrIndex = O.LastI2CWrIndex(PacketList);
-            int ReqOccIndex   = O.ReqOccuranceIndex(PacketList,3);
-            int ResOccIndex = O.ResOccuranceIndex(PacketList,4);
+           
+            int MsgTypeOccIndex = O.ReqResOccuranceIndex(PacketList,4,MsgType.Req);
             
             Console.WriteLine("the first occurance of the Nat is comes with the index of "+FNatIndex);
             Console.WriteLine("the Last occurance of the Nat is comes with the index of " + LNatIndex);
@@ -62,8 +62,8 @@ namespace CSVFILES
             Console.WriteLine("the Last occurance of the Nat Write is comes with the index of " + LNatWrIndex);
             Console.WriteLine("the first occurance of the I2C Write is comes with the index of " + FI2CWrIndex);
             Console.WriteLine("the Last occurance of the I2C Write is comes with the index of " + LI2CWrIndex);
-            Console.WriteLine("the Third occurance of Req is "+ReqOccIndex);
-            Console.WriteLine("the fourth occurance of Res  is "+ResOccIndex);
+      
+           Console.WriteLine("the fourth occurance of Req  is "+ MsgTypeOccIndex);
             Console.ReadLine();
             //     O.DisplayTimeStamp();
             //    O.DisplayCmdType();

@@ -26,7 +26,7 @@ namespace CSVFILE
         {
             FW_Assert,
             Req,
-            Re
+            Res
         }
         public enum CmdType
         {
@@ -189,10 +189,13 @@ namespace CSVFILE
         public int LastNatIndex(List<Packet> PacketList)
         {
             int index=0;
-            for (int i = 0; i < PacketList.Count; i++)
+            for (int i = PacketList.Count-1; i >0 ; i--)
             {
                 if (PacketList[i].TransactValue == TransactType.Nat)
+                {
                     index = i;
+                    break;
+                }
             }
             return index;
         }
@@ -265,35 +268,14 @@ namespace CSVFILE
             }
             return index;
         }
-        public int ReqOccuranceIndex(List<Packet> PacketList,int NumOfOcc)
-        {
-            int index = 0;
-            int times = 0;
-            for (int i = 0;i < PacketList.Count; i++)
-             {
-                if (PacketList[i].MsgValue == MsgType.Req)
-                {
-                   
-                    times++;
-                    if (times == NumOfOcc)
-                    {
-                        index=i; 
-                        break;
-                    }
-                   
-                }
-                    
-                
-             }
-            return index;
-        }
-        public int ResOccuranceIndex(List<Packet> PacketList, int NumOfOcc)
+     
+        public int ReqResOccuranceIndex(List<Packet> PacketList, int NumOfOcc,MsgType ReqOrRes)
         {
             int index = 0;
             int times = 0;
             for (int i = 0; i < PacketList.Count; i++)
             {
-                if (PacketList[i].MsgValue == MsgType.Res)
+                if (PacketList[i].MsgValue == ReqOrRes)
                 {
 
                     times++;
