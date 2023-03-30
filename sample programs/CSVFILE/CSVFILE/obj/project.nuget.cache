@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CFdV9vULWBpyt8gad5J4O0Dlf/Jb6G7qYun3GPSPbI961YvjjEPkMndZL0/9UoFwPCgmV0E9zZKHtUMVW9fymQ==",
+  "dgSpecHash": "W+ZNGjQGFmk1CCbVcKsOvlrKt2U5r9A0/P4TvWH67kpRrS1/g3MJyjfX6V8tTzI802cmQoJSGZIU1zAkKD+z0A==",
   "success": true,
   "projectFilePath": "E:\\Practices\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\GRL\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.8\\microsoft.windowsdesktop.app.ref.6.0.8.nupkg.sha512",
-    "C:\\Users\\GRL\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.8\\microsoft.netcore.app.ref.6.0.8.nupkg.sha512",
-    "C:\\Users\\GRL\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.8\\microsoft.aspnetcore.app.ref.6.0.8.nupkg.sha512",
-    "C:\\Users\\GRL\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.8\\microsoft.netcore.app.host.win-x64.6.0.8.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

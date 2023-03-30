@@ -8,36 +8,36 @@ namespace CSVFILES
 {
 
 
-
+    
     public class Program
     {
         static void Main(string[] args)
         {
+           List<double> StartTimeList = new List<double>();
 
-            string filePath = @"C:\Users\GRL\Downloads\TD_4_2_1_1\TD_4_2_1_1\Test_Pkt.csv";
+        List<Packet> PacketList = new List<Packet>();
+        List<CmdType> CmdList = new List<CmdType>();
+        string filePath = @"C:\Users\GRL\Downloads\TD_4_2_1_1\TD_4_2_1_1\Test_Pkt.csv";
             string[] csvLines = File.ReadAllLines(filePath);
-
            
-            List<Packet> PacketList = new List<Packet>();
-
+            
             if (csvLines.Length > 0)
             {
                 for (int i = 1; i < csvLines.Length; i++)
                 {
                     Packet CurrPkt = new Packet();
                     string[] row = csvLines[i].Split(',');
-                      CurrPkt.ToTimeStamp(row[1]);
+                      CurrPkt.ToTimeStamp(row[1], StartTimeList);
                       CurrPkt.ToMsgType(row[3]);
                       CurrPkt.ToTransactType(row[4]);
-                      CurrPkt.ToCmdType(row[5]);
+                      CurrPkt.ToCmdType(row[5],CmdList);
                       CurrPkt.ToAddressList(row[6]);
                       CurrPkt.ToDataLength(row[7]);
                       CurrPkt.ToPayloadData(row[9]);
                       PacketList.Add(CurrPkt);
                    
 
-                }
-               
+            }        
         
             }
             
@@ -45,14 +45,13 @@ namespace CSVFILES
             int FNatIndex = O.FirstNatIndex(PacketList);
             int LNatIndex = O.LastNatIndex(PacketList);
             int FI2CIndex = O.FirstI2CIndex(PacketList);
-            
             int LI2CIndex   = O.LastI2CIndex(PacketList);
             int FNatWrIndex = O.FirstNatWrIndex(PacketList);
             int LNatWrIndex = O.LastNatWrIndex(PacketList);
             int FI2CWrIndex = O.FirstI2CWrIndex(PacketList);
             int LI2CWrIndex = O.LastI2CWrIndex(PacketList);
            
-            int MsgTypeOccIndex = O.ReqResOccuranceIndex(PacketList,4,MsgType.Req);
+            int MsgTypeOccIndex = O.ReqResOccuranceIndex(PacketList,4,MsgType.Res);
             
             Console.WriteLine("the first occurance of the Nat is comes with the index of "+FNatIndex);
             Console.WriteLine("the Last occurance of the Nat is comes with the index of " + LNatIndex);
@@ -63,7 +62,11 @@ namespace CSVFILES
             Console.WriteLine("the first occurance of the I2C Write is comes with the index of " + FI2CWrIndex);
             Console.WriteLine("the Last occurance of the I2C Write is comes with the index of " + LI2CWrIndex);
       
-           Console.WriteLine("the fourth occurance of Req  is "+ MsgTypeOccIndex);
+           Console.WriteLine("the fourth occurance of Res  is "+ MsgTypeOccIndex);
+
+          
+            TestCase4211 obj = new TestCase4211();
+            obj.verify(CmdList,StartTimeList);
             Console.ReadLine();
             //     O.DisplayTimeStamp();
             //    O.DisplayCmdType();

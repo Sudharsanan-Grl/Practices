@@ -52,12 +52,12 @@ namespace CSVFILE
         public int Address;
         public int DataLength;
         public string PayloadData;
-
        
-        public void ToTimeStamp(string TimeStampstring)
+       
+        public void ToTimeStamp(string TimeStampstring, List<double>StartTimeList)
         {
             double value = double.Parse(TimeStampstring);
-
+            StartTimeList.Add(value);
             TimeStamp = value;
         }
         public void DisplayTimeStamp()
@@ -66,13 +66,13 @@ namespace CSVFILE
                 Console.WriteLine(TimeStamp);
             
         }
-        public void ToCmdType(string stringValue)
+        public void ToCmdType(string stringValue,List<CmdType>CmdList)
         {
             
             try
             {
                 CmdValue = (CmdType)Enum.Parse(typeof(CmdType), stringValue);
-
+                CmdList.Add(CmdValue);
             }
             catch (System.ArgumentException ax)
             {
@@ -90,6 +90,7 @@ namespace CSVFILE
             
 
         }
+       
         public void ToTransactType(string stringValue)
         {
            
@@ -108,7 +109,7 @@ namespace CSVFILE
             }
 
         }
-
+    
         public void DisplayTransactValue()
         {
             Console.WriteLine(TransactValue);
