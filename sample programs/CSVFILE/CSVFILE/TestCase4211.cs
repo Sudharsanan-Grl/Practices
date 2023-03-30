@@ -50,7 +50,7 @@ namespace CSVFILE
 
 
             string coloredPass = "<b style='color:green;'>PASS</b>";
-            string coloredFail = "<p style='color:red;'>FAIL</p>";
+            string coloredFail = "<b style='color:red;'>FAIL</b>";
 
 
             for (int i = 0; i < TestCasesResults.Count; i++)
