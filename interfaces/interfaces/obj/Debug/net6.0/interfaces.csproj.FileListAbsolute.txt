@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\interfaces\interfaces\bin\Debug\net6.0\interfaces.exe
+E:\Data\C#\sample programs\interfaces\interfaces\bin\Debug\net6.0\interfaces.deps.json
+E:\Data\C#\sample programs\interfaces\interfaces\bin\Debug\net6.0\interfaces.runtimeconfig.json
+E:\Data\C#\sample programs\interfaces\interfaces\bin\Debug\net6.0\interfaces.dll
+E:\Data\C#\sample programs\interfaces\interfaces\bin\Debug\net6.0\interfaces.pdb
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\interfaces.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\interfaces.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\interfaces.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\interfaces.AssemblyInfo.cs
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\interfaces.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\interfaces.dll
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\refint\interfaces.dll
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\interfaces.pdb
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\interfaces.genruntimeconfig.cache
+E:\Data\C#\sample programs\interfaces\interfaces\obj\Debug\net6.0\ref\interfaces.dll

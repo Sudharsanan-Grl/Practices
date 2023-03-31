@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\bin\Debug\net6.0\DataTypeSample.exe
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\bin\Debug\net6.0\DataTypeSample.deps.json
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\bin\Debug\net6.0\DataTypeSample.runtimeconfig.json
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\bin\Debug\net6.0\DataTypeSample.dll
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\bin\Debug\net6.0\DataTypeSample.pdb
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\DataTypeSample.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\DataTypeSample.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\DataTypeSample.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\DataTypeSample.AssemblyInfo.cs
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\DataTypeSample.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\DataTypeSample.dll
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\refint\DataTypeSample.dll
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\DataTypeSample.pdb
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\DataTypeSample.genruntimeconfig.cache
+E:\Data\C#\sample programs\Datatypes samples\DataTypeSample\obj\Debug\net6.0\ref\DataTypeSample.dll

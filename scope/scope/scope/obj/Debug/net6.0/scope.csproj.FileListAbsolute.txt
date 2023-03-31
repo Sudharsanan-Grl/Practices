@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\scope\scope\scope\bin\Debug\net6.0\scope.exe
+E:\Data\C#\sample programs\scope\scope\scope\bin\Debug\net6.0\scope.deps.json
+E:\Data\C#\sample programs\scope\scope\scope\bin\Debug\net6.0\scope.runtimeconfig.json
+E:\Data\C#\sample programs\scope\scope\scope\bin\Debug\net6.0\scope.dll
+E:\Data\C#\sample programs\scope\scope\scope\bin\Debug\net6.0\scope.pdb
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\scope.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\scope.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\scope.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\scope.AssemblyInfo.cs
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\scope.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\scope.dll
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\refint\scope.dll
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\scope.pdb
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\scope.genruntimeconfig.cache
+E:\Data\C#\sample programs\scope\scope\scope\obj\Debug\net6.0\ref\scope.dll

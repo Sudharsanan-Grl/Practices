@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\StringOperator\StringOperator\bin\Debug\net6.0\StringOperator.exe
+E:\Data\C#\sample programs\StringOperator\StringOperator\bin\Debug\net6.0\StringOperator.deps.json
+E:\Data\C#\sample programs\StringOperator\StringOperator\bin\Debug\net6.0\StringOperator.runtimeconfig.json
+E:\Data\C#\sample programs\StringOperator\StringOperator\bin\Debug\net6.0\StringOperator.dll
+E:\Data\C#\sample programs\StringOperator\StringOperator\bin\Debug\net6.0\StringOperator.pdb
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\StringOperator.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\StringOperator.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\StringOperator.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\StringOperator.AssemblyInfo.cs
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\StringOperator.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\StringOperator.dll
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\refint\StringOperator.dll
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\StringOperator.pdb
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\StringOperator.genruntimeconfig.cache
+E:\Data\C#\sample programs\StringOperator\StringOperator\obj\Debug\net6.0\ref\StringOperator.dll

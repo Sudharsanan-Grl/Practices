@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\Looping\Looping\bin\Debug\net6.0\Looping.exe
+E:\Data\C#\sample programs\Looping\Looping\bin\Debug\net6.0\Looping.deps.json
+E:\Data\C#\sample programs\Looping\Looping\bin\Debug\net6.0\Looping.runtimeconfig.json
+E:\Data\C#\sample programs\Looping\Looping\bin\Debug\net6.0\Looping.dll
+E:\Data\C#\sample programs\Looping\Looping\bin\Debug\net6.0\Looping.pdb
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\Looping.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\Looping.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\Looping.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\Looping.AssemblyInfo.cs
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\Looping.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\Looping.dll
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\refint\Looping.dll
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\Looping.pdb
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\Looping.genruntimeconfig.cache
+E:\Data\C#\sample programs\Looping\Looping\obj\Debug\net6.0\ref\Looping.dll

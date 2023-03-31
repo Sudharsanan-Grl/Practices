@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\bin\Debug\net6.0\SmallestNumbers.exe
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\bin\Debug\net6.0\SmallestNumbers.deps.json
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\bin\Debug\net6.0\SmallestNumbers.runtimeconfig.json
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\bin\Debug\net6.0\SmallestNumbers.dll
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\bin\Debug\net6.0\SmallestNumbers.pdb
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\SmallestNumbers.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\SmallestNumbers.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\SmallestNumbers.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\SmallestNumbers.AssemblyInfo.cs
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\SmallestNumbers.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\SmallestNumbers.dll
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\refint\SmallestNumbers.dll
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\SmallestNumbers.pdb
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\SmallestNumbers.genruntimeconfig.cache
+E:\Data\C#\sample programs\SmallestNumbers\SmallestNumbers\obj\Debug\net6.0\ref\SmallestNumbers.dll

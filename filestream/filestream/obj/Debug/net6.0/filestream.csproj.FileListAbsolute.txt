@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\filestream\filestream\bin\Debug\net6.0\filestream.exe
+E:\Data\C#\sample programs\filestream\filestream\bin\Debug\net6.0\filestream.deps.json
+E:\Data\C#\sample programs\filestream\filestream\bin\Debug\net6.0\filestream.runtimeconfig.json
+E:\Data\C#\sample programs\filestream\filestream\bin\Debug\net6.0\filestream.dll
+E:\Data\C#\sample programs\filestream\filestream\bin\Debug\net6.0\filestream.pdb
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\filestream.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\filestream.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\filestream.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\filestream.AssemblyInfo.cs
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\filestream.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\filestream.dll
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\refint\filestream.dll
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\filestream.pdb
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\filestream.genruntimeconfig.cache
+E:\Data\C#\sample programs\filestream\filestream\obj\Debug\net6.0\ref\filestream.dll

@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\files\files\bin\Debug\net6.0\files.exe
+E:\Data\C#\sample programs\files\files\bin\Debug\net6.0\files.deps.json
+E:\Data\C#\sample programs\files\files\bin\Debug\net6.0\files.runtimeconfig.json
+E:\Data\C#\sample programs\files\files\bin\Debug\net6.0\files.dll
+E:\Data\C#\sample programs\files\files\bin\Debug\net6.0\files.pdb
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\files.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\files.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\files.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\files.AssemblyInfo.cs
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\files.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\files.dll
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\refint\files.dll
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\files.pdb
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\files.genruntimeconfig.cache
+E:\Data\C#\sample programs\files\files\obj\Debug\net6.0\ref\files.dll

@@ -1,0 +1,91 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "OtherAssembly/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/OtherAssembly.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OtherAssembly.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OtherAssembly/1.0.0": {
+      "type": "project",
+      "path": "../OtherAssembly/OtherAssembly.csproj",
+      "msbuildProject": "../OtherAssembly/OtherAssembly.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "OtherAssembly >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\GRL\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\Data\\C#\\sample programs\\StaticMethod\\StaticMethod\\StaticMethod.csproj",
+      "projectName": "StaticMethod",
+      "projectPath": "E:\\Data\\C#\\sample programs\\StaticMethod\\StaticMethod\\StaticMethod.csproj",
+      "packagesPath": "C:\\Users\\GRL\\.nuget\\packages\\",
+      "outputPath": "E:\\Data\\C#\\sample programs\\StaticMethod\\StaticMethod\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\GRL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "E:\\Data\\C#\\sample programs\\StaticMethod\\OtherAssembly\\OtherAssembly.csproj": {
+              "projectPath": "E:\\Data\\C#\\sample programs\\StaticMethod\\OtherAssembly\\OtherAssembly.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

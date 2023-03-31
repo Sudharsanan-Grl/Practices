@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\OtherAssembly.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\OtherAssembly.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\OtherAssembly.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\OtherAssembly.AssemblyInfo.cs
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\OtherAssembly.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\bin\Debug\net6.0\OtherAssembly.exe
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\bin\Debug\net6.0\OtherAssembly.deps.json
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\bin\Debug\net6.0\OtherAssembly.runtimeconfig.json
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\bin\Debug\net6.0\OtherAssembly.dll
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\bin\Debug\net6.0\OtherAssembly.pdb
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\OtherAssembly.dll
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\refint\OtherAssembly.dll
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\OtherAssembly.pdb
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\OtherAssembly.genruntimeconfig.cache
+E:\Data\C#\sample programs\StaticMethod\OtherAssembly\obj\Debug\net6.0\ref\OtherAssembly.dll

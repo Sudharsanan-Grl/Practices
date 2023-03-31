@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\bin\Debug\net6.0\GettersSetters.exe
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\bin\Debug\net6.0\GettersSetters.deps.json
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\bin\Debug\net6.0\GettersSetters.runtimeconfig.json
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\bin\Debug\net6.0\GettersSetters.dll
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\bin\Debug\net6.0\GettersSetters.pdb
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\GettersSetters.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\GettersSetters.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\GettersSetters.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\GettersSetters.AssemblyInfo.cs
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\GettersSetters.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\GettersSetters.dll
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\refint\GettersSetters.dll
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\GettersSetters.pdb
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\GettersSetters.genruntimeconfig.cache
+E:\Data\C#\sample programs\GettersSetters\GettersSetters\obj\Debug\net6.0\ref\GettersSetters.dll
