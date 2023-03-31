@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -62,6 +63,28 @@ namespace CSVFILE
                 return CmdValue;
             }
         }
+        public int AddressMethod(string StringAddress,int Address)
+        {
+            Address = Convert.ToInt32(StringAddress, 16);
+            return Address;
+        }
+        public int DataLengthMethod(string DataLengthString,int DataLength)
+        {
+
+            if (DataLengthString == "")
+            {
+                return DataLength = 0;
+            }
+            else
+            {
+              return  DataLength = int.Parse(DataLengthString);
+            }
+        }
+        public void GetDesiredPacket()
+        {
+
+        }
+        //
         public int FirstNatIndex(List<Packet> PacketList)
         {
             int index = 0;
