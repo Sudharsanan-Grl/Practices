@@ -53,73 +53,36 @@ namespace CSVFILE
         public int DataLength;
         public string PayloadData;
        
-       
-        public void ToTimeStamp(string TimeStampstring, List<double>StartTimeList)
+       Helper hobj=new Helper();
+        public void ToTimeStamp(string TimeStampstring)
         {
             //use tryparse instead of parse
-            double value = double.Parse(TimeStampstring);
-            StartTimeList.Add(value);
-            TimeStamp = value;
+            TimeStamp = hobj.TimeStampMethod(TimeStampstring, TimeStamp);
+
+
+        }
+        public void ToMsgType(string MsgTypeString)
+        {
+            MsgValue = hobj.MsgTypeMethod(MsgTypeString, MsgValue);
         }
        
-        public void ToCmdType(string stringValue,List<CmdType>CmdList)
+        public void ToTransactType(string TransactString)
         {
-            
-            try
-            {
-                CmdValue = (CmdType)Enum.Parse(typeof(CmdType), stringValue);
-                CmdList.Add(CmdValue);
-            }
-            catch (System.ArgumentException ax)
-            {
-                Console.WriteLine("the argument is missing in the CmdType" );
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            TransactValue = hobj.TransactTypeMethod(TransactString, TransactValue);
+        }
+        public void ToCmdType(string stringValue)
+        {
+            CmdValue=hobj.CmdTypeMethod(stringValue, CmdValue);
+
+
         }
     
       
        
-        public void ToTransactType(string stringValue)
-        {
-           // Resmove transact type and use single method
-            try
-            {
-                TransactValue = (TransactType)Enum.Parse(typeof(TransactType), stringValue);
-
-            }
-            catch (System.ArgumentException ax)
-            {
-                Console.WriteLine("the argument is missing in the TransactType");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-        }
+      
     
         
-        public void ToMsgType(string stringValue)
-        {
-            Helper helper = new Helper();
-            try
-            {
-                MsgValue = (MsgType)Enum.Parse(typeof(MsgType), stringValue);
-    
-            }
-            catch (System.ArgumentException ax)
-            {
-                Console.WriteLine("the argument is missing in the MsgType ");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-     
-        }
+        
 
       
         public void ToAddressList(string StringAddress)

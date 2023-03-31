@@ -9,7 +9,59 @@ namespace CSVFILE
 {
     internal class Helper
     {
+        public double TimeStampMethod(string TimeStampstring,double TimeStamp)
+        {
+           
+            if (Double.TryParse(TimeStampstring,out TimeStamp)){ }                                
+            else
+            {
+                Console.WriteLine("The string {0} could not be converted to a double.", TimeStampstring);
+            }         
+            return TimeStamp;
+        }
+        public MsgType MsgTypeMethod(string MsgTypeString, MsgType MsgValue)
+        {
+            try
+            {
+                MsgValue = (MsgType)Enum.Parse(typeof(MsgType), MsgTypeString);
+                return MsgValue;
+            }
 
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return MsgValue;
+            }
+        }
+        public TransactType TransactTypeMethod(string TransactString, TransactType TransactValue)
+        {
+            try
+            {
+                TransactValue = (TransactType)Enum.Parse(typeof(TransactType), TransactString);
+                return TransactValue;
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return TransactValue;
+            }
+        }
+
+        public  CmdType CmdTypeMethod(string CmdString, CmdType CmdValue)
+        {
+            try
+            {
+                CmdValue = (CmdType)Enum.Parse(typeof(CmdType), CmdString);
+                return CmdValue;
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return CmdValue;
+            }
+        }
         public int FirstNatIndex(List<Packet> PacketList)
         {
             int index = 0;

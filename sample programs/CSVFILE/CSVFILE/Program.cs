@@ -27,10 +27,10 @@ namespace CSVFILES
                 {
                     Packet CurrPkt = new Packet();
                     string[] row = csvLines[i].Split(',');
-                    CurrPkt.ToTimeStamp(row[1], StartTimeList);
+                    CurrPkt.ToTimeStamp(row[1]);
                     CurrPkt.ToMsgType(row[3]);
                     CurrPkt.ToTransactType(row[4]);
-                    CurrPkt.ToCmdType(row[5], CmdList);
+                    CurrPkt.ToCmdType(row[5]);
                     CurrPkt.ToAddressList(row[6]);
                     CurrPkt.ToDataLength(row[7]);
                     CurrPkt.ToPayloadData(row[9]);
