@@ -56,16 +56,12 @@ namespace CSVFILE
        
         public void ToTimeStamp(string TimeStampstring, List<double>StartTimeList)
         {
+            //use tryparse instead of parse
             double value = double.Parse(TimeStampstring);
             StartTimeList.Add(value);
             TimeStamp = value;
         }
-        public void DisplayTimeStamp()
-        {
-        
-                Console.WriteLine(TimeStamp);
-            
-        }
+       
         public void ToCmdType(string stringValue,List<CmdType>CmdList)
         {
             
@@ -84,16 +80,11 @@ namespace CSVFILE
             }
         }
     
-      public void DisplayCmdValue()
-        {
-                Console.WriteLine(CmdValue);
-            
-
-        }
+      
        
         public void ToTransactType(string stringValue)
         {
-           
+           // Resmove transact type and use single method
             try
             {
                 TransactValue = (TransactType)Enum.Parse(typeof(TransactType), stringValue);
@@ -110,16 +101,14 @@ namespace CSVFILE
 
         }
     
-        public void DisplayTransactValue()
-        {
-            Console.WriteLine(TransactValue);
-
-        }
+        
         public void ToMsgType(string stringValue)
         {
+            Helper helper = new Helper();
             try
             {
                 MsgValue = (MsgType)Enum.Parse(typeof(MsgType), stringValue);
+    
             }
             catch (System.ArgumentException ax)
             {
@@ -132,20 +121,13 @@ namespace CSVFILE
      
         }
 
-        public void DisplayMsg()
-        {
-            Console.WriteLine(MsgValue);
-
-        }
+      
         public void ToAddressList(string StringAddress)
         {
            Address  = Convert.ToInt32(StringAddress, 16);
             
         }
-        public void DisplayAddress()
-        {
-            Console.WriteLine(Address);
-        }
+       
         public void ToDataLength(string DataLengthString)
         {
            
@@ -162,172 +144,14 @@ namespace CSVFILE
 
             
         }
-        public void DisplayDataLength()
-        {
-            Console.WriteLine(DataLength);
-        }
+       
         public void ToPayloadData(string PayloadDataString)
         {
             PayloadData = PayloadDataString;
         }
-        public void DisplayPayloadData()
-        {
-            Console.WriteLine(PayloadData);
-        }
-        public int FirstNatIndex(List<Packet>PacketList)
-        {
-            int index=0;
-            for(int i=0;i<PacketList.Count;i++)
-            {
-                if (PacketList[i].TransactValue == TransactType.Nat)
-                {
-                    index = i;
-                        break;
-                }
-            }
-            return index;
-        }
-        public int LastNatIndex(List<Packet> PacketList)
-        {
-            int index=0;
-            for (int i = PacketList.Count-1; i >0 ; i--)
-            {
-                if (PacketList[i].TransactValue == TransactType.Nat)
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
-        public int FirstI2CIndex(List<Packet> PacketList)
-        {
-            int index=0;
-            for (int i = 0; i < PacketList.Count; i++)
-            {
-                if (PacketList[i].TransactValue == TransactType.I2C)
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
-        public int LastI2CIndex(List<Packet> PacketList)
-        {
-            int index = 0;
-            for (int i = 0; i < PacketList.Count; i++)
-            {
-                if (PacketList[i].TransactValue == TransactType.I2C)
-                    index = i;
-            }
-            return index;
-        }
-        public int FirstNatWrIndex(List<Packet> PacketList)
-        {
-            int index=0;
-            for (int i = 0; i < PacketList.Count; i++)
-            {
-                if (PacketList[i].TransactValue == TransactType.Nat && PacketList[i].CmdValue == CmdType.Wr)
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
-        public int LastNatWrIndex(List<Packet> PacketList)
-        {
-            int index = 0;
-            for (int i = 0; i < PacketList.Count; i++)
-            {
-                if (PacketList[i].TransactValue == TransactType.Nat && PacketList[i].CmdValue == CmdType.Wr)
-                    index = i;
-            }
-            return index;
-        }
-        public int FirstI2CWrIndex(List<Packet> PacketList)
-        {
-            int index=0;
-            for (int i = 0; i < PacketList.Count; i++)
-            {
-                if (PacketList[i].TransactValue == TransactType.I2C && PacketList[i].CmdValue == CmdType.Wr)
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
-        public int LastI2CWrIndex(List<Packet> PacketList)
-        {
-            int index = 0;
-            for (int i = 0; i < PacketList.Count; i++)
-            {
-                if (PacketList[i].TransactValue == TransactType.I2C && PacketList[i].CmdValue == CmdType.Wr)
-                    index = i;
-            }
-            return index;
-        }
-     
-        public int ReqResOccuranceIndex(List<Packet> PacketList, int NumOfOcc,MsgType ReqOrRes)
-        {
-            int index = 0;
-            int times = 0;
-            for (int i = 0; i < PacketList.Count; i++)
-            {
-                if (PacketList[i].MsgValue == ReqOrRes)
-                {
+        
+        
 
-                    times++;
-                    if (times == NumOfOcc)
-                    {
-                        index = i;
-                        break;
-                    }
-
-                }
-
-
-            }
-            return index;
-        }
-
-        /* public void payloadSeparate(List<string> PayloadDataList, int index)
-         {
-
-             string[] datas = PayloadDataList[index].Split(':');
-
-
-
-             foreach (var item in datas)
-             {
-
-                 if (item != "")
-                 {
-
-                     SeperatedPayloadDataList.Add(item.Trim());
-
-                 }
-
-             }
-
-             //Console.WriteLine(datas);
-             //     datas.First();
-             if (datas[0].Contains("MAIN_LINK_CHANNEL_CODING_SET"))
-             {
-                 Console.WriteLine("it contain");
-             }
-
-         }
-         public void DisplayPayloadSeparate()
-         {
-             foreach (var item in SeperatedPayloadDataList)
-             {
-                 Console.WriteLine(item);
-                 //
-             }
-         }
-      */
+        
     }
 }
