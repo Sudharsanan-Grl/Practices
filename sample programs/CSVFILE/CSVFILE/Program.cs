@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 using static CSVFILE.Packet;
+using static CSVFILE.HelperInput;
 
 namespace CSVFILES
 {
@@ -41,7 +42,7 @@ namespace CSVFILES
 
             }
 
-            Helper O = new Helper();
+            HelperClass O = new HelperClass();
             int FNatIndex = O.FirstNatIndex(PacketList);
             int LNatIndex = O.LastNatIndex(PacketList);
             int FI2CIndex = O.FirstI2CIndex(PacketList);
@@ -65,10 +66,17 @@ namespace CSVFILES
             Console.WriteLine("the fourth occurance of Res  is " + MsgTypeOccIndex);
 
 
-            TestCase4211 obj = new TestCase4211();
-            obj.verify(CmdList, StartTimeList);
-            Console.ReadLine();
-
+ //         TestCase4211 obj = new TestCase4211();
+   //       obj.verify(CmdList, StartTimeList);
+     //     Console.ReadLine();
+            HelperInput hiObj=new HelperInput();
+            hiObj.ReqRes(MsgType.Req);
+            hiObj.NatOrI2C(TransactType.Nat);
+            hiObj.ReadOrWrite(CmdType.Wr);
+            hiObj.ToFindFirstOrLast(FirstOrLast.first);
+            Console.WriteLine(hiObj.CmdValueSearch);
+            Console.WriteLine(hiObj.MsgvalueSearch);
+            Console.WriteLine(hiObj.TransactValueSearch);
         }
     }
 }

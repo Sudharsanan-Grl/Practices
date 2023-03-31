@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using static CSVFILE.Packet;
+using static CSVFILE.HelperInput;
 namespace CSVFILE
 {
-    internal class Helper
+    public class HelperClass
     {
         public double TimeStampMethod(string TimeStampstring,double TimeStamp)
         {
@@ -62,6 +64,39 @@ namespace CSVFILE
                 return CmdValue;
             }
         }
+        public int AddressMethod(string StringAddress,int Address)
+        {
+            Address = Convert.ToInt32(StringAddress, 16);
+            return Address;
+        }
+        public int DataLengthMethod(string DataLengthString,int DataLength)
+        {
+
+            if (DataLengthString == "")
+            {
+                return DataLength = 0;
+            }
+            else
+            {
+              return  DataLength = int.Parse(DataLengthString);
+            }
+        }
+        HelperInput hiobj= new HelperInput();
+        public int  DesiredPacket(List<Packet>PacketList,HelperInput obj)
+        {
+                int index = 0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].CmdValue == obj.CmdValueSearch && PacketList[i].TransactValue == obj.TransactValueSearch && PacketList[i].MsgValue == obj.MsgvalueSearch)
+                {
+                    index = i;
+                    break;
+                }
+
+            }
+            return index;
+        }
+        //
         public int FirstNatIndex(List<Packet> PacketList)
         {
             int index = 0;

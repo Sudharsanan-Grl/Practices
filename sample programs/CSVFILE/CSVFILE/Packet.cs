@@ -13,7 +13,7 @@ namespace CSVFILE
     //create int for address
     // crate int for data length
     // create string for payload data
-    internal class Packet
+    public class Packet
     {
         public double TimeStamp;
         public enum TransactType
@@ -29,9 +29,7 @@ namespace CSVFILE
             Res
         }
         public enum CmdType
-        {
-
-           
+        {          
             Wr,
             Rd,
             ACK_A,
@@ -53,13 +51,10 @@ namespace CSVFILE
         public int DataLength;
         public string PayloadData;
        
-       Helper hobj=new Helper();
+         HelperClass hobj=new HelperClass();
         public void ToTimeStamp(string TimeStampstring)
-        {
-            //use tryparse instead of parse
+        {     
             TimeStamp = hobj.TimeStampMethod(TimeStampstring, TimeStamp);
-
-
         }
         public void ToMsgType(string MsgTypeString)
         {
@@ -73,39 +68,15 @@ namespace CSVFILE
         public void ToCmdType(string stringValue)
         {
             CmdValue=hobj.CmdTypeMethod(stringValue, CmdValue);
-
-
-        }
-    
-      
-       
-      
-    
-        
-        
-
-      
+        }           
         public void ToAddressList(string StringAddress)
         {
-           Address  = Convert.ToInt32(StringAddress, 16);
-            
+           Address  = hobj.AddressMethod(StringAddress, Address);     
         }
        
         public void ToDataLength(string DataLengthString)
         {
-           
-            if (DataLengthString == "")
-            {
-                DataLength = 0;
-            }
-            else
-            {
-                DataLength = int.Parse(DataLengthString);
-            }
-
-
-
-            
+            DataLength=hobj.DataLengthMethod(DataLengthString, DataLength);
         }
        
         public void ToPayloadData(string PayloadDataString)
