@@ -42,17 +42,17 @@ namespace CSVFILES
 
             }
 
-            HelperClass O = new HelperClass();
-            int FNatIndex = O.FirstNatIndex(PacketList);
-            int LNatIndex = O.LastNatIndex(PacketList);
-            int FI2CIndex = O.FirstI2CIndex(PacketList);
-            int LI2CIndex = O.LastI2CIndex(PacketList);
-            int FNatWrIndex = O.FirstNatWrIndex(PacketList);
-            int LNatWrIndex = O.LastNatWrIndex(PacketList);
-            int FI2CWrIndex = O.FirstI2CWrIndex(PacketList);
-            int LI2CWrIndex = O.LastI2CWrIndex(PacketList);
+            HelperClass HelperObj = new HelperClass();
+            int FNatIndex = HelperObj.FirstNatIndex(PacketList);
+            int LNatIndex = HelperObj.LastNatIndex(PacketList);
+            int FI2CIndex = HelperObj.FirstI2CIndex(PacketList);
+            int LI2CIndex = HelperObj.LastI2CIndex(PacketList);
+            int FNatWrIndex = HelperObj.FirstNatWrIndex(PacketList);
+            int LNatWrIndex = HelperObj.LastNatWrIndex(PacketList);
+            int FI2CWrIndex = HelperObj.FirstI2CWrIndex(PacketList);
+            int LI2CWrIndex = HelperObj.LastI2CWrIndex(PacketList);
 
-            int MsgTypeOccIndex = O.ReqResOccuranceIndex(PacketList, 4, MsgType.Res);
+            int MsgTypeOccIndex = HelperObj.ReqResOccuranceIndex(PacketList, 4, MsgType.Res);
 
             Console.WriteLine("the first occurance of the Nat is comes with the index of " + FNatIndex);
             Console.WriteLine("the Last occurance of the Nat is comes with the index of " + LNatIndex);
@@ -66,16 +66,14 @@ namespace CSVFILES
             Console.WriteLine("the fourth occurance of Res  is " + MsgTypeOccIndex);
 
 
- //         TestCase4211 obj = new TestCase4211();
-   //       obj.verify(CmdList, StartTimeList);
-     //     Console.ReadLine();
-            HelperInput hiObj=new HelperInput();
-            hiObj.ReqRes(MsgType.Req);
-            hiObj.NatOrI2C(TransactType.Nat);
-            hiObj.ReadOrWrite(CmdType.Wr);
-            hiObj.ToFindFirstOrLast(FirstOrLast.last);
-           int DesiredIndex= O.GetDesiredPacket(PacketList, hiObj);
-            Console.WriteLine("the last Nat req wr is "+ DesiredIndex);
+            //         TestCase4211 obj = new TestCase4211();
+            //       obj.verify(CmdList, StartTimeList);
+            //     Console.ReadLine();
+            HelperInput hiObj = new HelperInput(MsgType.Req, CmdType.Wr, TransactType.Nat, FirstOrLast.first,8);
+            
+    
+           int DesiredIndex= HelperObj.GetDesiredPacket(PacketList, hiObj);
+            Console.WriteLine("the first Nat req wr is "+ DesiredIndex);
         }
     }
 }

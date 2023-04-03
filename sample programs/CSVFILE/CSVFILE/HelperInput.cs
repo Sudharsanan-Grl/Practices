@@ -12,80 +12,38 @@ namespace CSVFILE
 {
     public class HelperInput
     {
-    //HelperClass HelperClassObj = new HelperClass();
+        //HelperClass HelperClassObj = new HelperClass();
 
-     // HelperInput HelperInputObj=new HelperInput();
-    
-     public enum FirstOrLast
+        // HelperInput HelperInputObj=new HelperInput();
+
+        public HelperInput()
+        {
+        }
+
+        public enum FirstOrLast
         {
             first,
             last
         }
 
-     public  MsgType MsgvalueSearch;
-       public void ReqRes(Packet.MsgType MsgValue)
-        {
-            if(MsgValue == MsgType.Req)
-            {
-                MsgvalueSearch= MsgValue;
-            }
-            else if(MsgValue == MsgType.Res){
-                MsgvalueSearch= MsgValue;
-            }
-            else
-            {
-                Console.WriteLine("Msg value is not set in proper way");
-            }
-        }
+        public MsgType MsgvalueSearch;
+        
         public CmdType CmdValueSearch;
 
-        public void ReadOrWrite(CmdType CmdValue)
-        {
-            if(CmdValue == CmdType.Wr)
-            {
-                CmdValueSearch = CmdValue;
-            }
-            else if(CmdValue == CmdType.Rd) 
-            {
-                CmdValueSearch = CmdValue;            
-            }
-            else 
-            {
-                Console.WriteLine("Cmd value is not set in proper way");
-            }
-        }
+       
         public TransactType TransactValueSearch;
-        public void NatOrI2C(TransactType transactValue)
-        {
-            if (transactValue == TransactType.Nat)
-            {
-                TransactValueSearch = transactValue;
-            }
-            else if (transactValue == TransactType.I2C)
-            {
-                TransactValueSearch = transactValue;
-            }
-            else
-            {
-                Console.WriteLine("transact value is not set in proper way");
-            }
-            
-        }
+        
         public FirstOrLast firstOrLastValueSearch;
-        public void ToFindFirstOrLast(FirstOrLast flValue)
+        public int Occurance;
+        public HelperInput(MsgType msgvalueSearch, CmdType cmdValueSearch, TransactType transactValueSearch, FirstOrLast firstOrLastValueSearch, int occurance)
         {
-            if (flValue == FirstOrLast.first)
-            {
-                firstOrLastValueSearch = flValue;
-            }
-            else if (flValue == FirstOrLast.last)
-            {
-                firstOrLastValueSearch = flValue;
-            }
-            else
-            {
-                Console.WriteLine("FirstOrLast value is not set in proper way");
-            }
+            MsgvalueSearch = msgvalueSearch;
+            CmdValueSearch = cmdValueSearch;
+            TransactValueSearch = transactValueSearch;
+            this.firstOrLastValueSearch = firstOrLastValueSearch;
+            Occurance = occurance;
         }
+
+
     }
 }

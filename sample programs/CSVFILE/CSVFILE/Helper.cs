@@ -80,14 +80,22 @@ namespace CSVFILE
         public int  GetDesiredPacket(List<Packet>PacketList,HelperInput obj)
         {
                 int index = 0;
+                int times=0;
             if(obj.firstOrLastValueSearch == FirstOrLast.first)
             {
                 for (int i = 0; i < PacketList.Count; i++)
                 {
-                    if (PacketList[i].CmdValue == obj.CmdValueSearch && PacketList[i].TransactValue == obj.TransactValueSearch && PacketList[i].MsgValue == obj.MsgvalueSearch)
+                    if (PacketList[i].CmdValue == obj.CmdValueSearch && 
+                        PacketList[i].TransactValue == obj.TransactValueSearch && 
+                        PacketList[i].MsgValue == obj.MsgvalueSearch)
                     {
-                        index = i;
-                        break;
+                        times++;
+                        if(times== obj.Occurance)
+                        {
+                            index = i;
+                            break;
+                        }
+                       
                     }
 
                 }
@@ -97,10 +105,16 @@ namespace CSVFILE
             {
                 for (int i = PacketList.Count-1;i>0 ; i--)
                 {
-                    if (PacketList[i].CmdValue == obj.CmdValueSearch && PacketList[i].TransactValue == obj.TransactValueSearch && PacketList[i].MsgValue == obj.MsgvalueSearch)
+                    if (PacketList[i].CmdValue == obj.CmdValueSearch &&
+                        PacketList[i].TransactValue == obj.TransactValueSearch && 
+                        PacketList[i].MsgValue == obj.MsgvalueSearch)
                     {
-                        index = i;
-                        break;
+                        times++;
+                        if (times == obj.Occurance)
+                        {
+                            index = i;
+                            break;
+                        }
                     }
 
                 }
