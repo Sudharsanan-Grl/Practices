@@ -73,7 +73,7 @@ namespace CSVFILES
             
     
            int DesiredIndex= HelperObj.GetDesiredPacket(PacketList, hiObj);
-            Console.WriteLine("the first Nat req wr is "+ DesiredIndex);
+            Console.WriteLine("the first Nat req wr 8th occ is "+ DesiredIndex);
         }
     }
 }
