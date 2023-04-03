@@ -77,19 +77,41 @@ namespace CSVFILE
             }
         }
         HelperInput hiobj= new HelperInput();
-        public int  DesiredPacket(List<Packet>PacketList,HelperInput obj)
+        public int  GetDesiredPacket(List<Packet>PacketList,HelperInput obj)
         {
                 int index = 0;
-            for (int i = 0; i < PacketList.Count; i++)
+            if(obj.firstOrLastValueSearch == FirstOrLast.first)
             {
-                if (PacketList[i].CmdValue == obj.CmdValueSearch && PacketList[i].TransactValue == obj.TransactValueSearch && PacketList[i].MsgValue == obj.MsgvalueSearch)
+                for (int i = 0; i < PacketList.Count; i++)
                 {
-                    index = i;
-                    break;
-                }
+                    if (PacketList[i].CmdValue == obj.CmdValueSearch && PacketList[i].TransactValue == obj.TransactValueSearch && PacketList[i].MsgValue == obj.MsgvalueSearch)
+                    {
+                        index = i;
+                        break;
+                    }
 
+                }
+                return index;
             }
-            return index;
+            else if ((obj.firstOrLastValueSearch == FirstOrLast.last))
+            {
+                for (int i = PacketList.Count-1;i>0 ; i--)
+                {
+                    if (PacketList[i].CmdValue == obj.CmdValueSearch && PacketList[i].TransactValue == obj.TransactValueSearch && PacketList[i].MsgValue == obj.MsgvalueSearch)
+                    {
+                        index = i;
+                        break;
+                    }
+
+                }
+                return index;
+            }
+            else
+            {
+                Console.WriteLine("please update first or last ");
+                return -1;
+            }
+            
         }
         //
         public int FirstNatIndex(List<Packet> PacketList)

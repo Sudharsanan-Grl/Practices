@@ -73,8 +73,9 @@ namespace CSVFILES
             hiObj.ReqRes(MsgType.Req);
             hiObj.NatOrI2C(TransactType.Nat);
             hiObj.ReadOrWrite(CmdType.Wr);
-            hiObj.ToFindFirstOrLast(FirstOrLast.first);
-           
+            hiObj.ToFindFirstOrLast(FirstOrLast.last);
+           int DesiredIndex= O.GetDesiredPacket(PacketList, hiObj);
+            Console.WriteLine("the last Nat req wr is "+ DesiredIndex);
         }
     }
 }

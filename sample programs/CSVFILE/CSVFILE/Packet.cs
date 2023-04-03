@@ -58,7 +58,7 @@ namespace CSVFILE
         public void ToMsgType(string MsgTypeString)
         {
             MsgValue = (MsgType)hobj.EnumConverterMethod(MsgTypeString, MsgValue);
-            Console.WriteLine(MsgValue);
+        
         }
        
         public void ToTransactType(string TransactString)
