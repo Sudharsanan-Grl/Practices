@@ -74,9 +74,7 @@ namespace CSVFILES
             hiObj.NatOrI2C(TransactType.Nat);
             hiObj.ReadOrWrite(CmdType.Wr);
             hiObj.ToFindFirstOrLast(FirstOrLast.first);
-            Console.WriteLine(hiObj.CmdValueSearch);
-            Console.WriteLine(hiObj.MsgvalueSearch);
-            Console.WriteLine(hiObj.TransactValueSearch);
+           
         }
     }
 }

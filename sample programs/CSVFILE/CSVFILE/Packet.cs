@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace CSVFILE
 {
     //create enum for NAT and I2C
@@ -58,16 +57,18 @@ namespace CSVFILE
         }
         public void ToMsgType(string MsgTypeString)
         {
-            MsgValue = hobj.MsgTypeMethod(MsgTypeString, MsgValue);
+            MsgValue = (MsgType)hobj.EnumConverterMethod(MsgTypeString, MsgValue);
+            Console.WriteLine(MsgValue);
         }
        
         public void ToTransactType(string TransactString)
         {
-            TransactValue = hobj.TransactTypeMethod(TransactString, TransactValue);
+            TransactValue = (TransactType)hobj.EnumConverterMethod(TransactString, TransactValue);
+          
         }
         public void ToCmdType(string stringValue)
         {
-            CmdValue=hobj.CmdTypeMethod(stringValue, CmdValue);
+            CmdValue= (CmdType)hobj.EnumConverterMethod(stringValue, CmdValue);
         }           
         public void ToAddressList(string StringAddress)
         {

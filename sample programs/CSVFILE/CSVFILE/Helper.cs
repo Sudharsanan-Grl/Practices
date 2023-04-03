@@ -21,49 +21,44 @@ namespace CSVFILE
             }         
             return TimeStamp;
         }
-        public MsgType MsgTypeMethod(string MsgTypeString, MsgType MsgValue)
+       
+        public Enum EnumConverterMethod(string EnumString,Enum enumValue )
         {
             try
             {
-                MsgValue = (MsgType)Enum.Parse(typeof(MsgType), MsgTypeString);
-                return MsgValue;
+               
+                if (enumValue.GetType() == typeof(MsgType))
+                {
+                    enumValue = (MsgType)Enum.Parse(typeof(MsgType), EnumString);
+                    return enumValue;
+                }
+                else if(enumValue.GetType() == typeof(CmdType))
+                {
+                    enumValue = (CmdType)Enum.Parse(typeof(CmdType), EnumString);
+                    return enumValue;
+                }
+                else if(enumValue.GetType() == typeof(TransactType))
+                {
+                    enumValue = (TransactType)Enum.Parse(typeof(TransactType), EnumString);
+                    return enumValue;
+                }
+                else 
+                {
+                    Console.WriteLine("The enum is not in the correct format");
+                    return enumValue;
+                }
+
+              
             }
 
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return MsgValue;
-            }
-        }
-        public TransactType TransactTypeMethod(string TransactString, TransactType TransactValue)
-        {
-            try
-            {
-                TransactValue = (TransactType)Enum.Parse(typeof(TransactType), TransactString);
-                return TransactValue;
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return TransactValue;
+                return enumValue;
             }
         }
 
-        public  CmdType CmdTypeMethod(string CmdString, CmdType CmdValue)
-        {
-            try
-            {
-                CmdValue = (CmdType)Enum.Parse(typeof(CmdType), CmdString);
-                return CmdValue;
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return CmdValue;
-            }
-        }
+        
         public int AddressMethod(string StringAddress,int Address)
         {
             Address = Convert.ToInt32(StringAddress, 16);
