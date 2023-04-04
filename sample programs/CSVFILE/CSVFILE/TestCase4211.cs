@@ -22,18 +22,18 @@ namespace CSVFILE
                 if (PacketList[i].CmdValue == CmdType.TestStart )
                 {
                       ValHPDTimeDiff(PacketList);
-                    using (StreamWriter writer = new StreamWriter("e:\\rawdata\\sample.html"))
+                    using (StreamWriter writer = new StreamWriter("E:\\rawdata\\sample.html"))
                     {
-                        writer.WriteLine(TestCasesResults[0]);
+                        foreach(var line in TestCasesResults)
+                        {
+                            writer.WriteLine(line);
+                        }
+                        
                     }
                   
                 }
-            }
-         
-
-                
-
-            }
+            }       
+        }
         public int CmdIndexReturn(CmdType CmdValue,List<Packet>PacketList)
         {
             int index = 0;
