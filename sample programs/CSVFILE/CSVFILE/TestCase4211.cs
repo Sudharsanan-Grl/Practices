@@ -19,15 +19,30 @@ namespace CSVFILE
         HelperClass HelperObj = new HelperClass();
 
         public List<string> TestCasesResults = new List<string>();
+
+        public List<string> TestPrintFile = new List<string>();
+
+     
         public void Verify4211(List<Packet>PacketList)
         {
             for(int i = 0; i < PacketList.Count; i++)
             {
                 if (PacketList[i].CmdValue == CmdType.TestStart )
                 {
+                    DateTime startTime = DateTime.Now;
+                    TestPrintFile.Add("TestCase ID : TD_4_2_1_1");
+
+                    TestPrintFile.Add("TestCase Name : TD_4_2_1_1 Source DUT Retry on No Reply");
+
+                    TestPrintFile.Add("The TestCase Started time is : " + startTime);
+
                     ValHPDTimeDiff(PacketList);
 
                     ValTwoReqContinuos(PacketList);
+
+                    DateTime endTime = DateTime.Now;
+
+                    TestPrintFile.Add("The TestCase EndTime time is : " + endTime);
 
                     using (StreamWriter writer = new StreamWriter("E:\\rawdata\\4211.html"))
                     {
@@ -35,7 +50,14 @@ namespace CSVFILE
                         {
                             writer.WriteLine(line);
                         }                       
-                    }                 
+                    }
+                    using (StreamWriter writer = new StreamWriter("E:\\rawdata\\4211.txt"))
+                    {
+                        foreach (var line in TestPrintFile)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
                 }
             }       
         }
