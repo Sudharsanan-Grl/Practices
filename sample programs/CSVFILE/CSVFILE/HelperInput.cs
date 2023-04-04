@@ -12,17 +12,14 @@ namespace CSVFILE
 {
     public class HelperInput
     {
-
         public HelperInput()
         {
         }
-
         public enum FirstOrLast
         {
             first,
             last
         }
-
         public MsgType MsgvalueSearch;
         
         public CmdType CmdValueSearch;
@@ -35,12 +32,14 @@ namespace CSVFILE
         public HelperInput(MsgType msgvalueSearch, CmdType cmdValueSearch, TransactType transactValueSearch, FirstOrLast firstOrLastValueSearch, int occurance)
         {
             MsgvalueSearch = msgvalueSearch;
+
             CmdValueSearch = cmdValueSearch;
+
             TransactValueSearch = transactValueSearch;
+
             this.firstOrLastValueSearch = firstOrLastValueSearch;
+
             Occurance = occurance;
         }
-
-
     }
 }

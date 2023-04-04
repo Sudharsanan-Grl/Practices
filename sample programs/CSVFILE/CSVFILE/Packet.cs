@@ -38,13 +38,18 @@ namespace CSVFILE
             HPD_Asserted
         }
         public MsgType MsgValue;
+
         public CmdType CmdValue;
+
         public TransactType TransactValue;
+
         public int Address;
+
         public int DataLength;
+
         public string PayloadData;
        
-         HelperClass hobj=new HelperClass();
+        HelperClass hobj=new HelperClass();
         public void ToTimeStamp(string TimeStampstring)
         {     
             TimeStamp = hobj.TimeStampMethod(TimeStampstring, TimeStamp);
@@ -53,12 +58,10 @@ namespace CSVFILE
         {
             MsgValue = (MsgType)hobj.EnumConverterMethod(MsgTypeString, MsgValue);
         
-        }
-       
+        }    
         public void ToTransactType(string TransactString)
         {
-            TransactValue = (TransactType)hobj.EnumConverterMethod(TransactString, TransactValue);
-          
+            TransactValue = (TransactType)hobj.EnumConverterMethod(TransactString, TransactValue);        
         }
         public void ToCmdType(string stringValue)
         {
@@ -67,20 +70,14 @@ namespace CSVFILE
         public void ToAddressList(string StringAddress)
         {
            Address  = hobj.AddressMethod(StringAddress, Address);     
-        }
-       
+        }       
         public void ToDataLength(string DataLengthString)
         {
             DataLength=hobj.DataLengthMethod(DataLengthString, DataLength);
-        }
-       
+        }      
         public void ToPayloadData(string PayloadDataString)
         {
             PayloadData = PayloadDataString;
-        }
-        
-        
-
-        
+        }                   
     }
 }
