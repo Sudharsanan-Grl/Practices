@@ -6,18 +6,15 @@ using static CSVFILE.Packet;
 using static CSVFILE.HelperInput;
 
 namespace CSVFILES
-{
-
-
-    
+{  
     public class Program
     {
         static void Main(string[] args)
         {
-            List<double> StartTimeList = new List<double>();
+      
 
             List<Packet> PacketList = new List<Packet>();
-            List<CmdType> CmdList = new List<CmdType>();
+          
             string filePath = @"C:\Users\GRL\Downloads\TD_4_2_1_1\TD_4_2_1_1\Test_Pkt.csv";
             string[] csvLines = File.ReadAllLines(filePath);
 
@@ -65,10 +62,6 @@ namespace CSVFILES
 
             Console.WriteLine("the fourth occurance of Res  is " + MsgTypeOccIndex);
 
-
-            //         TestCase4211 obj = new TestCase4211();
-            //       obj.verify(CmdList, StartTimeList);
-            //     Console.ReadLine();
             HelperInput hiObj = new HelperInput(MsgType.Req, CmdType.Wr, TransactType.Nat, FirstOrLast.first,8);
             
     

@@ -12,9 +12,6 @@ namespace CSVFILE
 {
     public class HelperInput
     {
-        //HelperClass HelperClassObj = new HelperClass();
-
-        // HelperInput HelperInputObj=new HelperInput();
 
         public HelperInput()
         {
