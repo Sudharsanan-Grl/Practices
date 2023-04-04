@@ -26,11 +26,11 @@ namespace CSVFILE
         public MsgType MsgvalueSearch;
         
         public CmdType CmdValueSearch;
-
        
         public TransactType TransactValueSearch;
         
         public FirstOrLast firstOrLastValueSearch;
+
         public int Occurance;
         public HelperInput(MsgType msgvalueSearch, CmdType cmdValueSearch, TransactType transactValueSearch, FirstOrLast firstOrLastValueSearch, int occurance)
         {

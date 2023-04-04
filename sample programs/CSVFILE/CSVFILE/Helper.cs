@@ -12,8 +12,7 @@ namespace CSVFILE
     public class HelperClass
     {
         public double TimeStampMethod(string TimeStampstring,double TimeStamp)
-        {
-           
+        {          
             if (Double.TryParse(TimeStampstring,out TimeStamp)){ }                                
             else
             {
@@ -46,19 +45,14 @@ namespace CSVFILE
                 {
                     Console.WriteLine("The enum is not in the correct format");
                     return enumValue;
-                }
-
-              
+                }              
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 return enumValue;
             }
-        }
-
-        
+        }     
         public int AddressMethod(string StringAddress,int Address)
         {
             Address = Convert.ToInt32(StringAddress, 16);
@@ -66,7 +60,6 @@ namespace CSVFILE
         }
         public int DataLengthMethod(string DataLengthString,int DataLength)
         {
-
             if (DataLengthString == "")
             {
                 return DataLength = 0;
@@ -94,10 +87,8 @@ namespace CSVFILE
                         {
                             index = i;
                             break;
-                        }
-                       
+                        }                      
                     }
-
                 }
                 return index;
             }
@@ -116,7 +107,6 @@ namespace CSVFILE
                             break;
                         }
                     }
-
                 }
                 return index;
             }
@@ -127,7 +117,6 @@ namespace CSVFILE
             }
             
         }
-        //
         public int FirstNatIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -234,7 +223,6 @@ namespace CSVFILE
             }
             return index;
         }
-
         public int ReqResOccuranceIndex(List<Packet> PacketList, int NumOfOcc, MsgType ReqOrRes)
         {
             int index = 0;
@@ -243,17 +231,13 @@ namespace CSVFILE
             {
                 if (PacketList[i].MsgValue == ReqOrRes)
                 {
-
                     times++;
                     if (times == NumOfOcc)
                     {
                         index = i;
                         break;
                     }
-
                 }
-
-
             }
             return index;
         }

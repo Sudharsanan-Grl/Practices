@@ -6,12 +6,6 @@ using System.Threading.Tasks;
 
 namespace CSVFILE
 {
-    //create enum for NAT and I2C
-    //create enum for Req and Res
-    //create enum for Rd and Wr
-    //create int for address
-    // crate int for data length
-    // create string for payload data
     public class Packet
     {
         public double TimeStamp;

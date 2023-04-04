@@ -7,48 +7,63 @@ using System.Threading.Tasks;
 using static CSVFILE.Packet;
 using System.IO;
 using System.Drawing;
+using CSVFILE;
+
 
 namespace CSVFILE
 {
-    internal class TestCase4211
+    public class TestCase4211
     {
         public List<string> TestCasesResults = new List<string>();
-        public void verify(List<CmdType> CmdList,List<double>StartTimeList)
+        public void Verify4211(List<Packet>PacketList)
         {
-           if( CmdList.Contains(CmdType.TestStart))
+            for(int i = 0; i < PacketList.Count; i++)
             {
-                ValHPDTimeDiff(CmdList, StartTimeList);
-
-                foreach (var line in TestCasesResults)
+                if (PacketList[i].CmdValue == CmdType.TestStart )
                 {
-                    Console.WriteLine(line);
-
+                      ValHPDTimeDiff(PacketList);
+                    using (StreamWriter writer = new StreamWriter("e:\\rawdata\\sample.html"))
+                    {
+                        writer.WriteLine(TestCasesResults[0]);
+                    }
+                  
                 }
+            }
+         
+
                 
 
             }
-            using (StreamWriter writer = new StreamWriter("E:\\RawData\\sample.html"))
-            {
-                writer.WriteLine(TestCasesResults[0]);
-            }
-
-        }
-
-        private void ValHPDTimeDiff(List<CmdType> CmdList, List<double> StartTimeList)
+        public int CmdIndexReturn(CmdType CmdValue,List<Packet>PacketList)
         {
-            int HPDAssertedIndex = CmdList.IndexOf(CmdType.HPD_Asserted);
-            int HPDRemovedIndex = CmdList.IndexOf(CmdType.HPD_Removed);
-            if ((StartTimeList[HPDAssertedIndex] - StartTimeList[HPDRemovedIndex]) * 1e3 >= 2)
+            int index = 0;
+            for(int i = 0;i<PacketList.Count;i++)
             {
-                TestCasesResults.Add($"Step 1 ::[PASS]:HPD Asserted and HPD Removed Time difference  Exp is atleast : 2ms Obt:{(StartTimeList[HPDAssertedIndex] - StartTimeList[HPDRemovedIndex]) * 1e3}ms Start index#{HPDAssertedIndex} Stop index#{HPDRemovedIndex}");
+                if (PacketList[i].CmdValue == CmdValue)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+        public void ValHPDTimeDiff(List<Packet> PacketList)
+        {
+            int HPDAssertedIndex = CmdIndexReturn(CmdType.HPD_Asserted, PacketList);
+            int HPDRemovedIndex = CmdIndexReturn(CmdType.HPD_Removed, PacketList);
+            if ((PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3 >= 2)
+            {
+                TestCasesResults.Add($"Step 1 ::[PASS]:HPD Asserted and HPD Removed Time difference  Exp is atleast : 2ms Obt:" +
+                    $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
+                    $"ms Start index#{HPDAssertedIndex} " + $"Stop index#{HPDRemovedIndex}");
             }
             else
             {
-                TestCasesResults.Add($"Step 1 ::[FAIL]:HPD Asserted and HPD Removed Time difference  Exp is atleast : 2ms Obt:{(StartTimeList[HPDAssertedIndex] - StartTimeList[HPDRemovedIndex]) * 1e3}ms Start index#{HPDAssertedIndex} Stop index#{HPDRemovedIndex}");
+                TestCasesResults.Add($"Step 1 ::[FAIL]:HPD Asserted and HPD Removed " + $"Time difference  Exp is atleast : 2ms Obt:" +
+                    $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
+                    $"ms Start index#{HPDAssertedIndex} Stop index#{HPDRemovedIndex}");
 
             }
-
-
             string coloredPass = "<b style='color:green;'>PASS</b>";
             string coloredFail = "<b style='color:red;'>FAIL</b>";
 
@@ -59,8 +74,18 @@ namespace CSVFILE
                 TestCasesResults[i] = TestCasesResults[i].Replace("FAIL", coloredFail);
                 Console.WriteLine(TestCasesResults[i]);
 
-            } 
-           
+            }
+
         }
+
+        //    using (streamwriter writer = new streamwriter("e:\\rawdata\\sample.html"))
+        //    {
+        //        writer.writeline(testcasesresults[0]);
+        //    }
+
+        //}
+
+
     }
+
 }
