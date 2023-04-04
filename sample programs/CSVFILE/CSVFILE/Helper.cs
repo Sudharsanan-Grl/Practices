@@ -76,7 +76,7 @@ namespace CSVFILE
               return  DataLength = int.Parse(DataLengthString);
             }
         }
-        HelperInput hiobj= new HelperInput();
+   
         public int  GetDesiredPacket(List<Packet>PacketList,HelperInput obj)
         {
                 int index = 0;
@@ -170,10 +170,13 @@ namespace CSVFILE
         public int LastI2CIndex(List<Packet> PacketList)
         {
             int index = 0;
-            for (int i = 0; i < PacketList.Count; i++)
+            for (int i = PacketList.Count-1; i > 0; i--)
             {
                 if (PacketList[i].TransactValue == TransactType.I2C)
+                {
                     index = i;
+                    break;
+                }
             }
             return index;
         }
@@ -193,10 +196,14 @@ namespace CSVFILE
         public int LastNatWrIndex(List<Packet> PacketList)
         {
             int index = 0;
-            for (int i = 0; i < PacketList.Count; i++)
+            for (int i = PacketList.Count - 1; i > 0; i--)
             {
-                if (PacketList[i].TransactValue == TransactType.Nat && PacketList[i].CmdValue == CmdType.Wr)
+                if (PacketList[i].TransactValue == TransactType.Nat &&
+                    PacketList[i].CmdValue == CmdType.Wr)
+                {
                     index = i;
+                    break;
+                }
             }
             return index;
         }
@@ -216,10 +223,14 @@ namespace CSVFILE
         public int LastI2CWrIndex(List<Packet> PacketList)
         {
             int index = 0;
-            for (int i = 0; i < PacketList.Count; i++)
+            for (int i = PacketList.Count - 1; i > 0; i--)
             {
-                if (PacketList[i].TransactValue == TransactType.I2C && PacketList[i].CmdValue == CmdType.Wr)
+                if (PacketList[i].TransactValue == TransactType.I2C &&
+                    PacketList[i].CmdValue == CmdType.Wr)
+                {
                     index = i;
+                    break;
+                }
             }
             return index;
         }
