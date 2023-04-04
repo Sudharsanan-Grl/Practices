@@ -26,7 +26,9 @@ namespace CSVFILE
                 if (PacketList[i].CmdValue == CmdType.TestStart )
                 {
                     ValHPDTimeDiff(PacketList);
+
                     ValTwoReqContinuos(PacketList);
+
                     using (StreamWriter writer = new StreamWriter("E:\\rawdata\\4211.html"))
                     {
                         foreach(var line in TestCasesResults)
@@ -76,7 +78,9 @@ namespace CSVFILE
         public void ValTwoReqContinuos(List<Packet> PacketList)
         {
             int FirstReqIndex = FirstReq(PacketList);
+
             int NextToFirstReq= FirstReqIndex + 1;
+
             if (PacketList[NextToFirstReq].MsgValue == MsgType.Req)
             {
                 TestCasesResults.Add($"Step 2 ::[PASS]:Wait until the Source DUT issues an AUX request. Reference Sink does not send any reply to AUX <br>");
@@ -90,6 +94,7 @@ namespace CSVFILE
         public int FirstReq(List<Packet> PacketList)
         {
             int index = 0;
+
             for(int i = 0;i < PacketList.Count;i++)
             {
                 if (PacketList[i].MsgValue == MsgType.Req)
@@ -113,7 +118,6 @@ namespace CSVFILE
                 TestCasesResults[i] = TestCasesResults[i].Replace("PASS", coloredPass);
 
                 TestCasesResults[i] = TestCasesResults[i].Replace("FAIL", coloredFail);
-
             }
 
         }
