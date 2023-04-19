@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "CSVFILE/1.0.0": {
+      "CsvFile/1.0.0": {
         "runtime": {
-          "CSVFILE.dll": {}
+          "CsvFile.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "CSVFILE/1.0.0": {
+    "CsvFile/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

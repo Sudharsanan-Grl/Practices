@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static CSVFILE.Packet;
-using static CSVFILE.HelperClass;
+using static CsvFile.Packet;
+using static CsvFile.HelperClass;
 using System.Threading.Channels;
 using System.Security.Cryptography.X509Certificates;
 
-namespace CSVFILE
+namespace CsvFile
 {
+    /// <summary>
+    /// This class is used for storing the first/last , Nat/I2C , Req /Res , Rd/Wr and Occurance.
+    /// These values are stored in a instance that instance is sent to Helper class for getting desired index.
+    /// </summary>
     public class HelperInput
     {
         public HelperInput()

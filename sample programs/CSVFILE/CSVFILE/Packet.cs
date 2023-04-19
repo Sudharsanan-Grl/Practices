@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace CsvFile
 {
+    /// <summary>
+    /// This class is used for storing all the parameter required in a packet.
+    /// Enum value,double value ,string value,int values are created in this class. 
+    /// </summary>
     public class Packet
     {
         public double TimeStamp;
@@ -49,31 +53,31 @@ namespace CsvFile
 
         public string PayloadData;
        
-        HelperClass hobj=new HelperClass();
+        HelperClass helperObj = new HelperClass();
         public void ToTimeStamp(string timeStampstring)
         {     
-            TimeStamp = hobj.TimeStampMethod(timeStampstring, TimeStamp);
+            TimeStamp = helperObj.TimeStampMethod(timeStampstring, TimeStamp);
         }
         public void ToMsgType(string msgTypeString)
         {
-            MsgValue = (MsgType)hobj.EnumConverterMethod(msgTypeString, MsgValue);
+            MsgValue = (MsgType)helperObj.EnumConverterMethod(msgTypeString, MsgValue);
         
         }    
         public void ToTransactType(string transactString)
         {
-            TransactValue = (TransactType)hobj.EnumConverterMethod(transactString, TransactValue);        
+            TransactValue = (TransactType)helperObj.EnumConverterMethod(transactString, TransactValue);        
         }
         public void ToCmdType(string stringValue)
         {
-            CmdValue= (CmdType)hobj.EnumConverterMethod(stringValue, CmdValue);
+            CmdValue= (CmdType)helperObj.EnumConverterMethod(stringValue, CmdValue);
         }           
         public void ToAddressList(string stringAddress)
         {
-           Address  = hobj.AddressMethod(stringAddress, Address);     
+           Address  = helperObj.AddressMethod(stringAddress, Address);     
         }       
         public void ToDataLength(string dataLengthString)
         {
-            DataLength=hobj.DataLengthMethod(dataLengthString, DataLength);
+            DataLength=helperObj.DataLengthMethod(dataLengthString, DataLength);
         }      
         public void ToPayloadData(string payloadDataString)
         {

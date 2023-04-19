@@ -9,6 +9,12 @@ using static CsvFile.Packet;
 using static CsvFile.HelperInput;
 namespace CsvFile
 {
+
+    /// <summary>
+    /// This helper class is used for converting string value into enum value.
+    /// This helper class is also used for converting string value into double and int  value.
+    /// This class is also used for getting the index of first/last nat/i2c req/res rd/wr.
+    /// </summary>
     public class HelperClass
     {
         public double TimeStampMethod(string timeStampstring,double timeStamp)

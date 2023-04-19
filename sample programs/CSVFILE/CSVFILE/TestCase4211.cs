@@ -4,25 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
-using static CSVFILE.Packet;
-using static CSVFILE.HelperClass;
+using static CsvFile.Packet;
+using static CsvFile.HelperClass;
 using System.IO;
 using System.Drawing;
-using CSVFILE;
+using CsvFile;
 
 
-namespace CSVFILE
+namespace CsvFile
 {
-    
+    /// <summary>
+    /// This is the Testcase validation class.
+    /// This class used for validation of testcase 4.2.1.1
+    /// The results are stored in the html file.
+    /// The timings and testcase names are stored in the text file.
+    /// </summary>
     public class TestCase4211
     {
-        HelperClass HelperObj = new HelperClass();
+        HelperClass helperObj = new HelperClass();
 
         public List<string> TestCasesResults = new List<string>();
 
         public List<string> TestPrintFile = new List<string>();
 
-     
+    
         public void Verify4211(List<Packet>PacketList)
         {
             for(int i = 0; i < PacketList.Count; i++)
