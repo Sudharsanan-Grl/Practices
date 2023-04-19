@@ -12,7 +12,10 @@ namespace CsvFile
     /// </summary>
     public class Packet
     {
+        // creating a double variable
         public double TimeStamp;
+
+        // creating a enum 
         public enum TransactType
         {
             None,
@@ -41,19 +44,26 @@ namespace CsvFile
             HPD_Removed,
             HPD_Asserted
         }
+
+        // creating a enum variables
         public MsgType MsgValue;
 
         public CmdType CmdValue;
 
         public TransactType TransactValue;
 
+        // creating a int
         public int Address;
 
         public int DataLength;
 
+        // creating a string 
         public string PayloadData;
        
         HelperClass helperObj = new HelperClass();
+
+
+        // storing the converted datatypes .
         public void ToTimeStamp(string timeStampstring)
         {     
             TimeStamp = helperObj.TimeStampMethod(timeStampstring, TimeStamp);

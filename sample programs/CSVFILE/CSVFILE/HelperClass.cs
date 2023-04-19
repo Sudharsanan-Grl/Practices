@@ -17,6 +17,7 @@ namespace CsvFile
     /// </summary>
     public class HelperClass
     {
+        // converting string to double
         public double TimeStampMethod(string timeStampstring,double timeStamp)
         {          
             if (Double.TryParse(timeStampstring,out timeStamp)){ }                                
@@ -26,26 +27,34 @@ namespace CsvFile
             }         
             return timeStamp;
         }
-       
+        // converting string to enum
+
         public Enum EnumConverterMethod(string enumString,Enum enumValue )
         {
             try
             {
-               
+               // cheks the types of the enum
+
                 if (enumValue.GetType() == typeof(MsgType))
                 {
+                    // converting string into enum
+
                     enumValue = (MsgType)Enum.Parse(typeof(MsgType), enumString);
 
                     return enumValue;
                 }
                 else if(enumValue.GetType() == typeof(CmdType))
                 {
+                    // converting string into enum
+
                     enumValue = (CmdType)Enum.Parse(typeof(CmdType), enumString);
 
                     return enumValue;
                 }
                 else if(enumValue.GetType() == typeof(TransactType))
                 {
+                    // converting string into enum
+
                     enumValue = (TransactType)Enum.Parse(typeof(TransactType), enumString);
 
                     return enumValue;
@@ -63,7 +72,9 @@ namespace CsvFile
 
                 return enumValue;
             }
-        }     
+        }
+        // converting string to int
+
         public int AddressMethod(string stringAddress,int address)
         {
             address = Convert.ToInt32(stringAddress, 16);
@@ -81,8 +92,8 @@ namespace CsvFile
               return  dataLength = int.Parse(dataLengthString);
             }
         }
-   
-        public int  GetDesiredPacket(List<Packet>PacketList,HelperInput obj)
+        // using helper obj to get the desired packet index
+        public int  GetDesiredPacketIndex(List<Packet>PacketList,HelperInput obj)
         {
                 int index = 0;
                 int times=0;
@@ -91,6 +102,8 @@ namespace CsvFile
             {
                 for (int i = 0; i < PacketList.Count; i++)
                 {
+                    // checks all the required condition( first/last Nat/I2C Req/Res rd/wr Occ)
+
                     if (PacketList[i].CmdValue == obj.CmdValueSearch && 
                         PacketList[i].TransactValue == obj.TransactValueSearch && 
                         PacketList[i].MsgValue == obj.MsgvalueSearch)
@@ -130,6 +143,7 @@ namespace CsvFile
             }
             
         }
+        // getting first nat index
         public int FirstNatIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -144,6 +158,7 @@ namespace CsvFile
             }
             return index;
         }
+        // getting last nat index
         public int LastNatIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -158,6 +173,7 @@ namespace CsvFile
             }
             return index;
         }
+        // getting first i2c index
         public int FirstI2CIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -172,6 +188,7 @@ namespace CsvFile
             }
             return index;
         }
+        // getting last i2c index
         public int LastI2CIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -186,6 +203,7 @@ namespace CsvFile
             }
             return index;
         }
+        // getting first nat wr index
         public int FirstNatWrIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -200,6 +218,7 @@ namespace CsvFile
             }
             return index;
         }
+        // getting last nat wr index
         public int LastNatWrIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -215,6 +234,7 @@ namespace CsvFile
             }
             return index;
         }
+        // getting first i2c wr index
         public int FirstI2CWrIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -229,6 +249,7 @@ namespace CsvFile
             }
             return index;
         }
+        // getting last i2c wr index
         public int LastI2CWrIndex(List<Packet> PacketList)
         {
             int index = 0;
@@ -244,6 +265,7 @@ namespace CsvFile
             }
             return index;
         }
+        // getting req and res occurance index
         public int ReqResOccuranceIndex(List<Packet> PacketList, int numOfOcc, MsgType reqOrRes)
         {
             int index = 0;

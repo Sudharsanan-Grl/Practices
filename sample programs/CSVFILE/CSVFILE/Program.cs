@@ -25,6 +25,8 @@ namespace CsvFile
 
             if (csvLines.Length > 0)
             {
+                //  spliting each parameter and sending to the packet class.
+
                 for (int i = 1; i < csvLines.Length; i++)
                 {
                     Packet currentPkt = new Packet();
@@ -41,6 +43,7 @@ namespace CsvFile
             }
 
             HelperClass helperObj = new HelperClass();
+            //  finding the index
 
             int firstNatIndex    = helperObj.FirstNatIndex(PacketList);
             int lastNatIndex    = helperObj.LastNatIndex(PacketList);
@@ -62,13 +65,17 @@ namespace CsvFile
             Console.WriteLine("the Last  occurance of the I2C Write is comes with the index of " + lastI2CWrIndex);
             Console.WriteLine("the fourth occurance of Res  is " + msgTypeOccIndex);
 
+            //  storing the first/last Nat/I2C Req/Res rd/wr Occ in the instance.
+
             HelperInput helperInputObj = new HelperInput(MsgType.Req, CmdType.Wr, TransactType.Nat, FirstOrLast.first,8);
             
-            int desiredIndex= helperObj.GetDesiredPacket(PacketList, helperInputObj);
+            int desiredIndex= helperObj.GetDesiredPacketIndex(PacketList, helperInputObj);
 
             Console.WriteLine("the first Nat req wr 8th occ is "+ desiredIndex);
 
             TestCase4211 testCase4211Obj = new TestCase4211();
+
+            // calling the verify method for 4.2.2.1 testcase validation
 
             testCase4211Obj.Verify4211(PacketList);
         }

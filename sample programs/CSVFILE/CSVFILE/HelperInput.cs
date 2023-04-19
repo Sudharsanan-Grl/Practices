@@ -19,11 +19,14 @@ namespace CsvFile
         public HelperInput()
         {
         }
+        // for assigning first or last in the index
         public enum FirstOrLast
         {
             first,
             last
         }
+        //for assingning enum types
+
         public MsgType MsgvalueSearch;
         
         public CmdType CmdValueSearch;
@@ -33,6 +36,8 @@ namespace CsvFile
         public FirstOrLast firstOrLastValueSearch;
 
         public int Occurance;
+
+        //constructor for assingning values
         public HelperInput(MsgType msgvalueSearch, CmdType cmdValueSearch, TransactType transactValueSearch, FirstOrLast firstOrLastValueSearch, int occurance)
         {
             MsgvalueSearch = msgvalueSearch;
