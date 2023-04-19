@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj": {}
+    "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CsvFile.csproj": {}
   },
   "projects": {
-    "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj": {
+    "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CsvFile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj",
-        "projectName": "CSVFILE",
-        "projectPath": "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CSVFILE.csproj",
+        "projectUniqueName": "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CsvFile.csproj",
+        "projectName": "CsvFile",
+        "projectPath": "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\CsvFile.csproj",
         "packagesPath": "C:\\Users\\GRL\\.nuget\\packages\\",
         "outputPath": "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\obj\\",
         "projectStyle": "PackageReference",

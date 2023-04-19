@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSVFILE
+namespace CsvFile
 {
     public class Packet
     {
@@ -50,34 +50,34 @@ namespace CSVFILE
         public string PayloadData;
        
         HelperClass hobj=new HelperClass();
-        public void ToTimeStamp(string TimeStampstring)
+        public void ToTimeStamp(string timeStampstring)
         {     
-            TimeStamp = hobj.TimeStampMethod(TimeStampstring, TimeStamp);
+            TimeStamp = hobj.TimeStampMethod(timeStampstring, TimeStamp);
         }
-        public void ToMsgType(string MsgTypeString)
+        public void ToMsgType(string msgTypeString)
         {
-            MsgValue = (MsgType)hobj.EnumConverterMethod(MsgTypeString, MsgValue);
+            MsgValue = (MsgType)hobj.EnumConverterMethod(msgTypeString, MsgValue);
         
         }    
-        public void ToTransactType(string TransactString)
+        public void ToTransactType(string transactString)
         {
-            TransactValue = (TransactType)hobj.EnumConverterMethod(TransactString, TransactValue);        
+            TransactValue = (TransactType)hobj.EnumConverterMethod(transactString, TransactValue);        
         }
         public void ToCmdType(string stringValue)
         {
             CmdValue= (CmdType)hobj.EnumConverterMethod(stringValue, CmdValue);
         }           
-        public void ToAddressList(string StringAddress)
+        public void ToAddressList(string stringAddress)
         {
-           Address  = hobj.AddressMethod(StringAddress, Address);     
+           Address  = hobj.AddressMethod(stringAddress, Address);     
         }       
-        public void ToDataLength(string DataLengthString)
+        public void ToDataLength(string dataLengthString)
         {
-            DataLength=hobj.DataLengthMethod(DataLengthString, DataLength);
+            DataLength=hobj.DataLengthMethod(dataLengthString, DataLength);
         }      
-        public void ToPayloadData(string PayloadDataString)
+        public void ToPayloadData(string payloadDataString)
         {
-            PayloadData = PayloadDataString;
+            PayloadData = payloadDataString;
         }                   
     }
 }
