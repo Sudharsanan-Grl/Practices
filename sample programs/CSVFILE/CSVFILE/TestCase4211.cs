@@ -54,6 +54,8 @@ namespace CsvFile
 
                     ValTwoReqContinuos(PacketList);
 
+                    ValidateTwoReqTiming(PacketList);
+
                     DateTime endTime = DateTime.Now;
 
 
@@ -131,15 +133,15 @@ namespace CsvFile
 
             //finding the first req index
 
-            int FirstReqIndex = FirstReq(PacketList);
+            int firstReqIndex = FirstReq(PacketList);
 
             //finding the next index by adding 1
 
-            int NextToFirstReq= FirstReqIndex + 1;
+            int nextToFirstReq = firstReqIndex + 1;
 
             //checking next one also req
 
-            if (PacketList[NextToFirstReq].MsgValue == MsgType.Req)
+            if (PacketList[nextToFirstReq].MsgValue == MsgType.Req)
             {
                 TestCasesResults.Add($"Step 2 ::[PASS]:Wait until the Source DUT issues an AUX request. Reference Sink does not send any reply to AUX <br>");
             }
@@ -149,6 +151,30 @@ namespace CsvFile
             }
             ColorChange();
         }
+        // step 3 validation
+        public void ValidateTwoReqTiming(List<Packet> PacketList)
+        {
+            int firstReqIndex = FirstReq(PacketList);
+
+            int secondReqIndex = ReqOccurance(PacketList, 2);
+
+            //checking the time diff between is mor than 400 us
+            if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp)*1e6 >= 400)
+            {
+                TestCasesResults.Add($"Step 3 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                    $"  { (PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
+                    $"    Start Index is  { firstReqIndex } End Index is { secondReqIndex} "  );
+
+            }
+            else
+            {
+                TestCasesResults.Add($"Step 3 ::[Fail]: Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                                   $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
+                                   $"    Start Index is  {firstReqIndex} End Index is {secondReqIndex} ");
+            }
+            ColorChange();
+        }
+
         //finding the first req index method
         public int FirstReq(List<Packet> PacketList)
         {
@@ -160,6 +186,25 @@ namespace CsvFile
                 {
                     index = i;
                     break;
+                }
+            }
+            return index;
+        }
+        //finding the  req Occurance index method
+        public int ReqOccurance(List<Packet> PacketList,int occurance)
+        {
+            int index = 0;
+            int times= 0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].MsgValue == MsgType.Req)
+                {
+                    times++;
+                    if(times == occurance)
+                    {
+                      index = i;
+                      break;
+                    }
                 }
             }
             return index;
