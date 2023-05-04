@@ -64,6 +64,8 @@ namespace CsvFile
 
                     DateTime endTime = DateTime.Now;
 
+                    helperObj.ColorChange(TestCasesResults4211);
+
                     TestPrintFile4211.Add("The TestCase EndTime time is : " + endTime);
 
                     // for writing on the html file

@@ -80,6 +80,31 @@ namespace CsvFile
             // calling the verify method for 4.2.2.1 testcase validation
 
             testCase4211Obj.Verify4211(PacketList);
+
+            List<Packet> PacketList2 = new List<Packet>();
+            string filePath2= @" C:\Users\GRL\Downloads\TD_4_2_1_2\TD_4_2_1_2\Test_Pkt.csv " ;
+            string[] csvLines2 = File.ReadAllLines(filePath2);
+
+            if (csvLines2.Length > 0)
+            {
+                //  spliting each parameter and sending to the packet class.
+
+                for (int i = 1; i < csvLines2.Length; i++)
+                {
+                    Packet currentPkt = new Packet();
+                    string[] row = csvLines[i].Split(',');
+                    currentPkt.ToTimeStamp(row[1]);
+                    currentPkt.ToMsgType(row[3]);
+                    currentPkt.ToTransactType(row[4]);
+                    currentPkt.ToCmdType(row[5]);
+                    currentPkt.ToAddressList(row[6]);
+                    currentPkt.ToDataLength(row[7]);
+                    currentPkt.ToPayloadData(row[9]);
+                    PacketList2.Add(currentPkt);
+                }
+            }
+            TestCase4212 testCase4212Obj = new TestCase4212();  
+            testCase4212Obj.Verify4212(PacketList2);
         }
     }
 }

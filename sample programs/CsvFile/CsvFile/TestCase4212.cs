@@ -33,9 +33,9 @@ namespace CsvFile
 
                     DateTime startTime = DateTime.Now;
 
-                    TestPrintFile4212.Add("TestCase ID : TD_4_2_1_1");
+                    TestPrintFile4212.Add("TestCase ID : TD_4_2_1_2");
 
-                    TestPrintFile4212.Add("TestCase Name : TD_4_2_1_1 Source DUT Retry on No Reply");
+                    TestPrintFile4212.Add("TestCase Name : TD_4_2_1_2 Source Retry on Invalid Reply\r\n");
 
                     TestPrintFile4212.Add("The TestCase Started time is : " + startTime);
 
@@ -45,7 +45,9 @@ namespace CsvFile
 
                     helperObj.ValFirstReqRes(PacketList, TestCasesResults4212);
 
-                    helperObj.ValSecondReqAndRes(PacketList, TestCasesResults4212);
+                    helperObj.ValSecondReqRes(PacketList, TestCasesResults4212);
+
+                    helperObj.ColorChange(TestCasesResults4212);
 
                 }
             }

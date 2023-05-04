@@ -309,9 +309,7 @@ namespace CsvFile
                 $"ms Start index # {HPDAssertedIndex} Stop index # {HPDRemovedIndex}<br>");
             }
 
-            // changing the pass fail colour
-
-            ColorChange(TestCasesResults);
+          
 
         }
         // This method returns the cmdType values index for checking time
@@ -354,7 +352,7 @@ namespace CsvFile
             {
                 TestCasesResults.Add($"Step 2 ::[FAIL]: Wait until the Source DUT issues an AUX request.But Sink Sends the reply <br> ");
             }
-            ColorChange(TestCasesResults);
+          
         }
         // step 3 validation
         public void ValidateTwoReqTiming(List<Packet> PacketList, List<string> TestCasesResults)
@@ -377,7 +375,7 @@ namespace CsvFile
                                    $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
             }
-            ColorChange(TestCasesResults);
+          
         }
         // step 4 validation
         public void ValFirstAndEndReq(List<Packet> PacketList, List<string> TestCasesResults)
@@ -405,7 +403,6 @@ namespace CsvFile
                                    $"  {(PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {lastReqBeforeRes} <br> ");
             }
-            ColorChange(TestCasesResults);
         }
         public void ValFirstReqRes(List<Packet>PacketList, List<string> TestCasesResults)
         {
