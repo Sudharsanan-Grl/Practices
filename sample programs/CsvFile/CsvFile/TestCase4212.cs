@@ -12,6 +12,12 @@ using CsvFile;
 
 namespace CsvFile
 {
+    /// <summary>
+    /// This is the Testcase validation class.
+    /// This class used for validation of testcase 4.2.1.2
+    /// The results are stored in the html file.
+    /// The timings and testcase names are stored in the text file.
+    /// </summary>
     public class TestCase4212
     {
         HelperClass helperObj = new HelperClass();
