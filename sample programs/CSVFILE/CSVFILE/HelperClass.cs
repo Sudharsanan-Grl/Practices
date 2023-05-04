@@ -407,6 +407,52 @@ namespace CsvFile
             }
             ColorChange(TestCasesResults);
         }
+        public void ValFirstReqRes(List<Packet>PacketList, List<string> TestCasesResults)
+        {
+            int firstReqIndex=FirstReq(PacketList);
+            int nextToFirstReq=firstReqIndex+1;
+            if (PacketList[nextToFirstReq].MsgValue == MsgType.Res)
+            {
+                TestCasesResults.Add($"Step 3 ::[PASS]:  the Source DUT  issues a AUX request Reference Sink replies normally to this AUX request."); 
+                                   
+            }
+            else
+            {
+                TestCasesResults.Add($"Step 3 ::[FAIL]:  the Source DUT  issues a AUX request Reference doesn't replies normally to this AUX request.");
+
+            }
+
+        }
+        public void ValSecondReqRes(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            int firstReqIndex = FirstReq(PacketList);
+            int nextToFirstReq = firstReqIndex + 1;
+            int secondReqIndex = ReqOccurance(PacketList, 2);
+            if (PacketList[nextToFirstReq].MsgValue == MsgType.Res)
+            {
+                if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400)
+                {
+                    TestCasesResults.Add($"Step 3 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                        $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
+                        $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
+
+                }
+                else
+                {
+                    TestCasesResults.Add($"Step 3 ::[Fail]: Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                                       $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
+                                       $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
+                }
+            }
+            else
+            {
+                TestCasesResults.Add($"Step 3 ::[FAIL]:  the Source DUT  issues a AUX request Reference doesn't replies normally to this AUX request.");
+
+            }
+
+        }
+
+        
 
         //finding the first req index method
         public int FirstReq(List<Packet> PacketList)

@@ -29,7 +29,23 @@ namespace CsvFile
 
                 if (PacketList[i].CmdValue == CmdType.TestStart)
                 {
+                    // for time and testcase name storing in text file
 
+                    DateTime startTime = DateTime.Now;
+
+                    TestPrintFile4212.Add("TestCase ID : TD_4_2_1_1");
+
+                    TestPrintFile4212.Add("TestCase Name : TD_4_2_1_1 Source DUT Retry on No Reply");
+
+                    TestPrintFile4212.Add("The TestCase Started time is : " + startTime);
+
+                    //for validating step 1
+
+                    helperObj.ValHPDTimeDiff(PacketList, TestCasesResults4212);
+
+                    helperObj.ValFirstReqRes(PacketList, TestCasesResults4212);
+
+                    helperObj.ValSecondReqAndRes(PacketList, TestCasesResults4212);
 
                 }
             }
