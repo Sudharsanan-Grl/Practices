@@ -6,7 +6,9 @@ using static CsvFile.Packet;
 using static CsvFile.HelperInput;
 
 namespace CsvFile
-{  /// <summary>
+
+{
+    /// <summary>
      /// This is the Driver class .
      /// It is used for getting the parameters in the csv file and sending to the desired class.
      /// It is also used for calling the required methods.
@@ -46,14 +48,14 @@ namespace CsvFile
             //  finding the index
 
             int firstNatIndex    = helperObj.FirstNatIndex(PacketList);
-            int lastNatIndex    = helperObj.LastNatIndex(PacketList);
+            int lastNatIndex     = helperObj.LastNatIndex(PacketList);
             int firstI2CIndex    = helperObj.FirstI2CIndex(PacketList);
-            int lastI2CIndex    = helperObj.LastI2CIndex(PacketList);
+            int lastI2CIndex     = helperObj.LastI2CIndex(PacketList);
             int firstNatWrIndex  = helperObj.FirstNatWrIndex(PacketList);
-            int lastNatWrIndex  = helperObj.LastNatWrIndex(PacketList);
+            int lastNatWrIndex   = helperObj.LastNatWrIndex(PacketList);
             int firstI2CWrIndex  = helperObj.FirstI2CWrIndex(PacketList);
-            int lastI2CWrIndex  = helperObj.LastI2CWrIndex(PacketList);
-            int msgTypeOccIndex = helperObj.ReqResOccuranceIndex(PacketList, 4, MsgType.Res);
+            int lastI2CWrIndex   = helperObj.LastI2CWrIndex(PacketList);
+            int msgTypeOccIndex  = helperObj.ReqResOccuranceIndex(PacketList, 4, MsgType.Res);
 
             Console.WriteLine("the first occurance of the Nat is comes with the index of " + firstNatIndex);
             Console.WriteLine("the Last  occurance of the Nat is comes with the index of " + lastNatIndex);
