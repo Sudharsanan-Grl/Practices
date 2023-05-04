@@ -28,11 +28,11 @@ namespace CsvFile
         //for assingning enum types
 
         public MsgType MsgvalueSearch;
-        
+
         public CmdType CmdValueSearch;
-       
+
         public TransactType TransactValueSearch;
-        
+
         public FirstOrLast firstOrLastValueSearch;
 
         public int Occurance;
