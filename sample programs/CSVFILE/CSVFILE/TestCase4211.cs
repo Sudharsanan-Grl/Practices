@@ -54,7 +54,11 @@ namespace CsvFile
 
                     ValTwoReqContinuos(PacketList);
 
+                    //for validating step 3
+
                     ValidateTwoReqTiming(PacketList);
+
+                    //for validating step 4
 
                     ValFirstAndEndReq(PacketList);
 
