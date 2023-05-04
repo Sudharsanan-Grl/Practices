@@ -21,7 +21,7 @@ namespace CsvFile
         {
             List<Packet> PacketList = new List<Packet>();
           
-            string filePath = @"C:\Users\GRL\Downloads\TD_4_2_1_1\TD_4_2_1_1\Test_Pkt.csv";
+            string filePath = @"E:\inputs\4.2.1.1_pkt.csv";
          
             string[] csvLines = File.ReadAllLines(filePath);
 
@@ -82,7 +82,7 @@ namespace CsvFile
             testCase4211Obj.Verify4211(PacketList);
 
             List<Packet> PacketList2 = new List<Packet>();
-            string filePath2= @" C:\Users\GRL\Downloads\TD_4_2_1_2\TD_4_2_1_2\Test_Pkt.csv " ;
+            string filePath2= @"E:\inputs\4.2.1.2_pkt.csv";
             string[] csvLines2 = File.ReadAllLines(filePath2);
 
             if (csvLines2.Length > 0)
@@ -92,7 +92,7 @@ namespace CsvFile
                 for (int i = 1; i < csvLines2.Length; i++)
                 {
                     Packet currentPkt = new Packet();
-                    string[] row = csvLines[i].Split(',');
+                    string[] row = csvLines2[i].Split(',');
                     currentPkt.ToTimeStamp(row[1]);
                     currentPkt.ToMsgType(row[3]);
                     currentPkt.ToTransactType(row[4]);

@@ -43,12 +43,36 @@ namespace CsvFile
 
                     helperObj.ValHPDTimeDiff(PacketList, TestCasesResults4212);
 
+                    //for validating step 2
+                    helperObj.SinkAsserts(PacketList, TestCasesResults4212);
+
                     helperObj.ValFirstReqRes(PacketList, TestCasesResults4212);
 
                     helperObj.ValSecondReqRes(PacketList, TestCasesResults4212);
 
                     helperObj.ColorChange(TestCasesResults4212);
 
+                    DateTime endTime = DateTime.Now;
+
+                    TestPrintFile4212.Add("The TestCase EndTime time is : " + endTime);
+
+                    using (StreamWriter writer = new StreamWriter("E:\\Outputs\\4212.html"))
+                    {
+                        foreach (var line in TestCasesResults4212)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+
+                    // for writing on the text file
+
+                    using (StreamWriter writer = new StreamWriter("E:\\Outputs\\4212.txt"))
+                    {
+                        foreach (var line in TestPrintFile4212)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
                 }
             }
         }

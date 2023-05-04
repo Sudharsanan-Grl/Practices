@@ -327,10 +327,21 @@ namespace CsvFile
             }
             return index;
         }
-        // step 1 validation
-
+    
 
         //step 2 validation
+
+        public void SinkAsserts(List<Packet> PacketList,List<string> TestCasesResults)
+        {
+            for(int i = 1;i < PacketList.Count;i++)
+            {
+                if (PacketList[i].CmdValue==CmdType.HPD_Asserted)
+                {
+                    TestCasesResults.Add("Step 2 ::[PASS]: Reference Sink asserts HPD.<br>");
+                }
+               
+            }
+        }
         public void ValTwoReqContinuos(List<Packet> PacketList, List<string> TestCasesResults)
         {
 
@@ -346,14 +357,15 @@ namespace CsvFile
 
             if (PacketList[nextToFirstReq].MsgValue == MsgType.Req)
             {
-                TestCasesResults.Add($"Step 2 ::[PASS]: Wait until the Source DUT issues an AUX request. Reference Sink does not send any reply to AUX <br>");
+                TestCasesResults.Add($"Step 3 ::[PASS]: Wait until the Source DUT issues an AUX request. Reference Sink does not send any reply to AUX <br>");
             }
             else
             {
-                TestCasesResults.Add($"Step 2 ::[FAIL]: Wait until the Source DUT issues an AUX request.But Sink Sends the reply <br> ");
+                TestCasesResults.Add($"Step 3 ::[FAIL]: Wait until the Source DUT issues an AUX request.But Sink Sends the reply <br> ");
             }
           
         }
+
         // step 3 validation
         public void ValidateTwoReqTiming(List<Packet> PacketList, List<string> TestCasesResults)
         {
@@ -364,14 +376,14 @@ namespace CsvFile
             //checking the time diff between is more than 400 us
             if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400)
             {
-                TestCasesResults.Add($"Step 3 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                TestCasesResults.Add($"Step 4 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                     $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                     $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
 
             }
             else
             {
-                TestCasesResults.Add($"Step 3 ::[Fail]: Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                TestCasesResults.Add($"Step 4 ::[Fail]: Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                                    $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
             }
@@ -389,7 +401,7 @@ namespace CsvFile
 
             if ((PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400)
             {
-                TestCasesResults.Add($"Step 4 ::[PASS]:  the Source DUT  issues another AUX request Reference Sink shall only respond to requests. " +
+                TestCasesResults.Add($"Step 5 ::[PASS]:  the Source DUT  issues another AUX request Reference Sink shall only respond to requests. " +
                     $"Reference Sink replies normally to this AUX request. Verify that Source DUT waits at least 400us after completion of previous request before sending the new request." +
                                    $"  {(PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {lastReqBeforeRes} <br> ");
@@ -398,7 +410,7 @@ namespace CsvFile
 
             else
             {
-                TestCasesResults.Add($"Step 4 ::[FAIL]:  the Source DUT doesn't issues another AUX request or Reference Sink shall only respond to requests. " +
+                TestCasesResults.Add($"Step 5 ::[FAIL]:  the Source DUT doesn't issues another AUX request or Reference Sink shall only respond to requests. " +
                     $"Reference Sink replies normally to this AUX request. Verify that Source DUT doesn't waits at least 400us after completion of previous request before sending the new request." +
                                    $"  {(PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {lastReqBeforeRes} <br> ");
@@ -410,12 +422,12 @@ namespace CsvFile
             int nextToFirstReq=firstReqIndex+1;
             if (PacketList[nextToFirstReq].MsgValue == MsgType.Res)
             {
-                TestCasesResults.Add($"Step 3 ::[PASS]:  the Source DUT  issues a AUX request Reference Sink replies normally to this AUX request."); 
+                TestCasesResults.Add($"Step 3 ::[PASS]:  the Source DUT  issues a AUX request Reference Sink replies normally to this AUX request.<br>"); 
                                    
             }
             else
             {
-                TestCasesResults.Add($"Step 3 ::[FAIL]:  the Source DUT  issues a AUX request Reference doesn't replies normally to this AUX request.");
+                TestCasesResults.Add($"Step 3 ::[FAIL]:  the Source DUT  issues a AUX request Reference doesn't replies normally to this AUX request.<br>");
 
             }
 
@@ -429,14 +441,14 @@ namespace CsvFile
             {
                 if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400)
                 {
-                    TestCasesResults.Add($"Step 3 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                    TestCasesResults.Add($"Step 4 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                         $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                         $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
 
                 }
                 else
                 {
-                    TestCasesResults.Add($"Step 3 ::[Fail]: Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                    TestCasesResults.Add($"Step 4 ::[Fail]: Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                                        $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                        $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
                 }

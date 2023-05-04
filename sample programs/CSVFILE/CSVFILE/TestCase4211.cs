@@ -51,26 +51,28 @@ namespace CsvFile
                     helperObj.ValHPDTimeDiff(PacketList,TestCasesResults4211);
 
                     //for validating step 2
-
-                    helperObj.ValTwoReqContinuos(PacketList, TestCasesResults4211);
+                    helperObj.SinkAsserts(PacketList, TestCasesResults4211);
 
                     //for validating step 3
-
-                    helperObj.ValidateTwoReqTiming(PacketList, TestCasesResults4211);
+                    helperObj.ValTwoReqContinuos(PacketList, TestCasesResults4211);
 
                     //for validating step 4
 
+                    helperObj.ValidateTwoReqTiming(PacketList, TestCasesResults4211);
+
+                    //for validating step 5
+
                     helperObj.ValFirstAndEndReq(PacketList, TestCasesResults4211);
 
-                    DateTime endTime = DateTime.Now;
-
                     helperObj.ColorChange(TestCasesResults4211);
+
+                    DateTime endTime = DateTime.Now;
 
                     TestPrintFile4211.Add("The TestCase EndTime time is : " + endTime);
 
                     // for writing on the html file
 
-                    using (StreamWriter writer = new StreamWriter("E:\\rawdata\\4211.html"))
+                    using (StreamWriter writer = new StreamWriter("E:\\Outputs\\4211.html"))
                     {
                         foreach(var line in TestCasesResults4211)
                         {
@@ -80,7 +82,7 @@ namespace CsvFile
 
                     // for writing on the text file
 
-                    using (StreamWriter writer = new StreamWriter("E:\\rawdata\\4211.txt"))
+                    using (StreamWriter writer = new StreamWriter("E:\\Outputs\\4211.txt"))
                     {
                         foreach (var line in  TestPrintFile4211)
                         {
