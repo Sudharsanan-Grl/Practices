@@ -52,15 +52,21 @@ namespace CsvFile
                     //for validating step 2
                     helperObj.SinkAsserts(PacketList, TestCasesResults4212);
 
+                    //for validating step 2
                     helperObj.ValFirstReqRes(PacketList, TestCasesResults4212);
 
+                    //for validating step 2
                     helperObj.ValSecondReqRes(PacketList, TestCasesResults4212);
 
+                    //changing pass and fail color
                     helperObj.ColorChange(TestCasesResults4212);
 
                     DateTime endTime = DateTime.Now;
 
                     TestPrintFile4212.Add("The TestCase EndTime time is : " + endTime);
+
+
+                    //writing into html file
 
                     using (StreamWriter writer = new StreamWriter("E:\\Outputs\\4212.html"))
                     {

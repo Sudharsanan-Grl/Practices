@@ -28,13 +28,13 @@ namespace CsvFile
         public List<string> TestPrintFile4211 = new List<string>();
 
         // for validating the 4.2.1.1 testcase
-        public void Verify4211(List<Packet>PacketList)
+        public void Verify4211(List<Packet> PacketList)
         {
-            for(int i = 0; i < PacketList.Count; i++)
+            for (int i = 0; i < PacketList.Count; i++)
             {
                 // checks for teststart is present or not
 
-                if (PacketList[i].CmdValue == CmdType.TestStart )
+                if (PacketList[i].CmdValue == CmdType.TestStart)
                 {
                     // for time and testcase name storing in text file
 
@@ -48,7 +48,7 @@ namespace CsvFile
 
                     //for validating step 1
 
-                    helperObj.ValHPDTimeDiff(PacketList,TestCasesResults4211);
+                    helperObj.ValHPDTimeDiff(PacketList, TestCasesResults4211);
 
                     //for validating step 2
                     helperObj.SinkAsserts(PacketList, TestCasesResults4211);
@@ -64,6 +64,8 @@ namespace CsvFile
 
                     helperObj.ValFirstAndEndReq(PacketList, TestCasesResults4211);
 
+                    //changing pass and fail color
+
                     helperObj.ColorChange(TestCasesResults4211);
 
                     DateTime endTime = DateTime.Now;
@@ -74,26 +76,26 @@ namespace CsvFile
 
                     using (StreamWriter writer = new StreamWriter("E:\\Outputs\\4211.html"))
                     {
-                        foreach(var line in TestCasesResults4211)
+                        foreach (var line in TestCasesResults4211)
                         {
                             writer.WriteLine(line);
-                        }                       
+                        }
                     }
 
                     // for writing on the text file
 
                     using (StreamWriter writer = new StreamWriter("E:\\Outputs\\4211.txt"))
                     {
-                        foreach (var line in  TestPrintFile4211)
+                        foreach (var line in TestPrintFile4211)
                         {
                             writer.WriteLine(line);
                         }
                     }
                 }
-            }       
+            }
         }
-     
- 
-       
+
+
+
     }
 }

@@ -9,20 +9,20 @@ namespace CsvFile
 
 {
     /// <summary>
-     /// This is the Driver class .
-     /// It is used for getting the parameters in the csv file and sending to the desired class.
-     /// It is also used for calling the required methods.
-   /// </summary>
-    
+    /// This is the Driver class .
+    /// It is used for getting the parameters in the csv file and sending to the desired class.
+    /// It is also used for calling the required methods.
+    /// </summary>
+
 
     public class Program
     {
         static void Main(string[] args)
         {
             List<Packet> PacketList = new List<Packet>();
-          
+
             string filePath = @"E:\inputs\4.2.1.1_pkt.csv";
-         
+
             string[] csvLines = File.ReadAllLines(filePath);
 
             if (csvLines.Length > 0)
@@ -47,15 +47,15 @@ namespace CsvFile
             HelperClass helperObj = new HelperClass();
             //  finding the index
 
-            int firstNatIndex    = helperObj.FirstNatIndex(PacketList);
-            int lastNatIndex     = helperObj.LastNatIndex(PacketList);
-            int firstI2CIndex    = helperObj.FirstI2CIndex(PacketList);
-            int lastI2CIndex     = helperObj.LastI2CIndex(PacketList);
-            int firstNatWrIndex  = helperObj.FirstNatWrIndex(PacketList);
-            int lastNatWrIndex   = helperObj.LastNatWrIndex(PacketList);
-            int firstI2CWrIndex  = helperObj.FirstI2CWrIndex(PacketList);
-            int lastI2CWrIndex   = helperObj.LastI2CWrIndex(PacketList);
-            int msgTypeOccIndex  = helperObj.ReqResOccuranceIndex(PacketList, 4, MsgType.Res);
+            int firstNatIndex = helperObj.FirstNatIndex(PacketList);
+            int lastNatIndex = helperObj.LastNatIndex(PacketList);
+            int firstI2CIndex = helperObj.FirstI2CIndex(PacketList);
+            int lastI2CIndex = helperObj.LastI2CIndex(PacketList);
+            int firstNatWrIndex = helperObj.FirstNatWrIndex(PacketList);
+            int lastNatWrIndex = helperObj.LastNatWrIndex(PacketList);
+            int firstI2CWrIndex = helperObj.FirstI2CWrIndex(PacketList);
+            int lastI2CWrIndex = helperObj.LastI2CWrIndex(PacketList);
+            int msgTypeOccIndex = helperObj.ReqResOccuranceIndex(PacketList, 4, MsgType.Res);
 
             Console.WriteLine("the first occurance of the Nat is comes with the index of " + firstNatIndex);
             Console.WriteLine("the Last  occurance of the Nat is comes with the index of " + lastNatIndex);
@@ -69,11 +69,11 @@ namespace CsvFile
 
             //  storing the first/last Nat/I2C Req/Res rd/wr Occ in the instance.
 
-            HelperInput helperInputObj = new HelperInput(MsgType.Req, CmdType.Wr, TransactType.Nat, FirstOrLast.first,8);
-            
-            int desiredIndex= helperObj.GetDesiredPacketIndex(PacketList, helperInputObj);
+            HelperInput helperInputObj = new HelperInput(MsgType.Req, CmdType.Wr, TransactType.Nat, FirstOrLast.first, 8);
 
-            Console.WriteLine("the first Nat req wr 8th occ is "+ desiredIndex);
+            int desiredIndex = helperObj.GetDesiredPacketIndex(PacketList, helperInputObj);
+
+            Console.WriteLine("the first Nat req wr 8th occ is " + desiredIndex);
 
             TestCase4211 testCase4211Obj = new TestCase4211();
 
@@ -82,7 +82,7 @@ namespace CsvFile
             testCase4211Obj.Verify4211(PacketList);
 
             List<Packet> PacketList2 = new List<Packet>();
-            string filePath2= @"E:\inputs\4.2.1.2_pkt.csv";
+            string filePath2 = @"E:\inputs\4.2.1.2_pkt.csv";
             string[] csvLines2 = File.ReadAllLines(filePath2);
 
             if (csvLines2.Length > 0)
@@ -103,7 +103,10 @@ namespace CsvFile
                     PacketList2.Add(currentPkt);
                 }
             }
-            TestCase4212 testCase4212Obj = new TestCase4212();  
+
+            TestCase4212 testCase4212Obj = new TestCase4212();
+
+            //verifying the 4.2.1.2 testcase
             testCase4212Obj.Verify4212(PacketList2);
         }
     }

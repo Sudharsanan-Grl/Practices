@@ -286,6 +286,7 @@ namespace CsvFile
             }
             return index;
         }
+        // step 1 Validation 
         public void ValHPDTimeDiff(List<Packet> PacketList, List<string> TestCasesResults)
         {
             // Hot plug detect  insert and removed index
@@ -296,7 +297,7 @@ namespace CsvFile
 
             // using HPD index checking the time diff
 
-            if ((PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3 >= 2)
+            if ((PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3 >= 2) // multiplyed by 1000 for converting milli seconds to seconds.
             {
                 TestCasesResults.Add($"Step 1 ::[PASS]: HPD Asserted and HPD Removed Time difference  Exp is atleast : 2ms Obt:" +
                 $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
@@ -309,39 +310,26 @@ namespace CsvFile
                 $"ms Start index # {HPDAssertedIndex} Stop index # {HPDRemovedIndex}<br>");
             }
 
-          
-
         }
-        // This method returns the cmdType values index for checking time
-        public int CmdIndexReturn(CmdType CmdValue, List<Packet> PacketList)
+
+
+        //step 2 validation 
+
+        public void SinkAsserts(List<Packet> PacketList, List<string> TestCasesResults)
         {
-            int index = 0;
-
-            for (int i = 0; i < PacketList.Count; i++)
+            for (int i = 1; i < PacketList.Count; i++)
             {
-                if (PacketList[i].CmdValue == CmdValue)
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
-    
-
-        //step 2 validation
-
-        public void SinkAsserts(List<Packet> PacketList,List<string> TestCasesResults)
-        {
-            for(int i = 1;i < PacketList.Count;i++)
-            {
-                if (PacketList[i].CmdValue==CmdType.HPD_Asserted)
+                //checking HPD is asserted or not
+                if (PacketList[i].CmdValue == CmdType.HPD_Asserted)
                 {
                     TestCasesResults.Add("Step 2 ::[PASS]: Reference Sink asserts HPD.<br>");
                 }
-               
+
             }
         }
+
+        //step 3 validation 4211
+
         public void ValTwoReqContinuos(List<Packet> PacketList, List<string> TestCasesResults)
         {
 
@@ -363,10 +351,10 @@ namespace CsvFile
             {
                 TestCasesResults.Add($"Step 3 ::[FAIL]: Wait until the Source DUT issues an AUX request.But Sink Sends the reply <br> ");
             }
-          
+
         }
 
-        // step 3 validation
+        // step 4 validation 4211
         public void ValidateTwoReqTiming(List<Packet> PacketList, List<string> TestCasesResults)
         {
             int firstReqIndex = FirstReq(PacketList);
@@ -374,12 +362,11 @@ namespace CsvFile
             int secondReqIndex = ReqOccurance(PacketList, 2);
 
             //checking the time diff between is more than 400 us
-            if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400)
+            if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400) // multiplyed by 100000 for converting mirco seconds to seconds.
             {
                 TestCasesResults.Add($"Step 4 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                     $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                     $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
-
             }
             else
             {
@@ -387,9 +374,9 @@ namespace CsvFile
                                    $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
             }
-          
+
         }
-        // step 4 validation
+        // step 5 validation 4211
         public void ValFirstAndEndReq(List<Packet> PacketList, List<string> TestCasesResults)
         {
 
@@ -399,47 +386,52 @@ namespace CsvFile
 
             //checking the first req and req before res time diff between is more than 400 us
 
-            if ((PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400)
+            if ((PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400) // multiplyed by 100000 for converting mirco seconds to seconds.
             {
                 TestCasesResults.Add($"Step 5 ::[PASS]:  the Source DUT  issues another AUX request Reference Sink shall only respond to requests. " +
-                    $"Reference Sink replies normally to this AUX request. Verify that Source DUT waits at least 400us after completion of previous request before sending the new request." +
+                 $"Reference Sink replies normally to this AUX request. Verify that Source DUT waits at least 400us after completion of previous request before sending the new request." +
                                    $"  {(PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {lastReqBeforeRes} <br> ");
             }
-
-
             else
             {
                 TestCasesResults.Add($"Step 5 ::[FAIL]:  the Source DUT doesn't issues another AUX request or Reference Sink shall only respond to requests. " +
-                    $"Reference Sink replies normally to this AUX request. Verify that Source DUT doesn't waits at least 400us after completion of previous request before sending the new request." +
-                                   $"  {(PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
-                                   $"    Start Index #  {firstReqIndex} End Index # {lastReqBeforeRes} <br> ");
+              $"Reference Sink replies normally to this AUX request. Verify that Source DUT doesn't waits at least 400us after completion of previous request before sending the new request." +
+                                $"  {(PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
+                                $"    Start Index #  {firstReqIndex} End Index # {lastReqBeforeRes} <br> ");
             }
         }
-        public void ValFirstReqRes(List<Packet>PacketList, List<string> TestCasesResults)
+
+        // step 3 validation 4212
+        public void ValFirstReqRes(List<Packet> PacketList, List<string> TestCasesResults)
         {
-            int firstReqIndex=FirstReq(PacketList);
-            int nextToFirstReq=firstReqIndex+1;
+            int firstReqIndex = FirstReq(PacketList);
+            int nextToFirstReq = firstReqIndex + 1;
+
+            //checking next to the first is a res
             if (PacketList[nextToFirstReq].MsgValue == MsgType.Res)
             {
-                TestCasesResults.Add($"Step 3 ::[PASS]:  the Source DUT  issues a AUX request Reference Sink replies normally to this AUX request.<br>"); 
-                                   
+                TestCasesResults.Add($"Step 3 ::[PASS]:  the Source DUT  issues a AUX request Reference Sink replies normally to this AUX request.<br>");
             }
             else
             {
                 TestCasesResults.Add($"Step 3 ::[FAIL]:  the Source DUT  issues a AUX request Reference doesn't replies normally to this AUX request.<br>");
-
             }
 
         }
+
+        // step 4 validation 4212
         public void ValSecondReqRes(List<Packet> PacketList, List<string> TestCasesResults)
         {
             int firstReqIndex = FirstReq(PacketList);
             int nextToFirstReq = firstReqIndex + 1;
             int secondReqIndex = ReqOccurance(PacketList, 2);
+
+            //checking next to the first is a res
             if (PacketList[nextToFirstReq].MsgValue == MsgType.Res)
             {
-                if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400)
+                //checking the time diff btw first and next req is 400 us
+                if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400) // multiplyed by 100000 for converting mirco seconds to seconds.
                 {
                     TestCasesResults.Add($"Step 4 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                         $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
@@ -461,7 +453,21 @@ namespace CsvFile
 
         }
 
-        
+        // This method returns the cmdType values index for checking time
+        public int CmdIndexReturn(CmdType CmdValue, List<Packet> PacketList)
+        {
+            int index = 0;
+
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].CmdValue == CmdValue)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
 
         //finding the first req index method
         public int FirstReq(List<Packet> PacketList)
@@ -478,11 +484,13 @@ namespace CsvFile
             }
             return index;
         }
+
         //finding the  req Occurance index method
         public int ReqOccurance(List<Packet> PacketList, int occurance)
         {
             int index = 0;
             int times = 0;
+
             for (int i = 0; i < PacketList.Count; i++)
             {
                 if (PacketList[i].MsgValue == MsgType.Req)
@@ -497,6 +505,7 @@ namespace CsvFile
             }
             return index;
         }
+
         //finding the  req index before the first responce  method
         public int LastReqIndexBeforeRes(List<Packet> PacketList)
         {
@@ -514,6 +523,7 @@ namespace CsvFile
             }
             return index;
         }
+
         // colour change method
         public void ColorChange(List<string> TestCasesResults)
         {

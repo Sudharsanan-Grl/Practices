@@ -29,7 +29,7 @@ namespace CsvFile
             Res
         }
         public enum CmdType
-        {          
+        {
             Wr,
             Rd,
             ACK_A,
@@ -59,39 +59,39 @@ namespace CsvFile
 
         // creating a string 
         public string PayloadData;
-       
+
         HelperClass helperObj = new HelperClass();
 
 
         // storing the converted datatypes .
         public void ToTimeStamp(string timeStampstring)
-        {     
+        {
             TimeStamp = helperObj.TimeStampMethod(timeStampstring, TimeStamp);
         }
         public void ToMsgType(string msgTypeString)
         {
             MsgValue = (MsgType)helperObj.EnumConverterMethod(msgTypeString, MsgValue);
-        
-        }    
+
+        }
         public void ToTransactType(string transactString)
         {
-            TransactValue = (TransactType)helperObj.EnumConverterMethod(transactString, TransactValue);        
+            TransactValue = (TransactType)helperObj.EnumConverterMethod(transactString, TransactValue);
         }
         public void ToCmdType(string stringValue)
         {
-            CmdValue= (CmdType)helperObj.EnumConverterMethod(stringValue, CmdValue);
-        }           
+            CmdValue = (CmdType)helperObj.EnumConverterMethod(stringValue, CmdValue);
+        }
         public void ToAddressList(string stringAddress)
         {
-           Address  = helperObj.AddressMethod(stringAddress, Address);     
-        }       
+            Address = helperObj.AddressMethod(stringAddress, Address);
+        }
         public void ToDataLength(string dataLengthString)
         {
-            DataLength=helperObj.DataLengthMethod(dataLengthString, DataLength);
-        }      
+            DataLength = helperObj.DataLengthMethod(dataLengthString, DataLength);
+        }
         public void ToPayloadData(string payloadDataString)
         {
             PayloadData = payloadDataString;
-        }                   
+        }
     }
 }
