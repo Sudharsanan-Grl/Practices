@@ -52,10 +52,10 @@ namespace CsvFile
                     //for validating step 2
                     helperObj.SinkAsserts(PacketList, TestCasesResults4212);
 
-                    //for validating step 2
+                    //for validating step 3
                     helperObj.ValFirstReqRes(PacketList, TestCasesResults4212);
 
-                    //for validating step 2
+                    //for validating step 4
                     helperObj.ValSecondReqRes(PacketList, TestCasesResults4212);
 
                     //changing pass and fail color

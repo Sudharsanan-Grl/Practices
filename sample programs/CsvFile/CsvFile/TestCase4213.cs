@@ -61,7 +61,6 @@ namespace CsvFile
 
                     TestPrintFile4213.Add("The TestCase EndTime time is : " + endTime);
 
-
                     //writing into html file
 
                     using (StreamWriter writer = new StreamWriter("E:\\Outputs\\4213.html"))
