@@ -29,7 +29,7 @@ namespace CsvFile
 
         // for validating the 4.2.1.3 testcase
 
-        public void Verify4212(List<Packet> PacketList)
+        public void Verify4213(List<Packet> PacketList)
         {
             for (int i = 0; i < PacketList.Count; i++)
             {
@@ -49,10 +49,14 @@ namespace CsvFile
 
                     //for validating step 1
 
-                    helperObj.ValHPDTimeDiff(PacketList, TestCasesResults4213);
+                    helperObj.ValHPDTimeDiffExtraPulse(PacketList, TestCasesResults4213);
 
                     //for validating step 2
-                    helperObj.SinkAsserts(PacketList, TestCasesResults4213);  
+                    helperObj.SinkAsserts(PacketList, TestCasesResults4213);
+
+                    //for validating step 3
+                    helperObj.LinkStartWithin5Sec(PacketList, TestCasesResults4213);
+                    
 
                     //changing pass and fail color
                     helperObj.ColorChange(TestCasesResults4213);
@@ -80,6 +84,7 @@ namespace CsvFile
                             writer.WriteLine(line);
                         }
                     }
+                    break;
                 }
             }
         }

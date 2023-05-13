@@ -311,6 +311,31 @@ namespace CsvFile
             }
 
         }
+        //step 1 validation 4213
+        public void ValHPDTimeDiffExtraPulse(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            // Hot plug detect  insert and removed index
+
+            int HPDAssertedIndex = CmdIndexReturn(CmdType.HPD_Asserted, PacketList);
+
+            int HPDRemovedIndex = CmdIndexReturn(CmdType.HPD_Removed, PacketList);
+
+            // using HPD index checking the time diff
+
+            if ((PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3 >= 1024) // multiplyed by 1000 for converting milli seconds to seconds.
+            {
+                TestCasesResults.Add($"Step 1 ::[PASS]: HPD Asserted and HPD Removed Time difference  Exp is atleast : 1024ms Obt:" +
+                $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
+                $"ms Start index # {HPDAssertedIndex} " + $"Stop index # {HPDRemovedIndex}<br>");
+            }
+            else
+            {
+                TestCasesResults.Add($"Step 1 ::[FAIL]: HPD Asserted and HPD Removed " + $"Time difference  Exp is atleast : 1024ms Obt:" +
+                $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
+                $"ms Start index # {HPDAssertedIndex} Stop index # {HPDRemovedIndex}<br>");
+            }
+
+        }
 
 
         //step 2 validation 
@@ -323,6 +348,7 @@ namespace CsvFile
                 if (PacketList[i].CmdValue == CmdType.HPD_Asserted)
                 {
                     TestCasesResults.Add("Step 2 ::[PASS]: Reference Sink asserts HPD.<br>");
+                    break;
                 }
 
             }
@@ -457,14 +483,16 @@ namespace CsvFile
         public void LinkStartWithin5Sec(List<Packet> PacketList, List<string> TestCasesResults)
         {
             int HPDAssertedIndex = CmdIndexReturn(CmdType.HPD_Asserted, PacketList);
+
             int TPS_StartIndex = TrainingPatternStartIndex(PacketList, 1);
+
             if (PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
             {
-                TestCasesResults.Add("step 3 ::[PASS]:Reference Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET");
+                TestCasesResults.Add("Step 3 ::[PASS]:Reference Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET");
             }
             else
             {
-                TestCasesResults.Add("step 3 ::[FAIL]:Reference doesn't waits 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET");
+                TestCasesResults.Add("Step 3 ::[FAIL]:ReferenceSink doesn't waits 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET");
             }
         }
 
@@ -476,18 +504,28 @@ namespace CsvFile
 
             for(int i = 0;i<PacketList.Count;i++)
             {
-                
-                string check = PacketList[i].PayloadData;
-                string finalCheck = check.Substring(0,24);
-                 
-                if(finalCheck == "TRAINING_PATTERN_SET : 21")
+                //  if (PacketList[i].PayloadData.Length > 100)
+                // Console.WriteLine(PacketList[i].PayloadData);
+            
+
+                if (PacketList[i].PayloadData.Length > 25)
                 {
-                    times++;
-                    if (occurance == times)
+                    string check = PacketList[i].PayloadData;
+                    string finalCheck = check.Substring(0, 25);
+         
+
+                    if (finalCheck == "TRAINING_PATTERN_SET : 21")
                     {
-                        break;
+                        times++;
+
+                        if (occurance == times)
+                        {
+                            index = i;
+                            break;
+                        }
                     }
                 }
+                
             }
 
             return index;

@@ -32,6 +32,7 @@ namespace CsvFile
         {
             Wr,
             Rd,
+            None,
             ACK_A,
             ACK_I,
             DMA_Config,

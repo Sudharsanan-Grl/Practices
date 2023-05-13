@@ -108,6 +108,35 @@ namespace CsvFile
 
             //verifying the 4.2.1.2 testcase
             testCase4212Obj.Verify4212(PacketList2);
+
+
+            List<Packet> PacketList3= new List<Packet>();
+            string filePath3 = @"E:\inputs\4.2.1.3_pkt.csv";
+            string[] csvLines3 = File.ReadAllLines(filePath3);
+
+            if (csvLines3.Length > 0)
+            {
+                //  spliting each parameter and sending to the packet class.
+
+                for (int i = 1; i < csvLines3.Length; i++)
+                {
+                    Packet currentPkt = new Packet();
+                    string[] row = csvLines3[i].Split(',');
+                    currentPkt.ToTimeStamp(row[1]);
+                    currentPkt.ToMsgType(row[3]);
+                    currentPkt.ToTransactType(row[4]);
+                    currentPkt.ToCmdType(row[5]);
+                    currentPkt.ToAddressList(row[6]);
+                    currentPkt.ToDataLength(row[7]);
+                    currentPkt.ToPayloadData(row[9]);
+                    PacketList3.Add(currentPkt);
+                }
+            }
+
+            TestCase4213 testCase4213Obj = new TestCase4213();
+
+            //verifying the 4.2.1.3 testcase
+            testCase4213Obj.Verify4213(PacketList3);
         }
     }
 }
