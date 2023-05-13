@@ -499,6 +499,7 @@ namespace CsvFile
                    $" Start Index #  {HPDAssertedIndex} End Index # {TPS_StartIndex} <br> ");
             }
         }
+        //step 4 validation 4213
         public void LinkFinishedin5Sec(List<Packet> PacketList, List<string> TestCasesResults)
         {
             int HPDAssertedIndex = CmdIndexReturn(CmdType.HPD_Asserted, PacketList);
@@ -519,6 +520,7 @@ namespace CsvFile
                     $"Start Index #  {HPDAssertedIndex} End Index # {TPS_EndIndex} <br> ");
             }
         }
+        // to find TPS start index
 
         public int TrainingPatternStartIndex(List<Packet> PacketList, int occurance)
         {
@@ -528,15 +530,10 @@ namespace CsvFile
 
             for (int i = 0; i < PacketList.Count; i++)
             {
-                //  if (PacketList[i].PayloadData.Length > 100)
-                // Console.WriteLine(PacketList[i].PayloadData);
-
-
                 if (PacketList[i].PayloadData.Length > 25)
                 {
                     string check = PacketList[i].PayloadData;
                     string finalCheck = check.Substring(0, 25);
-
 
                     if (finalCheck == "TRAINING_PATTERN_SET : 21")
                     {
@@ -551,10 +548,9 @@ namespace CsvFile
                 }
 
             }
-
-
             return index;
         }
+        // to find TPS end index
         public int TrainingPatternEndIndex(List<Packet> PacketList, int occurance)
         {
 
@@ -579,10 +575,7 @@ namespace CsvFile
                         }
                     }
                 }
-
             }
-
-
             return index;
         }
 
