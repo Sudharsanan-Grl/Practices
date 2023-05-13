@@ -488,11 +488,15 @@ namespace CsvFile
 
             if (PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
             {
-                TestCasesResults.Add("Step 3 ::[PASS]: Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET<br>");
+                TestCasesResults.Add($"Step 3 ::[PASS]: Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
+                    $" {(PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)}sec" +
+                   $"    Start Index #  {HPDAssertedIndex} End Index # {TPS_StartIndex} <br> ");
             }
             else
             {
-                TestCasesResults.Add("Step 3 ::[FAIL]: Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET<br>");
+                TestCasesResults.Add($"Step 3 ::[FAIL]: Sink doesn't wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
+                     $" {(PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)}sec" +
+                   $" Start Index #  {HPDAssertedIndex} End Index # {TPS_StartIndex} <br> ");
             }
         }
         public void LinkFinishedin5Sec(List<Packet> PacketList, List<string> TestCasesResults)
@@ -503,12 +507,16 @@ namespace CsvFile
 
             if (PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
             {
-                TestCasesResults.Add("Step 3 ::[PASS]:Sink wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET<br>");
+                TestCasesResults.Add($"Step 4 ::[PASS]: Sink wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is  " +
+                    $"{(PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp) } " +
+                    $"Start Index #  {HPDAssertedIndex} End Index # {TPS_EndIndex} <br> ");
 
             }
             else
             {
-                TestCasesResults.Add("Step 3 ::[FAIL]:Sink doesn't wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET<br>");
+                TestCasesResults.Add($"Step 4 ::[FAIL]: Sink doesn't wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
+                    $"{(PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)} " +
+                    $"Start Index #  {HPDAssertedIndex} End Index # {TPS_EndIndex} <br> ");
             }
         }
 
@@ -555,17 +563,12 @@ namespace CsvFile
 
             for (int i = 0; i < PacketList.Count; i++)
             {
-                //  if (PacketList[i].PayloadData.Length > 100)
-                
-
-
                 if (PacketList[i].PayloadData.Length > 25)
                 {
                     string check = PacketList[i].PayloadData;
-                    string finalCheck = check.Substring(0, 25);
+                    string finalCheck = check.Substring(0, 24);
 
-                    Console.WriteLine(i+finalCheck);
-                    if (finalCheck == "TRAINING_PATTERN_SET : 0:")
+                    if (finalCheck == "TRAINING_PATTERN_SET : 0")
                     {
                         times++;
 
