@@ -556,7 +556,7 @@ namespace CsvFile
             for (int i = 0; i < PacketList.Count; i++)
             {
                 //  if (PacketList[i].PayloadData.Length > 100)
-                // Console.WriteLine(PacketList[i].PayloadData);
+                
 
 
                 if (PacketList[i].PayloadData.Length > 25)
@@ -564,8 +564,8 @@ namespace CsvFile
                     string check = PacketList[i].PayloadData;
                     string finalCheck = check.Substring(0, 25);
 
-
-                    if (finalCheck == "TRAINING_PATTERN_SET : 0 ")
+                    Console.WriteLine(i+finalCheck);
+                    if (finalCheck == "TRAINING_PATTERN_SET : 0:")
                     {
                         times++;
 
