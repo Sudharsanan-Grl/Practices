@@ -56,7 +56,9 @@ namespace CsvFile
 
                     //for validating step 3
                     helperObj.LinkStartWithin5Sec(PacketList, TestCasesResults4213);
-                    
+
+                    //for validating step 3
+                    helperObj.LinkFinishedin5Sec(PacketList, TestCasesResults4213);
 
                     //changing pass and fail color
                     helperObj.ColorChange(TestCasesResults4213);

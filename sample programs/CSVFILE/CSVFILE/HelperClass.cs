@@ -488,31 +488,47 @@ namespace CsvFile
 
             if (PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
             {
-                TestCasesResults.Add("Step 3 ::[PASS]:Reference Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET");
+                TestCasesResults.Add("Step 3 ::[PASS]: Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET<br>");
             }
             else
             {
-                TestCasesResults.Add("Step 3 ::[FAIL]:ReferenceSink doesn't waits 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET");
+                TestCasesResults.Add("Step 3 ::[FAIL]: Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET<br>");
+            }
+        }
+        public void LinkFinishedin5Sec(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            int HPDAssertedIndex = CmdIndexReturn(CmdType.HPD_Asserted, PacketList);
+
+            int TPS_EndIndex = TrainingPatternEndIndex(PacketList, 1);
+
+            if (PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
+            {
+                TestCasesResults.Add("Step 3 ::[PASS]:Sink wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET<br>");
+
+            }
+            else
+            {
+                TestCasesResults.Add("Step 3 ::[FAIL]:Sink doesn't wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET<br>");
             }
         }
 
-        public int TrainingPatternStartIndex(List<Packet> PacketList,int occurance)
+        public int TrainingPatternStartIndex(List<Packet> PacketList, int occurance)
         {
-         
+
             int index = 0;
             int times = 0;
 
-            for(int i = 0;i<PacketList.Count;i++)
+            for (int i = 0; i < PacketList.Count; i++)
             {
                 //  if (PacketList[i].PayloadData.Length > 100)
                 // Console.WriteLine(PacketList[i].PayloadData);
-            
+
 
                 if (PacketList[i].PayloadData.Length > 25)
                 {
                     string check = PacketList[i].PayloadData;
                     string finalCheck = check.Substring(0, 25);
-         
+
 
                     if (finalCheck == "TRAINING_PATTERN_SET : 21")
                     {
@@ -525,11 +541,48 @@ namespace CsvFile
                         }
                     }
                 }
-                
+
             }
+
 
             return index;
         }
+        public int TrainingPatternEndIndex(List<Packet> PacketList, int occurance)
+        {
+
+            int index = 0;
+            int times = 0;
+
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                //  if (PacketList[i].PayloadData.Length > 100)
+                // Console.WriteLine(PacketList[i].PayloadData);
+
+
+                if (PacketList[i].PayloadData.Length > 25)
+                {
+                    string check = PacketList[i].PayloadData;
+                    string finalCheck = check.Substring(0, 25);
+
+
+                    if (finalCheck == "TRAINING_PATTERN_SET : 0 ")
+                    {
+                        times++;
+
+                        if (occurance == times)
+                        {
+                            index = i;
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+
+            return index;
+        }
+
 
         // This method returns the cmdType values index for checking time
         public int CmdIndexReturn(CmdType CmdValue, List<Packet> PacketList)
