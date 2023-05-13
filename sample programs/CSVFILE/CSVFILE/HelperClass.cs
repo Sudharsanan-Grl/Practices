@@ -457,6 +457,15 @@ namespace CsvFile
         public void LinkStartWithin5Sec(List<Packet> PacketList, List<string> TestCasesResults)
         {
             int HPDAssertedIndex = CmdIndexReturn(CmdType.HPD_Asserted, PacketList);
+            int TPS_StartIndex = TrainingPatternStartIndex(PacketList, 1);
+            if (PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
+            {
+                TestCasesResults.Add("step 3 ::[PASS]:Reference Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET");
+            }
+            else
+            {
+                TestCasesResults.Add("step 3 ::[FAIL]:Reference doesn't waits 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET");
+            }
         }
 
         public int TrainingPatternStartIndex(List<Packet> PacketList,int occurance)
