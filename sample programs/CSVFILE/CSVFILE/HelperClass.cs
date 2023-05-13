@@ -452,6 +452,37 @@ namespace CsvFile
             }
 
         }
+        //step 3 validation 4213
+
+        public void LinkStartWithin5Sec(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            int HPDAssertedIndex = CmdIndexReturn(CmdType.HPD_Asserted, PacketList);
+        }
+
+        public int TrainingPatternStartIndex(List<Packet> PacketList,int occurance)
+        {
+         
+            int index = 0;
+            int times = 0;
+
+            for(int i = 0;i<PacketList.Count;i++)
+            {
+                
+                string check = PacketList[i].PayloadData;
+                string finalCheck = check.Substring(0,24);
+                 
+                if(finalCheck == "TRAINING_PATTERN_SET : 21")
+                {
+                    times++;
+                    if (occurance == times)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return index;
+        }
 
         // This method returns the cmdType values index for checking time
         public int CmdIndexReturn(CmdType CmdValue, List<Packet> PacketList)
