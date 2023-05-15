@@ -560,6 +560,23 @@ namespace CsvFile
              
             }
         }
+
+        public void ReadDPCDAddress(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            for(int i=0;i<PacketList.Count;i++)
+            {
+                string check = PacketList[i].PayloadData;
+                Console.WriteLine(i+check);
+                if (check.Contains("200"))
+                {
+
+                }
+
+
+
+            }
+
+        }
         // to find TPS start index
 
         public int TrainingPatternStartIndex(List<Packet> PacketList, int occurance)
