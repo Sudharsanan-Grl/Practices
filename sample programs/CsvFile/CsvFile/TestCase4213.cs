@@ -14,7 +14,7 @@ namespace CsvFile
 {
     /// <summary>
     /// This is the Testcase validation class.
-    /// This class used for validation of testcase 4.2.1.2
+    /// This class used for validation of testcase 4.2.1.3
     /// The results are stored in the html file.
     /// The timings and testcase names are stored in the text file.
     /// </summary>
@@ -41,7 +41,7 @@ namespace CsvFile
 
                     DateTime startTime = DateTime.Now;
 
-                    TestPrintFile4213.Add("TestCase ID : TD_4_2_1_2");
+                    TestPrintFile4213.Add("TestCase ID : TD_4_2_1_3");
 
                     TestPrintFile4213.Add("TestCase Name : TD_4_2_1_3 Source Device HPD Event Pulse Length Test");
                         
@@ -57,7 +57,7 @@ namespace CsvFile
                     //for validating step 3
                     helperObj.LinkStartWithin5Sec(PacketList, TestCasesResults4213);
 
-                    //for validating step 3
+                    //for validating step 4
                     helperObj.LinkFinishedin5Sec(PacketList, TestCasesResults4213);
 
                     //changing pass and fail color

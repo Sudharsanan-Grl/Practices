@@ -43,6 +43,8 @@ namespace CsvFile
             EqualizationTestPatternDetected,
             EqualizationSuccess,
             HPD_Removed,
+            HPD_IRQ,
+            HPD_Glitch,
             HPD_Asserted
         }
 

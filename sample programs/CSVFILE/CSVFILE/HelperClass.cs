@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using static CsvFile.Packet;
 using static CsvFile.HelperInput;
 using static CsvFile.TestCase4211;
+using Microsoft.VisualBasic.FileIO;
+
 namespace CsvFile
 {
 
@@ -350,7 +352,11 @@ namespace CsvFile
                     TestCasesResults.Add("Step 2 ::[PASS]: Reference Sink asserts HPD.<br>");
                     break;
                 }
-
+                else
+                {
+                    TestCasesResults.Add("Step 2 ::[FAIL]: Reference  Sink doesn't asserts HPD.<br>");
+                    break;
+                }
             }
         }
 
@@ -520,6 +526,25 @@ namespace CsvFile
                     $"Start Index #  {HPDAssertedIndex} End Index # {TPS_EndIndex} <br> ");
             }
         }
+        //step 4 validation 
+        public void SinkTogglesHPD_IRQ(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            //checking whether sink toggles IRQ HPD or not
+            for(int i=0; i<PacketList.Count;i++)
+            {
+     
+                if(PacketList[i].CmdValue == CmdType.HPD_IRQ)
+                {
+                    TestCasesResults.Add("Step 4 ::[PASS]: Reference Sink toggles IRQ_HPD for IRQ_HPD pulse length option<br>") ;
+                    break;
+                }
+                else
+                {
+                    TestCasesResults.Add("Step 4 ::[FAIL]: Reference Sink doesn't toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
+                    break;
+                }
+            }
+        }
         // to find TPS start index
 
         public int TrainingPatternStartIndex(List<Packet> PacketList, int occurance)
@@ -531,7 +556,8 @@ namespace CsvFile
             for (int i = 0; i < PacketList.Count; i++)
             {
                 if (PacketList[i].PayloadData.Length > 25)
-                {
+                {                
+                    //cutting a required string from whole string
                     string check = PacketList[i].PayloadData;
                     string finalCheck = check.Substring(0, 25);
 
@@ -561,6 +587,7 @@ namespace CsvFile
             {
                 if (PacketList[i].PayloadData.Length > 25)
                 {
+                    //cutting a required string from whole string
                     string check = PacketList[i].PayloadData;
                     string finalCheck = check.Substring(0, 24);
 
