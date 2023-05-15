@@ -344,21 +344,29 @@ namespace CsvFile
 
         public void SinkAsserts(List<Packet> PacketList, List<string> TestCasesResults)
         {
-            for (int i = 1; i < PacketList.Count; i++)
+            int count = 0;
+            for (int i = 0; i < PacketList.Count; i++)
             {
-                //checking HPD is asserted or not
+
                 if (PacketList[i].CmdValue == CmdType.HPD_Asserted)
                 {
-                    TestCasesResults.Add("Step 2 ::[PASS]: Reference Sink asserts HPD.<br>");
-                    break;
-                }
-                else
-                {
-                    TestCasesResults.Add("Step 2 ::[FAIL]: Reference  Sink doesn't asserts HPD.<br>");
-                    break;
+                    count++;
+
                 }
             }
+
+            if (count > 0)
+            {
+                TestCasesResults.Add("Step 2 ::[PASS]: Reference Sink asserts HPD<br>");
+
+            }
+            else
+            {
+                TestCasesResults.Add("Step 2 ::[FAIL]: Reference Sink doesn't asserts HPD<br>");
+
+            }
         }
+        
 
         //step 3 validation 4211
 
@@ -530,19 +538,26 @@ namespace CsvFile
         public void SinkTogglesHPD_IRQ(List<Packet> PacketList, List<string> TestCasesResults)
         {
             //checking whether sink toggles IRQ HPD or not
-            for(int i=0; i<PacketList.Count;i++)
+            int count = 0;
+            for (int i=0; i<PacketList.Count;i++)
             {
-     
-                if(PacketList[i].CmdValue == CmdType.HPD_IRQ)
+             
+                if (PacketList[i].CmdValue == CmdType.HPD_IRQ)
                 {
-                    TestCasesResults.Add("Step 4 ::[PASS]: Reference Sink toggles IRQ_HPD for IRQ_HPD pulse length option<br>") ;
-                    break;
+                    count++;
+
                 }
-                else
-                {
-                    TestCasesResults.Add("Step 4 ::[FAIL]: Reference Sink doesn't toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
-                    break;
-                }
+            }
+
+            if (count > 0)
+            {
+                TestCasesResults.Add("Step 4 ::[PASS]: Reference Sink toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
+              
+            }
+            else
+            {
+                TestCasesResults.Add("Step 4 ::[FAIL]: Reference Sink doesn't toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
+             
             }
         }
         // to find TPS start index
