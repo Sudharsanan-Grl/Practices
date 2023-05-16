@@ -366,7 +366,7 @@ namespace CsvFile
 
             }
         }
-        
+
 
         //step 3 validation 4211
 
@@ -523,7 +523,7 @@ namespace CsvFile
             if (PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
             {
                 TestCasesResults.Add($"Step 4 ::[PASS]: Sink wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is  " +
-                    $"{(PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp) } " +
+                    $"{(PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)} " +
                     $"Start Index #  {HPDAssertedIndex} End Index # {TPS_EndIndex} <br> ");
 
             }
@@ -539,37 +539,40 @@ namespace CsvFile
         {
             //checking whether sink toggles IRQ HPD or not
             int count = 0;
-            for (int i=0; i<PacketList.Count;i++)
+            for (int i = 0; i < PacketList.Count; i++)
             {
-             
+
                 if (PacketList[i].CmdValue == CmdType.HPD_IRQ)
                 {
                     count++;
-
                 }
             }
 
             if (count > 0)
             {
                 TestCasesResults.Add("Step 4 ::[PASS]: Reference Sink toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
-              
+
             }
             else
             {
                 TestCasesResults.Add("Step 4 ::[FAIL]: Reference Sink doesn't toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
-             
+
             }
         }
 
+        //for reading DPCD addresses
         public void ReadDPCDAddress(List<Packet> PacketList, List<string> TestCasesResults)
         {
-            int IRQ_HPD_Index= FindIRQ_HPDIndex(PacketList, 1);
+            //finding IRQ index
+            int IRQ_HPD_Index = FindIRQ_HPDIndex(PacketList, 1);
             int nextIRQ_HPD_Index = IRQ_HPD_Index + 1;
 
             for (int i = 0; i < PacketList.Count; i++)
-            {            
-
-                if (PacketList[nextIRQ_HPD_Index].Address == 512 && PacketList[nextIRQ_HPD_Index].DataLength == 6)//0X200 address is converted from hex to dec  0X200 => 512
+            {
+                //checking whether started from 0X200h (hex) which can converted into 512 (decimal) and also checks datalength will be 6 because it is also reads 5 addresses extra
+                if (PacketList[nextIRQ_HPD_Index].Address == 512 && PacketList[nextIRQ_HPD_Index].DataLength == 6 ||//0X200 address is converted from hex to dec  0X200 => 512
+                    PacketList[nextIRQ_HPD_Index].Address == 8194 && PacketList[nextIRQ_HPD_Index].DataLength == 6 ||//0X2002 address is converted from hex to dec  0X200C => 8194
+                    PacketList[nextIRQ_HPD_Index].Address == 8204 && PacketList[nextIRQ_HPD_Index].DataLength == 6)//0X200 address is converted from hex to dec  0X200 => 8204
                 {
                     TestCasesResults.Add("Step 5(a) ::[PASS]: Source DUT read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
                     break;
@@ -581,13 +584,17 @@ namespace CsvFile
                 }
             }
         }
+        //Checking link status read started within  100 ms
         public void LinkStatusRead(List<Packet> PacketList, List<string> TestCasesResults)
         {
+            // findinf HPD IRQ index
             int IRQ_HPD_Index = FindIRQ_HPDIndex(PacketList, 1);
             int nextIRQ_HPD_Index = IRQ_HPD_Index + 1;
+
+            // checking next value of HPD IRQ is a AUX transaction
             if (PacketList[nextIRQ_HPD_Index].TransactValue == TransactType.Nat || PacketList[nextIRQ_HPD_Index].TransactValue == TransactType.I2C)
             {
-                if ((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) *1e3 < 100)
+                if ((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) * 1e3 < 100)
                 {
                     TestCasesResults.Add("Step 5(b) ::[PASS]: : Link Status Read started within 100ms Expt time diff <=100 ms Obt time diff is" +
                    $" {((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) * 1e3)}ms " +
@@ -596,34 +603,35 @@ namespace CsvFile
                 else
                 {
                     TestCasesResults.Add("Step 5(b) ::[FAIL]: : Link Status Read doesn't started within 100ms Expt time diff <=100 ms Obt time diff is" +
-                   $" {((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp )* 1e3)}ms " +
+                   $" {((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) * 1e3)}ms " +
                    $"Start Index #  {IRQ_HPD_Index} End Index # {nextIRQ_HPD_Index} <br> ");
                 }
             }
 
         }
-        // to find TPS start index
+        // to find IRQ HPD index
         public int FindIRQ_HPDIndex(List<Packet> PacketList, int occurance)
         {
             int index = 0;
             int times = 0;
-            for(int i =0; index<PacketList.Count;i++)
+            for (int i = 0; index < PacketList.Count; i++)
             {
-                if(PacketList[i].CmdValue == CmdType.HPD_IRQ)
+                if (PacketList[i].CmdValue == CmdType.HPD_IRQ)
                 {
                     times++;
-                    if(times==occurance)
+                    if (times == occurance)
                     {
                         index = i;
                         break;
 
                     }
-                    
+
                 }
-                
+
             }
             return index;
         }
+        //finding the index of TPS start 
         public int TrainingPatternStartIndex(List<Packet> PacketList, int occurance)
         {
 
@@ -633,7 +641,7 @@ namespace CsvFile
             for (int i = 0; i < PacketList.Count; i++)
             {
                 if (PacketList[i].PayloadData.Length > 25)
-                {                
+                {
                     //cutting a required string from whole string
                     string check = PacketList[i].PayloadData;
                     string finalCheck = check.Substring(0, 25);
