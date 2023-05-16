@@ -563,22 +563,46 @@ namespace CsvFile
 
         public void ReadDPCDAddress(List<Packet> PacketList, List<string> TestCasesResults)
         {
-            for(int i=0;i<PacketList.Count;i++)
-            {
-                string check = PacketList[i].PayloadData;
-                Console.WriteLine(i+check);
-                if (check.Contains("200"))
+            int IRQ_HPD_Index= FindIRQ_HPDIndex(PacketList, 1);
+            int nextIRQ_HPD_Index = IRQ_HPD_Index + 1;
+
+            for (int i = 0; i < PacketList.Count; i++)
+            {            
+
+                if (PacketList[nextIRQ_HPD_Index].Address == 512 && PacketList[nextIRQ_HPD_Index].DataLength == 6)//0X200 address is converted from hex to dec  0X200 => 512
                 {
-
+                    TestCasesResults.Add("Step 5 (a) ::[PASS]: Source DUT read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
+                    break;
                 }
-
-
-
+                else
+                {
+                    TestCasesResults.Add("Step 5 (a) ::[FAIL]: Source DUT doesn't read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
+                    break;
+                }
             }
-
         }
         // to find TPS start index
+        public int FindIRQ_HPDIndex(List<Packet> PacketList, int occurance)
+        {
+            int index = 0;
+            int times = 0;
+            for(int i =0; index<PacketList.Count;i++)
+            {
+                if(PacketList[i].CmdValue == CmdType.HPD_IRQ)
+                {
+                    times++;
+                    if(times==occurance)
+                    {
+                        index = i;
+                        break;
 
+                    }
+                    
+                }
+                
+            }
+            return index;
+        }
         public int TrainingPatternStartIndex(List<Packet> PacketList, int occurance)
         {
 
