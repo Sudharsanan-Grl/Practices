@@ -571,15 +571,36 @@ namespace CsvFile
 
                 if (PacketList[nextIRQ_HPD_Index].Address == 512 && PacketList[nextIRQ_HPD_Index].DataLength == 6)//0X200 address is converted from hex to dec  0X200 => 512
                 {
-                    TestCasesResults.Add("Step 5 (a) ::[PASS]: Source DUT read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
+                    TestCasesResults.Add("Step 5(a) ::[PASS]: Source DUT read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
                     break;
                 }
                 else
                 {
-                    TestCasesResults.Add("Step 5 (a) ::[FAIL]: Source DUT doesn't read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
+                    TestCasesResults.Add("Step 5(a) ::[FAIL]: Source DUT doesn't read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
                     break;
                 }
             }
+        }
+        public void LinkStatusRead(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            int IRQ_HPD_Index = FindIRQ_HPDIndex(PacketList, 1);
+            int nextIRQ_HPD_Index = IRQ_HPD_Index + 1;
+            if (PacketList[nextIRQ_HPD_Index].TransactValue == TransactType.Nat || PacketList[nextIRQ_HPD_Index].TransactValue == TransactType.I2C)
+            {
+                if ((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) *1e3 < 100)
+                {
+                    TestCasesResults.Add("Step 5(b) ::[PASS]: : Link Status Read started within 100ms Expt time diff <=100 ms Obt time diff is" +
+                   $" {((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) * 1e3)}ms " +
+                   $"Start Index #  {IRQ_HPD_Index} End Index # {nextIRQ_HPD_Index} <br> ");
+                }
+                else
+                {
+                    TestCasesResults.Add("Step 5(b) ::[FAIL]: : Link Status Read doesn't started within 100ms Expt time diff <=100 ms Obt time diff is" +
+                   $" {((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp )* 1e3)}ms " +
+                   $"Start Index #  {IRQ_HPD_Index} End Index # {nextIRQ_HPD_Index} <br> ");
+                }
+            }
+
         }
         // to find TPS start index
         public int FindIRQ_HPDIndex(List<Packet> PacketList, int occurance)

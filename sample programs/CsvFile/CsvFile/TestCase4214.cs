@@ -61,7 +61,9 @@ namespace CsvFile
                     //for validating step 5
                     helperObj.ReadDPCDAddress(PacketList, TestCasesResults4214);
 
-                    
+                    //for validating step 5
+                    helperObj.LinkStatusRead(PacketList, TestCasesResults4214);
+
                     //changing pass and fail color
                     helperObj.ColorChange(TestCasesResults4214);
 
