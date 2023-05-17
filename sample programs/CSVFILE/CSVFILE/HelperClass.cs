@@ -691,9 +691,10 @@ namespace CsvFile
             return index;
         }
         //step 4 validation 4.2.1.5
+        //finding aux transaction after hpd low is greater than 3 ms
         public void SecondHPDLowWaitForNextAUX(List<Packet> PacketList, List<string> TestCasesResults)
         {
-          
+            //finding HPD low and packet index
             int secondHPDLowIndex = CmdOccuranceIndexReturn(CmdType.HPD_Removed, PacketList, 2);
 
             int nextMsgAfterSecondHPDIndex = NextMsgAfterSecondHPDLow(secondHPDLowIndex, PacketList);
@@ -712,8 +713,11 @@ namespace CsvFile
             }
 
         }
+        //step 5 validation 4.2.1.5
+        //checking theree is no AUX ttransaction between HPD Low and HPD High
         public void NoAUXTransaction(List<Packet> PacketList, List<string> TestCasesResults)
         {
+            //finding HPD low and high index
             int secondHPDLowIndex = CmdOccuranceIndexReturn(CmdType.HPD_Removed, PacketList, 2);
             int secondHPDHighIndex = CmdOccuranceIndexReturn(CmdType.HPD_Asserted, PacketList, 2);
 
