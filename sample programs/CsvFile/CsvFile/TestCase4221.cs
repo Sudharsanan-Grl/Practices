@@ -40,9 +40,7 @@ namespace CsvFile
                     helperObj.ValHPDTimeDiff(PacketList, TestCasesResults4221);
 
                     //for validating step 2
-                    helperObj.SinkAsserts(PacketList, TestCasesResults4221);
-
-                 
+                    helperObj.SinkAsserts(PacketList, TestCasesResults4221);          
 
                     //changing pass and fail color
                     helperObj.ColorChange(TestCasesResults4221);
