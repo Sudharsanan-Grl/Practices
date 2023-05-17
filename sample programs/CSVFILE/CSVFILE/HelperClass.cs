@@ -690,7 +690,83 @@ namespace CsvFile
             }
             return index;
         }
+        //step 4 validation 4.2.1.5
+        public void SecondHPDLowWaitForNextAUX(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+          
+            int secondHPDLowIndex = CmdOccuranceIndexReturn(CmdType.HPD_Removed, PacketList, 2);
 
+            int nextMsgAfterSecondHPDIndex = NextMsgAfterSecondHPDLow(secondHPDLowIndex, PacketList);
+
+            if((PacketList[nextMsgAfterSecondHPDIndex ].TimeStamp-PacketList[secondHPDLowIndex].TimeStamp)*1e3 > 3)
+            {
+                TestCasesResults.Add("Step 4 ::[PASS]: : Reference Sink sets HPD low and then waits 3 msec for any in-progress AUX transactions to be completed  Expt time diff >= 3ms Obt time diff is" +
+                    $" {((PacketList[nextMsgAfterSecondHPDIndex].TimeStamp - PacketList[secondHPDLowIndex].TimeStamp) * 1e3)}ms " +
+                    $"Start Index #  {secondHPDLowIndex} End Index # {nextMsgAfterSecondHPDIndex} <br> ");
+            }
+            else
+            {
+                TestCasesResults.Add("Step 4 ::[FAIL]: : Reference Sink sets HPD low and then doesn't waits 3 msec for any in-progress AUX transactions to be completed  Expt time diff >= 3ms Obt time diff is" +
+                  $" {((PacketList[nextMsgAfterSecondHPDIndex].TimeStamp - PacketList[secondHPDLowIndex].TimeStamp) * 1e3)}ms " +
+                  $"Start Index #  {secondHPDLowIndex} End Index # {nextMsgAfterSecondHPDIndex} <br> ");
+            }
+
+        }
+        public void NoAUXTransaction(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            int secondHPDLowIndex = CmdOccuranceIndexReturn(CmdType.HPD_Removed, PacketList, 2);
+            int secondHPDHighIndex = CmdOccuranceIndexReturn(CmdType.HPD_Asserted, PacketList, 2);
+
+            for(int i = secondHPDLowIndex;i<secondHPDHighIndex;i++)
+            {
+                if (PacketList[i].MsgValue == MsgType.Req || PacketList[i].MsgValue == MsgType.Req)
+                {
+                    TestCasesResults.Add("Step 5 ::[FAIL]: : Reference Sink doesn't holds HPD low for 1 sec while verifying that no AUX transactions are initiated by the Source DUT during this time.<br>");
+                    break;
+                }
+                else
+                {
+                    TestCasesResults.Add("Step 5 ::[PASS]: : Reference Sink holds HPD low for 1 sec while verifying that no AUX transactions are initiated by the Source DUT during this time . <br>");
+                    break;
+                }
+            }
+        }
+        public int NextMsgAfterSecondHPDLow(int secondHPDLowIndex, List<Packet> PacketList)
+        {
+            int index = 0;
+            for (int i = secondHPDLowIndex; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].MsgValue == MsgType.Req || PacketList[i].MsgValue == MsgType.Res)
+                {
+                    index = i;
+                    break;
+                }
+
+            }
+            return index;
+        }
+
+
+        // This method returns the cmdType values index for checking time
+        public int CmdOccuranceIndexReturn(CmdType CmdValue, List<Packet> PacketList,int occurance)
+        {
+            int index = 0;
+            int times = 0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].CmdValue == CmdValue)
+                {
+                    times++;
+                    if (times == occurance)
+                    {
+                        index = i;
+                        break;
+                    }
+                    
+                }
+            }
+            return index;
+        }
 
         // This method returns the cmdType values index for checking time
         public int CmdIndexReturn(CmdType CmdValue, List<Packet> PacketList)

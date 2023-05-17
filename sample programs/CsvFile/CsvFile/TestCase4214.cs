@@ -57,7 +57,7 @@ namespace CsvFile
 
                     //for validating step 4
                     helperObj.SinkTogglesHPD_IRQ(PacketList, TestCasesResults4214);
-                   
+
                     //for validating step 5
                     helperObj.ReadDPCDAddress(PacketList, TestCasesResults4214);
 
