@@ -7,9 +7,6 @@ using static CsvFile.Packet;
 
 namespace CsvFile
 {
-
-
-
     /// <summary>
     /// This is the Testcase validation class.
     /// This class used for validation of testcase 4.2.1.4

@@ -31,7 +31,6 @@ namespace CsvFile
             return timeStamp;
         }
         // converting string to enum
-
         public Enum EnumConverterMethod(string enumString, Enum enumValue)
         {
             try
@@ -336,12 +335,9 @@ namespace CsvFile
                 $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
                 $"ms Start index # {HPDAssertedIndex} Stop index # {HPDRemovedIndex}<br>");
             }
-
         }
 
-
         //step 2 validation 
-
         public void SinkAsserts(List<Packet> PacketList, List<string> TestCasesResults)
         {
             int count = 0;
@@ -366,10 +362,7 @@ namespace CsvFile
 
             }
         }
-
-
         //step 3 validation 4211
-
         public void ValTwoReqContinuos(List<Packet> PacketList, List<string> TestCasesResults)
         {
 
@@ -391,9 +384,7 @@ namespace CsvFile
             {
                 TestCasesResults.Add($"Step 3 ::[FAIL]: Wait until the Source DUT issues an AUX request.But Sink Sends the reply <br> ");
             }
-
         }
-
         // step 4 validation 4211
         public void ValidateTwoReqTiming(List<Packet> PacketList, List<string> TestCasesResults)
         {
@@ -457,9 +448,7 @@ namespace CsvFile
             {
                 TestCasesResults.Add($"Step 3 ::[FAIL]:  the Source DUT  issues a AUX request Reference doesn't replies normally to this AUX request.<br>");
             }
-
         }
-
         // step 4 validation 4212
         public void ValSecondReqRes(List<Packet> PacketList, List<string> TestCasesResults)
         {
@@ -493,7 +482,6 @@ namespace CsvFile
 
         }
         //step 3 validation 4213
-
         public void LinkStartWithin5Sec(List<Packet> PacketList, List<string> TestCasesResults)
         {
             int HPDAssertedIndex = CmdIndexReturn(CmdType.HPD_Asserted, PacketList);
@@ -503,13 +491,13 @@ namespace CsvFile
             if (PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
             {
                 TestCasesResults.Add($"Step 3 ::[PASS]: Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
-                    $" {(PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)}sec" +
-                   $"    Start Index #  {HPDAssertedIndex} End Index # {TPS_StartIndex} <br> ");
+                   $" {(PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)}sec" +
+                   $" Start Index #  {HPDAssertedIndex} End Index # {TPS_StartIndex} <br> ");
             }
             else
             {
                 TestCasesResults.Add($"Step 3 ::[FAIL]: Sink doesn't wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
-                     $" {(PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)}sec" +
+                   $" {(PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)}sec" +
                    $" Start Index #  {HPDAssertedIndex} End Index # {TPS_StartIndex} <br> ");
             }
         }
@@ -525,7 +513,6 @@ namespace CsvFile
                 TestCasesResults.Add($"Step 4 ::[PASS]: Sink wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is  " +
                     $"{(PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)} " +
                     $"Start Index #  {HPDAssertedIndex} End Index # {TPS_EndIndex} <br> ");
-
             }
             else
             {
@@ -539,6 +526,7 @@ namespace CsvFile
         {
             //checking whether sink toggles IRQ HPD or not
             int count = 0;
+
             for (int i = 0; i < PacketList.Count; i++)
             {
 
@@ -565,6 +553,7 @@ namespace CsvFile
         {
             //finding IRQ index
             int IRQ_HPD_Index = FindIRQ_HPDIndex(PacketList, 1);
+
             int nextIRQ_HPD_Index = IRQ_HPD_Index + 1;
 
             for (int i = 0; i < PacketList.Count; i++)
@@ -589,6 +578,7 @@ namespace CsvFile
         {
             // findinf HPD IRQ index
             int IRQ_HPD_Index = FindIRQ_HPDIndex(PacketList, 1);
+
             int nextIRQ_HPD_Index = IRQ_HPD_Index + 1;
 
             // checking next value of HPD IRQ is a AUX transaction
@@ -614,6 +604,7 @@ namespace CsvFile
         {
             int index = 0;
             int times = 0;
+
             for (int i = 0; index < PacketList.Count; i++)
             {
                 if (PacketList[i].CmdValue == CmdType.HPD_IRQ)
@@ -623,11 +614,8 @@ namespace CsvFile
                     {
                         index = i;
                         break;
-
                     }
-
                 }
-
             }
             return index;
         }
@@ -699,7 +687,7 @@ namespace CsvFile
 
             int nextMsgAfterSecondHPDIndex = NextMsgAfterSecondHPDLow(secondHPDLowIndex, PacketList);
 
-            if((PacketList[nextMsgAfterSecondHPDIndex ].TimeStamp-PacketList[secondHPDLowIndex].TimeStamp)*1e3 > 3)
+            if ((PacketList[nextMsgAfterSecondHPDIndex].TimeStamp - PacketList[secondHPDLowIndex].TimeStamp) * 1e3 > 3)
             {
                 TestCasesResults.Add("Step 4 ::[PASS]: : Reference Sink sets HPD low and then waits 3 msec for any in-progress AUX transactions to be completed  Expt time diff >= 3ms Obt time diff is" +
                     $" {((PacketList[nextMsgAfterSecondHPDIndex].TimeStamp - PacketList[secondHPDLowIndex].TimeStamp) * 1e3)}ms " +
@@ -719,9 +707,10 @@ namespace CsvFile
         {
             //finding HPD low and high index
             int secondHPDLowIndex = CmdOccuranceIndexReturn(CmdType.HPD_Removed, PacketList, 2);
+
             int secondHPDHighIndex = CmdOccuranceIndexReturn(CmdType.HPD_Asserted, PacketList, 2);
 
-            for(int i = secondHPDLowIndex;i<secondHPDHighIndex;i++)
+            for (int i = secondHPDLowIndex; i < secondHPDHighIndex; i++)
             {
                 if (PacketList[i].MsgValue == MsgType.Req || PacketList[i].MsgValue == MsgType.Req)
                 {
@@ -735,9 +724,11 @@ namespace CsvFile
                 }
             }
         }
+        //find the msg after HPD low
         public int NextMsgAfterSecondHPDLow(int secondHPDLowIndex, List<Packet> PacketList)
         {
             int index = 0;
+
             for (int i = secondHPDLowIndex; i < PacketList.Count; i++)
             {
                 if (PacketList[i].MsgValue == MsgType.Req || PacketList[i].MsgValue == MsgType.Res)
@@ -752,10 +743,11 @@ namespace CsvFile
 
 
         // This method returns the cmdType values index for checking time
-        public int CmdOccuranceIndexReturn(CmdType CmdValue, List<Packet> PacketList,int occurance)
+        public int CmdOccuranceIndexReturn(CmdType CmdValue, List<Packet> PacketList, int occurance)
         {
             int index = 0;
             int times = 0;
+
             for (int i = 0; i < PacketList.Count; i++)
             {
                 if (PacketList[i].CmdValue == CmdValue)
@@ -766,7 +758,7 @@ namespace CsvFile
                         index = i;
                         break;
                     }
-                    
+
                 }
             }
             return index;
@@ -804,7 +796,7 @@ namespace CsvFile
             return index;
         }
 
-        //finding the  req Occurance index method
+        //finding the req Occurance index method
         public int ReqOccurance(List<Packet> PacketList, int occurance)
         {
             int index = 0;
@@ -842,7 +834,6 @@ namespace CsvFile
             }
             return index;
         }
-
         // colour change method
         public void ColorChange(List<string> TestCasesResults)
         {
@@ -858,8 +849,6 @@ namespace CsvFile
 
                 TestCasesResults[i] = TestCasesResults[i].Replace("FAIL", coloredFail);
             }
-
         }
-
     }
 }

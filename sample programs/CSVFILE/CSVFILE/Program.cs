@@ -19,7 +19,7 @@ namespace CsvFile
     {
         static void Main(string[] args)
         {
-            List<Packet> PacketList = new List<Packet>();
+            List<Packet> PacketList1 = new List<Packet>();
 
             string filePath = @"E:\inputs\4.2.1.1_pkt.csv";
 
@@ -40,22 +40,23 @@ namespace CsvFile
                     currentPkt.ToAddressList(row[6]);
                     currentPkt.ToDataLength(row[7]);
                     currentPkt.ToPayloadData(row[9]);
-                    PacketList.Add(currentPkt);
+                    PacketList1.Add(currentPkt);
                 }
             }
 
             HelperClass helperObj = new HelperClass();
+
             //  finding the index
 
-            int firstNatIndex = helperObj.FirstNatIndex(PacketList);
-            int lastNatIndex = helperObj.LastNatIndex(PacketList);
-            int firstI2CIndex = helperObj.FirstI2CIndex(PacketList);
-            int lastI2CIndex = helperObj.LastI2CIndex(PacketList);
-            int firstNatWrIndex = helperObj.FirstNatWrIndex(PacketList);
-            int lastNatWrIndex = helperObj.LastNatWrIndex(PacketList);
-            int firstI2CWrIndex = helperObj.FirstI2CWrIndex(PacketList);
-            int lastI2CWrIndex = helperObj.LastI2CWrIndex(PacketList);
-            int msgTypeOccIndex = helperObj.ReqResOccuranceIndex(PacketList, 4, MsgType.Res);
+            int firstNatIndex = helperObj.FirstNatIndex(PacketList1);
+            int lastNatIndex = helperObj.LastNatIndex(PacketList1);
+            int firstI2CIndex = helperObj.FirstI2CIndex(PacketList1);
+            int lastI2CIndex = helperObj.LastI2CIndex(PacketList1);
+            int firstNatWrIndex = helperObj.FirstNatWrIndex(PacketList1);
+            int lastNatWrIndex = helperObj.LastNatWrIndex(PacketList1);
+            int firstI2CWrIndex = helperObj.FirstI2CWrIndex(PacketList1);
+            int lastI2CWrIndex = helperObj.LastI2CWrIndex(PacketList1);
+            int msgTypeOccIndex = helperObj.ReqResOccuranceIndex(PacketList1, 4, MsgType.Res);
 
             Console.WriteLine("the first occurance of the Nat is comes with the index of " + firstNatIndex);
             Console.WriteLine("the Last  occurance of the Nat is comes with the index of " + lastNatIndex);
@@ -71,7 +72,7 @@ namespace CsvFile
 
             HelperInput helperInputObj = new HelperInput(MsgType.Req, CmdType.Wr, TransactType.Nat, FirstOrLast.first, 8);
 
-            int desiredIndex = helperObj.GetDesiredPacketIndex(PacketList, helperInputObj);
+            int desiredIndex = helperObj.GetDesiredPacketIndex(PacketList1, helperInputObj);
 
             Console.WriteLine("the first Nat req wr 8th occ is " + desiredIndex);
 
@@ -79,7 +80,7 @@ namespace CsvFile
 
             // calling the verify method for 4.2.2.1 testcase validation
 
-            testCase4211Obj.Verify4211(PacketList);
+            testCase4211Obj.Verify4211(PacketList1);
 
             List<Packet> PacketList2 = new List<Packet>();
             string filePath2 = @"E:\inputs\4.2.1.2_pkt.csv";
@@ -110,7 +111,7 @@ namespace CsvFile
             testCase4212Obj.Verify4212(PacketList2);
 
 
-            List<Packet> PacketList3= new List<Packet>();
+            List<Packet> PacketList3 = new List<Packet>();
             string filePath3 = @"E:\inputs\4.2.1.3_pkt.csv";
             string[] csvLines3 = File.ReadAllLines(filePath3);
 
@@ -192,8 +193,35 @@ namespace CsvFile
 
             TestCase4215 testCase4215Obj = new TestCase4215();
 
-            //verifying the 4.2.1.5 testcase
+            //verifying the 4.2.2.1 testcase
             testCase4215Obj.Verify4215(PacketList5);
+            List<Packet> PacketList6 = new List<Packet>();
+            string filePath6 = @"E:\inputs\4.2.2.1_pkt.csv";
+            string[] csvLines6 = File.ReadAllLines(filePath6);
+
+            if (csvLines5.Length > 0)
+            {
+                //  spliting each parameter and sending to the packet class.
+
+                for (int i = 1; i < csvLines6.Length; i++)
+                {
+                    Packet currentPkt = new Packet();
+                    string[] row = csvLines6[i].Split(',');
+                    currentPkt.ToTimeStamp(row[1]);
+                    currentPkt.ToMsgType(row[3]);
+                    currentPkt.ToTransactType(row[4]);
+                    currentPkt.ToCmdType(row[5]);
+                    currentPkt.ToAddressList(row[6]);
+                    currentPkt.ToDataLength(row[7]);
+                    currentPkt.ToPayloadData(row[9]);
+                    PacketList6.Add(currentPkt);
+                }
+            }
+
+            TestCase4221 testCase4221Obj = new TestCase4221();
+
+            //verifying the 4.2.2.1 testcase
+            testCase4221Obj.Verify4221(PacketList6);
         }
     }
 }

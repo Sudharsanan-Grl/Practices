@@ -44,6 +44,8 @@ namespace CsvFile
             EqualizationSuccess,
             HPD_Removed,
             HPD_IRQ,
+            TriggerStart,
+            TriggerStop,
             HPD_Glitch,
             HPD_Asserted
         }
@@ -74,7 +76,6 @@ namespace CsvFile
         public void ToMsgType(string msgTypeString)
         {
             MsgValue = (MsgType)helperObj.EnumConverterMethod(msgTypeString, MsgValue);
-
         }
         public void ToTransactType(string transactString)
         {
