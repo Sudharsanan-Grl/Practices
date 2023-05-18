@@ -564,9 +564,43 @@ namespace CsvFile
                 }
             }
         }
+        //Read the DPCD address
         public void ReadDPCD(List<Packet> PacketList, List<string> TestCasesResults)
         {
+            // read DPCD index
+            int DPCDIndex = ReadDPCDIndex(PacketList, 1);
+            int nextToDPCDIndex = DPCDIndex + 1;
 
+            //checks DPCD is matchs or not
+            if (PacketList[nextToDPCDIndex].MsgValue == MsgType.Res && PacketList[nextToDPCDIndex].Address == 0)
+            {
+                TestCasesResults.Add("Step 3 ::[PASS] : Source DUT read the DPCD Receiver Capability field (DPCD: 00000h:0000Fh) through AUX_CH before link training");
+            }
+            else
+            {
+                TestCasesResults.Add("Step 3 ::[FAIL] : Source DUT doesn't read the DPCD Receiver Capability field (DPCD: 00000h:0000Fh) through AUX_CH before link training");
+            }
+        }
+        //finding DPCD index
+        public int ReadDPCDIndex(List<Packet> PacketList,int occurance)
+        {
+            int index = 0;
+            int times = 0;
+
+            for(int i = 0;i < PacketList.Count;i++)
+            {
+              //  Console.WriteLine(i + " " + PacketList[i].Address + " " + PacketList[i].MsgValue + " " + PacketList[i].CmdValue + " " + PacketList[i].DataLength);
+                if (PacketList[i].MsgValue == MsgType.Req && PacketList[i].Address == 0  &&  PacketList[i].CmdValue == CmdType.Rd  &&  PacketList[i].DataLength == 16)
+                {
+                    times++;
+                }
+                if (times == occurance)
+                {
+                    index=i;
+                    break;
+                }
+            }
+            return index;
         }
         //Checking link status read started within  100 ms
         public void LinkStatusRead(List<Packet> PacketList, List<string> TestCasesResults)
@@ -592,7 +626,6 @@ namespace CsvFile
                    $"Start Index #  {IRQ_HPD_Index} End Index # {nextIRQ_HPD_Index} <br> ");
                 }
             }
-
         }
         // to find IRQ HPD index
         public int FindIRQ_HPDIndex(List<Packet> PacketList, int occurance)

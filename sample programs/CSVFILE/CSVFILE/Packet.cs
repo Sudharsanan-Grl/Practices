@@ -84,7 +84,7 @@ namespace CsvFile
         public void ToMsgType(string msgTypeString)
         {
 
-            try 
+            try
             {
                 MsgValue = (MsgType)helperObj.EnumConverterMethod(msgTypeString, MsgValue);
             }
@@ -95,7 +95,7 @@ namespace CsvFile
         }
         public void ToTransactType(string transactString)
         {
-            try 
+            try
             {
                 TransactValue = (TransactType)helperObj.EnumConverterMethod(transactString, TransactValue);
             }

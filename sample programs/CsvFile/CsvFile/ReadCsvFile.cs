@@ -8,9 +8,8 @@ namespace CsvFile
 {
     public class ReadCsvFile
     {
-        public void ReadCsv(List<Packet>PacketList,string[] csvLines) 
+        public void ReadCsv(List<Packet> PacketList, string[] csvLines)
         {
-
             if (csvLines.Length > 0)
             {
                 //  spliting each parameter and sending to the packet class.
@@ -29,7 +28,6 @@ namespace CsvFile
                     PacketList.Add(currentPkt);
                 }
             }
-
         }
     }
 }
