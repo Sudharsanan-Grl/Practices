@@ -71,31 +71,82 @@ namespace CsvFile
         // storing the converted datatypes .
         public void ToTimeStamp(string timeStampstring)
         {
-            TimeStamp = helperObj.TimeStampMethod(timeStampstring, TimeStamp);
+
+            try
+            {
+                TimeStamp = helperObj.TimeStampMethod(timeStampstring, TimeStamp);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         public void ToMsgType(string msgTypeString)
         {
-            MsgValue = (MsgType)helperObj.EnumConverterMethod(msgTypeString, MsgValue);
+
+            try 
+            {
+                MsgValue = (MsgType)helperObj.EnumConverterMethod(msgTypeString, MsgValue);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         public void ToTransactType(string transactString)
         {
-            TransactValue = (TransactType)helperObj.EnumConverterMethod(transactString, TransactValue);
+            try 
+            {
+                TransactValue = (TransactType)helperObj.EnumConverterMethod(transactString, TransactValue);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         public void ToCmdType(string stringValue)
         {
-            CmdValue = (CmdType)helperObj.EnumConverterMethod(stringValue, CmdValue);
+            try
+            {
+                CmdValue = (CmdType)helperObj.EnumConverterMethod(stringValue, CmdValue);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         public void ToAddressList(string stringAddress)
         {
-            Address = helperObj.AddressMethod(stringAddress, Address);
+            try
+            {
+                Address = helperObj.AddressMethod(stringAddress, Address);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         public void ToDataLength(string dataLengthString)
         {
-            DataLength = helperObj.DataLengthMethod(dataLengthString, DataLength);
+            try
+            {
+                DataLength = helperObj.DataLengthMethod(dataLengthString, DataLength);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         public void ToPayloadData(string payloadDataString)
         {
-            PayloadData = payloadDataString;
+            try
+            {
+                PayloadData = payloadDataString;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }
