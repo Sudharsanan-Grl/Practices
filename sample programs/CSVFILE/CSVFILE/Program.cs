@@ -6,45 +6,33 @@ using static CsvFile.Packet;
 using static CsvFile.HelperInput;
 
 namespace CsvFile
-
 {
     /// <summary>
     /// This is the Driver class .
     /// It is used for getting the parameters in the csv file and sending to the desired class.
     /// It is also used for calling the required methods.
     /// </summary>
-
-
     public class Program
     {
         static void Main(string[] args)
         {
+            ReadCsvFile readCsvFile = new ReadCsvFile();
+
             List<Packet> PacketList1 = new List<Packet>();
 
+            // Testcase 4.2.1.1
             string filePath = @"E:\inputs\4.2.1.1_pkt.csv";
 
             string[] csvLines = File.ReadAllLines(filePath);
 
-            if (csvLines.Length > 0)
-            {
-                //  spliting each parameter and sending to the packet class.
-
-                for (int i = 1; i < csvLines.Length; i++)
-                {
-                    Packet currentPkt = new Packet();
-                    string[] row = csvLines[i].Split(',');
-                    currentPkt.ToTimeStamp(row[1]);
-                    currentPkt.ToMsgType(row[3]);
-                    currentPkt.ToTransactType(row[4]);
-                    currentPkt.ToCmdType(row[5]);
-                    currentPkt.ToAddressList(row[6]);
-                    currentPkt.ToDataLength(row[7]);
-                    currentPkt.ToPayloadData(row[9]);
-                    PacketList1.Add(currentPkt);
-                }
-            }
-
             HelperClass helperObj = new HelperClass();
+
+            readCsvFile.ReadCsv(PacketList1, csvLines);
+
+            TestCase4211 testCase4211Obj = new TestCase4211();
+
+            // calling the verify method for 4.2.2.1 testcase validation
+            testCase4211Obj.Verify4211(PacketList1);
 
             //  finding the index
 
@@ -76,34 +64,15 @@ namespace CsvFile
 
             Console.WriteLine("the first Nat req wr 8th occ is " + desiredIndex);
 
-            TestCase4211 testCase4211Obj = new TestCase4211();
 
-            // calling the verify method for 4.2.2.1 testcase validation
-
-            testCase4211Obj.Verify4211(PacketList1);
-
+            // Testcase 4.2.1.2 
             List<Packet> PacketList2 = new List<Packet>();
+
             string filePath2 = @"E:\inputs\4.2.1.2_pkt.csv";
+
             string[] csvLines2 = File.ReadAllLines(filePath2);
 
-            if (csvLines2.Length > 0)
-            {
-                //  spliting each parameter and sending to the packet class.
-
-                for (int i = 1; i < csvLines2.Length; i++)
-                {
-                    Packet currentPkt = new Packet();
-                    string[] row = csvLines2[i].Split(',');
-                    currentPkt.ToTimeStamp(row[1]);
-                    currentPkt.ToMsgType(row[3]);
-                    currentPkt.ToTransactType(row[4]);
-                    currentPkt.ToCmdType(row[5]);
-                    currentPkt.ToAddressList(row[6]);
-                    currentPkt.ToDataLength(row[7]);
-                    currentPkt.ToPayloadData(row[9]);
-                    PacketList2.Add(currentPkt);
-                }
-            }
+            readCsvFile.ReadCsv(PacketList2, csvLines2);
 
             TestCase4212 testCase4212Obj = new TestCase4212();
 
@@ -111,56 +80,29 @@ namespace CsvFile
             testCase4212Obj.Verify4212(PacketList2);
 
 
+            // Testcase 4.2.1.3
             List<Packet> PacketList3 = new List<Packet>();
+
             string filePath3 = @"E:\inputs\4.2.1.3_pkt.csv";
+
             string[] csvLines3 = File.ReadAllLines(filePath3);
 
-            if (csvLines3.Length > 0)
-            {
-                //  spliting each parameter and sending to the packet class.
-
-                for (int i = 1; i < csvLines3.Length; i++)
-                {
-                    Packet currentPkt = new Packet();
-                    string[] row = csvLines3[i].Split(',');
-                    currentPkt.ToTimeStamp(row[1]);
-                    currentPkt.ToMsgType(row[3]);
-                    currentPkt.ToTransactType(row[4]);
-                    currentPkt.ToCmdType(row[5]);
-                    currentPkt.ToAddressList(row[6]);
-                    currentPkt.ToDataLength(row[7]);
-                    currentPkt.ToPayloadData(row[9]);
-                    PacketList3.Add(currentPkt);
-                }
-            }
+            readCsvFile.ReadCsv(PacketList3, csvLines3);
 
             TestCase4213 testCase4213Obj = new TestCase4213();
 
             //verifying the 4.2.1.3 testcase
             testCase4213Obj.Verify4213(PacketList3);
 
+
+            // Testcase 4.2.1.4
             List<Packet> PacketList4 = new List<Packet>();
+
             string filePath4 = @"E:\inputs\4.2.1.4_pkt.csv";
+
             string[] csvLines4 = File.ReadAllLines(filePath4);
 
-            if (csvLines4.Length > 0)
-            {
-                //  spliting each parameter and sending to the packet class.
-
-                for (int i = 1; i < csvLines4.Length; i++)
-                {
-                    Packet currentPkt = new Packet();
-                    string[] row = csvLines4[i].Split(',');
-                    currentPkt.ToTimeStamp(row[1]);
-                    currentPkt.ToMsgType(row[3]);
-                    currentPkt.ToTransactType(row[4]);
-                    currentPkt.ToCmdType(row[5]);
-                    currentPkt.ToAddressList(row[6]);
-                    currentPkt.ToDataLength(row[7]);
-                    currentPkt.ToPayloadData(row[9]);
-                    PacketList4.Add(currentPkt);
-                }
-            }
+            readCsvFile.ReadCsv(PacketList4, csvLines4);
 
             TestCase4214 testCase4214Obj = new TestCase4214();
 
@@ -168,60 +110,49 @@ namespace CsvFile
             testCase4214Obj.Verify4214(PacketList4);
 
 
+            // Testcase 4.2.1.5
             List<Packet> PacketList5 = new List<Packet>();
+
             string filePath5 = @"E:\inputs\4.2.1.5_pkt.csv";
+
             string[] csvLines5 = File.ReadAllLines(filePath5);
 
-            if (csvLines5.Length > 0)
-            {
-                //  spliting each parameter and sending to the packet class.
-
-                for (int i = 1; i < csvLines5.Length; i++)
-                {
-                    Packet currentPkt = new Packet();
-                    string[] row = csvLines5[i].Split(',');
-                    currentPkt.ToTimeStamp(row[1]);
-                    currentPkt.ToMsgType(row[3]);
-                    currentPkt.ToTransactType(row[4]);
-                    currentPkt.ToCmdType(row[5]);
-                    currentPkt.ToAddressList(row[6]);
-                    currentPkt.ToDataLength(row[7]);
-                    currentPkt.ToPayloadData(row[9]);
-                    PacketList5.Add(currentPkt);
-                }
-            }
+            readCsvFile.ReadCsv(PacketList5, csvLines5);
 
             TestCase4215 testCase4215Obj = new TestCase4215();
 
-            //verifying the 4.2.2.1 testcase
+            //verifying the 4.2.1.5 testcase
             testCase4215Obj.Verify4215(PacketList5);
+
+
+            // Testcase 4.2.2.1
             List<Packet> PacketList6 = new List<Packet>();
+
             string filePath6 = @"E:\inputs\4.2.2.1_pkt.csv";
+
             string[] csvLines6 = File.ReadAllLines(filePath6);
 
-            if (csvLines5.Length > 0)
-            {
-                //  spliting each parameter and sending to the packet class.
-
-                for (int i = 1; i < csvLines6.Length; i++)
-                {
-                    Packet currentPkt = new Packet();
-                    string[] row = csvLines6[i].Split(',');
-                    currentPkt.ToTimeStamp(row[1]);
-                    currentPkt.ToMsgType(row[3]);
-                    currentPkt.ToTransactType(row[4]);
-                    currentPkt.ToCmdType(row[5]);
-                    currentPkt.ToAddressList(row[6]);
-                    currentPkt.ToDataLength(row[7]);
-                    currentPkt.ToPayloadData(row[9]);
-                    PacketList6.Add(currentPkt);
-                }
-            }
+            readCsvFile.ReadCsv(PacketList6, csvLines6);
 
             TestCase4221 testCase4221Obj = new TestCase4221();
 
             //verifying the 4.2.2.1 testcase
             testCase4221Obj.Verify4221(PacketList6);
+
+
+            // Testcase 4.2.2.2
+            List<Packet> PacketList7 = new List<Packet>();
+
+            string filePath7 = @"E:\inputs\4.2.2.2_pkt.csv";
+
+            string[] csvLines7 = File.ReadAllLines(filePath7);
+
+            readCsvFile.ReadCsv(PacketList7, csvLines7);
+
+            TestCase4222 testCase4222Obj = new TestCase4222();
+
+            //verifying the 4.2.2.2 testcase
+            testCase4222Obj.Verify4222(PacketList7);
         }
     }
 }

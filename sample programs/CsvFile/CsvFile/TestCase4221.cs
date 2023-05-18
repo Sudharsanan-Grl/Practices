@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static CsvFile.Packet;
+﻿using static CsvFile.Packet;
 
 namespace CsvFile
 {
@@ -40,7 +35,10 @@ namespace CsvFile
                     helperObj.ValHPDTimeDiff(PacketList, TestCasesResults4221);
 
                     //for validating step 2
-                    helperObj.SinkAsserts(PacketList, TestCasesResults4221);          
+                    helperObj.SinkAsserts(PacketList, TestCasesResults4221);
+
+                    //for validating step 3
+                    helperObj.ReadDPCD(PacketList, TestCasesResults4221);
 
                     //changing pass and fail color
                     helperObj.ColorChange(TestCasesResults4221);

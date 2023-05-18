@@ -564,6 +564,10 @@ namespace CsvFile
                 }
             }
         }
+        public void ReadDPCD(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+
+        }
         //Checking link status read started within  100 ms
         public void LinkStatusRead(List<Packet> PacketList, List<string> TestCasesResults)
         {
