@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CsvFile
 {
@@ -61,6 +62,8 @@ namespace CsvFile
         public int Address;
 
         public int DataLength;
+
+        public int PayloadInfo;
 
         // creating a string 
         public string PayloadData;
@@ -126,6 +129,33 @@ namespace CsvFile
                 Console.WriteLine(ex.ToString());
             }
         }
+
+        public void ToPayloadInfo(string stringPayloadInfo)
+        {
+            try
+            {
+                //removing empty spaces
+                string[] splitedPayload = stringPayloadInfo.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
+
+                if (splitedPayload.Length >= 2)
+                {
+                    // Get the last two elements from the array
+                    string lastElement = splitedPayload[splitedPayload.Length - 1];
+
+                    PayloadInfo = helperObj.PayloadInfo(lastElement, PayloadInfo);
+                }
+                else
+                {
+                    PayloadInfo = 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         public void ToDataLength(string dataLengthString)
         {
             try
@@ -137,6 +167,7 @@ namespace CsvFile
                 Console.WriteLine(ex.ToString());
             }
         }
+      
         public void ToPayloadData(string payloadDataString)
         {
             try

@@ -24,6 +24,7 @@ namespace CsvFile
                     currentPkt.ToCmdType(row[5]);
                     currentPkt.ToAddressList(row[6]);
                     currentPkt.ToDataLength(row[7]);
+                    currentPkt.ToPayloadInfo(row[8]);
                     currentPkt.ToPayloadData(row[9]);
                     PacketList.Add(currentPkt);
                 }

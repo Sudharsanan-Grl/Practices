@@ -1,5 +1,6 @@
 ﻿using static CsvFile.Packet;
 using static CsvFile.HelperInput;
+using System.Collections.Generic;
 
 namespace CsvFile
 {
@@ -67,12 +68,17 @@ namespace CsvFile
             }
         }
         // converting string to int
-
         public int AddressMethod(string stringAddress, int address)
         {
             address = Convert.ToInt32(stringAddress, 16);
 
             return address;
+        }
+        public int PayloadInfo(string lastElement, int PayloadInfo)
+        {
+            PayloadInfo = Convert.ToInt32(lastElement, 16);
+
+            return PayloadInfo;
         }
         public int DataLengthMethod(string dataLengthString, int dataLength)
         {
@@ -291,13 +297,13 @@ namespace CsvFile
 
             if ((PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3 >= 2) // multiplyed by 1000 for converting milli seconds to seconds.
             {
-                TestCasesResults.Add($"Step 1 ::[PASS]: HPD Asserted and HPD Removed Time difference  Exp is atleast : 2ms Obt:" +
+                TestCasesResults.Add($"Step 1 :: [PASS] : HPD Asserted and HPD Removed Time difference  Exp is atleast : 2ms Obt:" +
                 $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
                 $"ms Start index # {HPDAssertedIndex} " + $"Stop index # {HPDRemovedIndex}<br>");
             }
             else
             {
-                TestCasesResults.Add($"Step 1 ::[FAIL]: HPD Asserted and HPD Removed " + $"Time difference  Exp is atleast : 2ms Obt:" +
+                TestCasesResults.Add($"Step 1 :: [FAIL] : HPD Asserted and HPD Removed " + $"Time difference  Exp is atleast : 2ms Obt:" +
                 $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
                 $"ms Start index # {HPDAssertedIndex} Stop index # {HPDRemovedIndex}<br>");
             }
@@ -316,13 +322,13 @@ namespace CsvFile
 
             if ((PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3 >= 1024) // multiplyed by 1000 for converting milli seconds to seconds.
             {
-                TestCasesResults.Add($"Step 1 ::[PASS]: HPD Asserted and HPD Removed Time difference  Exp is atleast : 1024ms Obt:" +
+                TestCasesResults.Add($"Step 1 :: [PASS] : HPD Asserted and HPD Removed Time difference  Exp is atleast : 1024ms Obt:" +
                 $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
                 $"ms Start index # {HPDAssertedIndex} " + $"Stop index # {HPDRemovedIndex}<br>");
             }
             else
             {
-                TestCasesResults.Add($"Step 1 ::[FAIL]: HPD Asserted and HPD Removed " + $"Time difference  Exp is atleast : 1024ms Obt:" +
+                TestCasesResults.Add($"Step 1 :: [FAIL] : HPD Asserted and HPD Removed " + $"Time difference  Exp is atleast : 1024ms Obt:" +
                 $"{(PacketList[HPDAssertedIndex].TimeStamp - PacketList[HPDRemovedIndex].TimeStamp) * 1e3}" +
                 $"ms Start index # {HPDAssertedIndex} Stop index # {HPDRemovedIndex}<br>");
             }
@@ -344,12 +350,12 @@ namespace CsvFile
 
             if (count > 0)
             {
-                TestCasesResults.Add("Step 2 ::[PASS]: Reference Sink asserts HPD<br>");
+                TestCasesResults.Add("Step 2 :: [PASS] : Reference Sink asserts HPD<br>");
 
             }
             else
             {
-                TestCasesResults.Add("Step 2 ::[FAIL]: Reference Sink doesn't asserts HPD<br>");
+                TestCasesResults.Add("Step 2 :: [FAIL] : Reference Sink doesn't asserts HPD<br>");
 
             }
         }
@@ -369,11 +375,11 @@ namespace CsvFile
 
             if (PacketList[nextToFirstReq].MsgValue == MsgType.Req)
             {
-                TestCasesResults.Add($"Step 3 ::[PASS]: Wait until the Source DUT issues an AUX request. Reference Sink does not send any reply to AUX <br>");
+                TestCasesResults.Add($"Step 3 :: [PASS] : Wait until the Source DUT issues an AUX request. Reference Sink does not send any reply to AUX <br>");
             }
             else
             {
-                TestCasesResults.Add($"Step 3 ::[FAIL]: Wait until the Source DUT issues an AUX request.But Sink Sends the reply <br> ");
+                TestCasesResults.Add($"Step 3 :: [FAIL] : Wait until the Source DUT issues an AUX request.But Sink Sends the reply <br> ");
             }
         }
         // step 4 validation 4211
@@ -386,13 +392,13 @@ namespace CsvFile
             //checking the time diff between is more than 400 us
             if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400) // multiplyed by 100000 for converting mirco seconds to seconds.
             {
-                TestCasesResults.Add($"Step 4 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                TestCasesResults.Add($"Step 4 :: [PASS] : Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                     $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                     $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
             }
             else
             {
-                TestCasesResults.Add($"Step 4 ::[Fail]: Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                TestCasesResults.Add($"Step 4 :: [Fail] : Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                                    $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
             }
@@ -410,14 +416,14 @@ namespace CsvFile
 
             if ((PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400) // multiplyed by 100000 for converting mirco seconds to seconds.
             {
-                TestCasesResults.Add($"Step 5 ::[PASS]:  the Source DUT  issues another AUX request Reference Sink shall only respond to requests. " +
+                TestCasesResults.Add($"Step 5 :: [PASS] :  the Source DUT  issues another AUX request Reference Sink shall only respond to requests. " +
                  $"Reference Sink replies normally to this AUX request. Verify that Source DUT waits at least 400us after completion of previous request before sending the new request." +
                                    $"  {(PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                    $"    Start Index #  {firstReqIndex} End Index # {lastReqBeforeRes} <br> ");
             }
             else
             {
-                TestCasesResults.Add($"Step 5 ::[FAIL]:  the Source DUT doesn't issues another AUX request or Reference Sink shall only respond to requests. " +
+                TestCasesResults.Add($"Step 5 :: [FAIL] :  the Source DUT doesn't issues another AUX request or Reference Sink shall only respond to requests. " +
               $"Reference Sink replies normally to this AUX request. Verify that Source DUT doesn't waits at least 400us after completion of previous request before sending the new request." +
                                 $"  {(PacketList[lastReqBeforeRes].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                 $"    Start Index #  {firstReqIndex} End Index # {lastReqBeforeRes} <br> ");
@@ -433,11 +439,11 @@ namespace CsvFile
             //checking next to the first is a res
             if (PacketList[nextToFirstReq].MsgValue == MsgType.Res)
             {
-                TestCasesResults.Add($"Step 3 ::[PASS]:  the Source DUT  issues a AUX request Reference Sink replies normally to this AUX request.<br>");
+                TestCasesResults.Add($"Step 3 :: [PASS] :  the Source DUT  issues a AUX request Reference Sink replies normally to this AUX request.<br>");
             }
             else
             {
-                TestCasesResults.Add($"Step 3 ::[FAIL]:  the Source DUT  issues a AUX request Reference doesn't replies normally to this AUX request.<br>");
+                TestCasesResults.Add($"Step 3 :: [FAIL] :  the Source DUT  issues a AUX request Reference doesn't replies normally to this AUX request.<br>");
             }
         }
         // step 4 validation 4212
@@ -453,14 +459,14 @@ namespace CsvFile
                 //checking the time diff btw first and next req is 400 us
                 if ((PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6 >= 400) // multiplyed by 100000 for converting mirco seconds to seconds.
                 {
-                    TestCasesResults.Add($"Step 4 ::[PASS]: Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                    TestCasesResults.Add($"Step 4 :: [PASS] : Source DUT waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                         $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                         $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
 
                 }
                 else
                 {
-                    TestCasesResults.Add($"Step 4 ::[Fail]: Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
+                    TestCasesResults.Add($"Step 4 :: [Fail] : Source DUT doesn't waits at least 400us after completion of previous request before sending a new request.Expt TimeDiffe is 400us Obt time diff is " +
                                        $"  {(PacketList[secondReqIndex].TimeStamp - PacketList[firstReqIndex].TimeStamp) * 1e6}us  " +
                                        $"    Start Index #  {firstReqIndex} End Index # {secondReqIndex} <br> ");
                 }
@@ -481,13 +487,13 @@ namespace CsvFile
 
             if (PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
             {
-                TestCasesResults.Add($"Step 3 ::[PASS]: Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
+                TestCasesResults.Add($"Step 3 :: [PASS] : Sink wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
                    $" {(PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)}sec" +
                    $" Start Index #  {HPDAssertedIndex} End Index # {TPS_StartIndex} <br> ");
             }
             else
             {
-                TestCasesResults.Add($"Step 3 ::[FAIL]: Sink doesn't wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
+                TestCasesResults.Add($"Step 3 :: [FAIL] : Sink doesn't wait up to 5 Sec for Source DUT to write 01h or 21h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
                    $" {(PacketList[TPS_StartIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)}sec" +
                    $" Start Index #  {HPDAssertedIndex} End Index # {TPS_StartIndex} <br> ");
             }
@@ -501,13 +507,13 @@ namespace CsvFile
 
             if (PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp <= 5)
             {
-                TestCasesResults.Add($"Step 4 ::[PASS]: Sink wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is  " +
+                TestCasesResults.Add($"Step 4 :: [PASS] : Sink wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is  " +
                     $"{(PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)} " +
                     $"Start Index #  {HPDAssertedIndex} End Index # {TPS_EndIndex} <br> ");
             }
             else
             {
-                TestCasesResults.Add($"Step 4 ::[FAIL]: Sink doesn't wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
+                TestCasesResults.Add($"Step 4 :: [FAIL] : Sink doesn't wait up to 5 Sec (from HPD assert) for Source DUT to write 00h to the TRAINING_PATTERN_SET Expt time diff <=5 sec Obt time diff is " +
                     $"{(PacketList[TPS_EndIndex].TimeStamp - PacketList[HPDAssertedIndex].TimeStamp)} " +
                     $"Start Index #  {HPDAssertedIndex} End Index # {TPS_EndIndex} <br> ");
             }
@@ -529,12 +535,12 @@ namespace CsvFile
 
             if (count > 0)
             {
-                TestCasesResults.Add("Step 4 ::[PASS]: Reference Sink toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
+                TestCasesResults.Add("Step 4 :: [PASS] : Reference Sink toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
 
             }
             else
             {
-                TestCasesResults.Add("Step 4 ::[FAIL]: Reference Sink doesn't toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
+                TestCasesResults.Add("Step 4 :: [FAIL] : Reference Sink doesn't toggles IRQ_HPD for IRQ_HPD pulse length option<br>");
 
             }
         }
@@ -554,12 +560,12 @@ namespace CsvFile
                     PacketList[nextIRQ_HPD_Index].Address == 8194 && PacketList[nextIRQ_HPD_Index].DataLength == 6 ||//0X2002 address is converted from hex to dec  0X200C => 8194
                     PacketList[nextIRQ_HPD_Index].Address == 8204 && PacketList[nextIRQ_HPD_Index].DataLength == 6)//0X200 address is converted from hex to dec  0X200 => 8204
                 {
-                    TestCasesResults.Add("Step 5(a) ::[PASS]: Source DUT read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
+                    TestCasesResults.Add("Step 5(a) :: [PASS] : Source DUT read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
                     break;
                 }
                 else
                 {
-                    TestCasesResults.Add("Step 5(a) ::[FAIL]: Source DUT doesn't read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
+                    TestCasesResults.Add("Step 5(a) :: [FAIL] : Source DUT doesn't read DPCD addresses 200h-205h or 2002h-2003h or 200Ch-200Fh<br>");
                     break;
                 }
             }
@@ -574,29 +580,72 @@ namespace CsvFile
             //checks DPCD is matchs or not
             if (PacketList[nextToDPCDIndex].MsgValue == MsgType.Res && PacketList[nextToDPCDIndex].Address == 0)
             {
-                TestCasesResults.Add("Step 3 ::[PASS] : Source DUT read the DPCD Receiver Capability field (DPCD: 00000h:0000Fh) through AUX_CH before link training");
+                TestCasesResults.Add("Step 3 :: [PASS] : Source DUT read the DPCD Receiver Capability field (DPCD: 00000h:0000Fh) through AUX_CH before link training<br>");
             }
             else
             {
-                TestCasesResults.Add("Step 3 ::[FAIL] : Source DUT doesn't read the DPCD Receiver Capability field (DPCD: 00000h:0000Fh) through AUX_CH before link training");
+                TestCasesResults.Add("Step 3 :: [FAIL] : Source DUT doesn't read the DPCD Receiver Capability field (DPCD: 00000h:0000Fh) through AUX_CH before link training<br>");
             }
         }
+        public void ReadEDID(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            int EDIDChecksumIndex = ReadEDIDChecksumIndex(PacketList, 1);
+            int beforeChecksum = 0;
+            if (EDIDChecksumIndex != 0)
+            {
+            beforeChecksum = EDIDChecksumIndex - 1;
+
+            }
+           
+
+            if (PacketList[beforeChecksum].MsgValue == MsgType.Req && PacketList[beforeChecksum].Address == 50 && PacketList[beforeChecksum].DataLength == 16)
+            {
+                TestCasesResults.Add("Step 4 :: [PASS] : Source DUT reads  entire EDID block through AUX_CH before transmission of video stream <br>");
+            }
+            else
+            {
+                TestCasesResults.Add("Step 4 :: [FAIL] : Source DUT doesn't reads  entire EDID block through AUX_CH before transmission of video stream <br>");
+            }
+
+        }
+        public int ReadEDIDChecksumIndex(List<Packet> PacketList, int occurance)
+        {
+            int index = 0;
+            int times = 0;
+            for (int i = 0; i < PacketList.Count; i++)
+            {
+                if (PacketList[i].MsgValue == MsgType.Res && PacketList[i].Address == 50 && PacketList[i].PayloadInfo == 217)
+                {
+                    times++;
+                    if (times == occurance)
+                    {
+                        index = i;
+                        break;
+                    }
+
+                }
+            }
+            return index;
+        }
         //finding DPCD index
-        public int ReadDPCDIndex(List<Packet> PacketList,int occurance)
+        public int ReadDPCDIndex(List<Packet> PacketList, int occurance)
         {
             int index = 0;
             int times = 0;
 
-            for(int i = 0;i < PacketList.Count;i++)
+
+            for (int i = 0; i < PacketList.Count; i++)
             {
-              //  Console.WriteLine(i + " " + PacketList[i].Address + " " + PacketList[i].MsgValue + " " + PacketList[i].CmdValue + " " + PacketList[i].DataLength);
-                if (PacketList[i].MsgValue == MsgType.Req && PacketList[i].Address == 0  &&  PacketList[i].CmdValue == CmdType.Rd  &&  PacketList[i].DataLength == 16)
+                //      Console.WriteLine(i + " " + PacketList[i].PayloadInfo);
+
+
+                if (PacketList[i].MsgValue == MsgType.Req && PacketList[i].Address == 0 && PacketList[i].CmdValue == CmdType.Rd && PacketList[i].DataLength == 16)
                 {
                     times++;
                 }
                 if (times == occurance)
                 {
-                    index=i;
+                    index = i;
                     break;
                 }
             }
@@ -615,13 +664,13 @@ namespace CsvFile
             {
                 if ((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) * 1e3 < 100)
                 {
-                    TestCasesResults.Add("Step 5(b) ::[PASS]: : Link Status Read started within 100ms Expt time diff <=100 ms Obt time diff is" +
+                    TestCasesResults.Add("Step 5(b) :: [PASS] : : Link Status Read started within 100ms Expt time diff <=100 ms Obt time diff is" +
                    $" {((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) * 1e3)}ms " +
                    $"Start Index #  {IRQ_HPD_Index} End Index # {nextIRQ_HPD_Index} <br> ");
                 }
                 else
                 {
-                    TestCasesResults.Add("Step 5(b) ::[FAIL]: : Link Status Read doesn't started within 100ms Expt time diff <=100 ms Obt time diff is" +
+                    TestCasesResults.Add("Step 5(b) :: [FAIL] : : Link Status Read doesn't started within 100ms Expt time diff <=100 ms Obt time diff is" +
                    $" {((PacketList[nextIRQ_HPD_Index].TimeStamp - PacketList[IRQ_HPD_Index].TimeStamp) * 1e3)}ms " +
                    $"Start Index #  {IRQ_HPD_Index} End Index # {nextIRQ_HPD_Index} <br> ");
                 }
@@ -717,13 +766,13 @@ namespace CsvFile
 
             if ((PacketList[nextMsgAfterSecondHPDIndex].TimeStamp - PacketList[secondHPDLowIndex].TimeStamp) * 1e3 > 3)
             {
-                TestCasesResults.Add("Step 4 ::[PASS]: : Reference Sink sets HPD low and then waits 3 msec for any in-progress AUX transactions to be completed  Expt time diff >= 3ms Obt time diff is" +
+                TestCasesResults.Add("Step 4 :: [PASS] : : Reference Sink sets HPD low and then waits 3 msec for any in-progress AUX transactions to be completed  Expt time diff >= 3ms Obt time diff is" +
                     $" {((PacketList[nextMsgAfterSecondHPDIndex].TimeStamp - PacketList[secondHPDLowIndex].TimeStamp) * 1e3)}ms " +
                     $"Start Index #  {secondHPDLowIndex} End Index # {nextMsgAfterSecondHPDIndex} <br> ");
             }
             else
             {
-                TestCasesResults.Add("Step 4 ::[FAIL]: : Reference Sink sets HPD low and then doesn't waits 3 msec for any in-progress AUX transactions to be completed  Expt time diff >= 3ms Obt time diff is" +
+                TestCasesResults.Add("Step 4 :: [FAIL] : : Reference Sink sets HPD low and then doesn't waits 3 msec for any in-progress AUX transactions to be completed  Expt time diff >= 3ms Obt time diff is" +
                   $" {((PacketList[nextMsgAfterSecondHPDIndex].TimeStamp - PacketList[secondHPDLowIndex].TimeStamp) * 1e3)}ms " +
                   $"Start Index #  {secondHPDLowIndex} End Index # {nextMsgAfterSecondHPDIndex} <br> ");
             }
@@ -742,12 +791,12 @@ namespace CsvFile
             {
                 if (PacketList[i].MsgValue == MsgType.Req || PacketList[i].MsgValue == MsgType.Req)
                 {
-                    TestCasesResults.Add("Step 5 ::[FAIL]: : Reference Sink doesn't holds HPD low for 1 sec while verifying that no AUX transactions are initiated by the Source DUT during this time.<br>");
+                    TestCasesResults.Add("Step 5 :: [FAIL] : : Reference Sink doesn't holds HPD low for 1 sec while verifying that no AUX transactions are initiated by the Source DUT during this time.<br>");
                     break;
                 }
                 else
                 {
-                    TestCasesResults.Add("Step 5 ::[PASS]: : Reference Sink holds HPD low for 1 sec while verifying that no AUX transactions are initiated by the Source DUT during this time . <br>");
+                    TestCasesResults.Add("Step 5 :: [PASS] : : Reference Sink holds HPD low for 1 sec while verifying that no AUX transactions are initiated by the Source DUT during this time . <br>");
                     break;
                 }
             }
