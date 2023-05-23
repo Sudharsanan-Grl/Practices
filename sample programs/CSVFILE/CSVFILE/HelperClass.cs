@@ -590,17 +590,20 @@ namespace CsvFile
         //reads the EDID address
         public void ReadEDID(List<Packet> PacketList, List<string> TestCasesResults)
         {
-            //
+            //getting index of checksum
+
             int EDIDChecksumIndex = ReadEDIDChecksumIndex(PacketList, 1);
+
             int beforeChecksum = 0;
 
+            //checking checksum index not equals to zero
             if (EDIDChecksumIndex != 0)
             {
             beforeChecksum = EDIDChecksumIndex - 1;
-
             }
            
-
+            //checking the before checksum is also a req and data length is 16
+            
             if (PacketList[beforeChecksum].MsgValue == MsgType.Req && PacketList[beforeChecksum].Address == 80 && PacketList[beforeChecksum].DataLength == 16)
             {
                 TestCasesResults.Add("Step 4 :: [PASS] : Source DUT reads  entire EDID block through AUX_CH before transmission of video stream .<br>");
@@ -611,13 +614,13 @@ namespace CsvFile
             }
 
         }
+        //getting checksum index
         public int ReadEDIDChecksumIndex(List<Packet> PacketList, int occurance)
         {
             int index = 0;
             int times = 0;
             for (int i = 0; i < PacketList.Count; i++)
-            {
-               
+            {           
                 if (PacketList[i].MsgValue == MsgType.Res && PacketList[i].Address == 80 && PacketList[i].PayloadInfo == 217)
                 {
                     times++;
@@ -626,7 +629,6 @@ namespace CsvFile
                         index = i;
                         break;
                     }
-
                 }
             }
             return index;
@@ -637,12 +639,9 @@ namespace CsvFile
             int index = 0;
             int times = 0;
 
-
             for (int i = 0; i < PacketList.Count; i++)
             {
                 //      Console.WriteLine(i + " " + PacketList[i].PayloadInfo);
-
-
                 if (PacketList[i].MsgValue == MsgType.Req && PacketList[i].Address == 0 && PacketList[i].CmdValue == CmdType.Rd && PacketList[i].DataLength == 16)
                 {
                     times++;
