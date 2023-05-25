@@ -599,11 +599,11 @@ namespace CsvFile
             //checking checksum index not equals to zero
             if (EDIDChecksumIndex != 0)
             {
-            beforeChecksum = EDIDChecksumIndex - 1;
+                beforeChecksum = EDIDChecksumIndex - 1;
             }
-           
+
             //checking the before checksum is also a req and data length is 16
-            
+
             if (PacketList[beforeChecksum].MsgValue == MsgType.Req && PacketList[beforeChecksum].Address == 80 && PacketList[beforeChecksum].DataLength == 16)
             {
                 TestCasesResults.Add("Step 4 :: [PASS] : Source DUT reads  entire EDID block through AUX_CH before transmission of video stream .<br>");
@@ -619,8 +619,9 @@ namespace CsvFile
         {
             int index = 0;
             int times = 0;
+
             for (int i = 0; i < PacketList.Count; i++)
-            {           
+            {
                 if (PacketList[i].MsgValue == MsgType.Res && PacketList[i].Address == 80 && PacketList[i].PayloadInfo == 217)
                 {
                     times++;
@@ -641,7 +642,6 @@ namespace CsvFile
 
             for (int i = 0; i < PacketList.Count; i++)
             {
-                //      Console.WriteLine(i + " " + PacketList[i].PayloadInfo);
                 if (PacketList[i].MsgValue == MsgType.Req && PacketList[i].Address == 0 && PacketList[i].CmdValue == CmdType.Rd && PacketList[i].DataLength == 16)
                 {
                     times++;
@@ -654,10 +654,25 @@ namespace CsvFile
             }
             return index;
         }
+        public void LinkTraingHappens(List<Packet> PacketList, List<string> TestCasesResults)
+        {
+            int TPS_StartIndex = TrainingPatternStartIndex(PacketList, 1);
+            if(TPS_StartIndex != 0)
+            {
+                TestCasesResults.Add("Step 5 :: [PASS] : Source DUT Performs Link Training to its capability or maximum capability .<br>");
+
+            }
+            else
+            {
+                TestCasesResults.Add("Step 5 :: [FAIL] : Source DUT doesn't Performs Link Training to its capability or maximum capability .<br>");
+
+            }
+        }
+
         //Checking link status read started within  100 ms
         public void LinkStatusRead(List<Packet> PacketList, List<string> TestCasesResults)
         {
-            // findinf HPD IRQ index
+            // finding HPD IRQ index
             int IRQ_HPD_Index = FindIRQ_HPDIndex(PacketList, 1);
 
             int nextIRQ_HPD_Index = IRQ_HPD_Index + 1;
@@ -690,6 +705,7 @@ namespace CsvFile
                 if (PacketList[i].CmdValue == CmdType.HPD_IRQ)
                 {
                     times++;
+
                     if (times == occurance)
                     {
                         index = i;
@@ -702,7 +718,6 @@ namespace CsvFile
         //finding the index of TPS start 
         public int TrainingPatternStartIndex(List<Packet> PacketList, int occurance)
         {
-
             int index = 0;
             int times = 0;
 
@@ -725,7 +740,6 @@ namespace CsvFile
                         }
                     }
                 }
-
             }
             return index;
         }
@@ -779,7 +793,6 @@ namespace CsvFile
                   $" {((PacketList[nextMsgAfterSecondHPDIndex].TimeStamp - PacketList[secondHPDLowIndex].TimeStamp) * 1e3)}ms " +
                   $"Start Index #  {secondHPDLowIndex} End Index # {nextMsgAfterSecondHPDIndex} <br> ");
             }
-
         }
         //step 5 validation 4.2.1.5
         //checking theree is no AUX ttransaction between HPD Low and HPD High
@@ -804,6 +817,7 @@ namespace CsvFile
                 }
             }
         }
+        
         //find the msg after HPD low
         public int NextMsgAfterSecondHPDLow(int secondHPDLowIndex, List<Packet> PacketList)
         {

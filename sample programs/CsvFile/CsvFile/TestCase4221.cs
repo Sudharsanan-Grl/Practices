@@ -43,6 +43,9 @@ namespace CsvFile
                     //for validating step 4
                     helperObj.ReadEDID(PacketList, TestCasesResults4221);
 
+                    //for validating step 5
+                    helperObj.LinkTraingHappens(PacketList, TestCasesResults4221);
+
                     //changing pass and fail color
                     helperObj.ColorChange(TestCasesResults4221);
 
