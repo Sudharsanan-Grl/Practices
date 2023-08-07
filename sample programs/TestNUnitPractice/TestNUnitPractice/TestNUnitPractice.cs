@@ -99,6 +99,18 @@ namespace TestNUnitPractice
 
                 Assert.Throws<ArgumentNullException>(() => account.TransferFunds(null,5000));
             }
+            [TestCase(3000,4000)]
+            [TestCase(5000, 1000)]
+            [TestCase(8000, 1000)]
+            [TestCase(5000, 4000)]
+            [TestCase(6000, 4000)]
+            [TestCase(10000, 1000)]
+            public void Money(double balance, double money)
+            {
+                BankAccount account = new BankAccount(balance);
+                account.add(money);
+                Assert.IsTrue(account.balance >= 7000);
+            }
         }
 
        
