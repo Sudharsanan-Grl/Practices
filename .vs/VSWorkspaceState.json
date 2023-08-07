@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\sample programs",
-    "\\sample programs\\Abstract",
-    "\\sample programs\\AccessModifiers",
-    "\\sample programs\\Constructor",
-    "\\sample programs\\CsvFile",
-    "\\sample programs\\DataTypeSample",
-    "\\sample programs\\DateFormat",
-    "\\sample programs\\ExceptionHandling",
-    "\\sample programs\\files"
+    ""
   ],
-  "SelectedNode": "\\sample programs\\Abstract",
+  "SelectedNode": "\\TestXUnitPractice.sln",
   "PreviewInSolutionExplorer": false
 }
