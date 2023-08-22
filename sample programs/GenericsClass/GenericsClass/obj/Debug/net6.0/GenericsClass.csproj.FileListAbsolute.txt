@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\bin\Debug\net6.0\GenericsClass.exe
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\bin\Debug\net6.0\GenericsClass.deps.json
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\bin\Debug\net6.0\GenericsClass.runtimeconfig.json
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\bin\Debug\net6.0\GenericsClass.dll
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\bin\Debug\net6.0\GenericsClass.pdb
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\GenericsClass.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\GenericsClass.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\GenericsClass.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\GenericsClass.AssemblyInfo.cs
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\GenericsClass.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\GenericsClass.dll
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\refint\GenericsClass.dll
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\GenericsClass.pdb
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\GenericsClass.genruntimeconfig.cache
+E:\Data\C#\sample programs\GenericsClass\GenericsClass\obj\Debug\net6.0\ref\GenericsClass.dll
