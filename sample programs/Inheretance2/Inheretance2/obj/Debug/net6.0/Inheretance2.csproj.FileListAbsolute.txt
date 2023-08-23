@@ -1,0 +1,15 @@
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\bin\Debug\net6.0\Inheretance2.exe
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\bin\Debug\net6.0\Inheretance2.deps.json
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\bin\Debug\net6.0\Inheretance2.runtimeconfig.json
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\bin\Debug\net6.0\Inheretance2.dll
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\bin\Debug\net6.0\Inheretance2.pdb
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\Inheretance2.csproj.AssemblyReference.cache
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\Inheretance2.GeneratedMSBuildEditorConfig.editorconfig
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\Inheretance2.AssemblyInfoInputs.cache
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\Inheretance2.AssemblyInfo.cs
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\Inheretance2.csproj.CoreCompileInputs.cache
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\Inheretance2.dll
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\refint\Inheretance2.dll
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\Inheretance2.pdb
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\Inheretance2.genruntimeconfig.cache
+E:\Apps\Practices\sample programs\Inheretance2\Inheretance2\obj\Debug\net6.0\ref\Inheretance2.dll
