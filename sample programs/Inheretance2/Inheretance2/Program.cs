@@ -9,7 +9,7 @@
     }
     public class ClassTwo :ClassOne
     {
-        public ClassTwo(a) : base(a) 
+        public ClassTwo(string a) : base(a) 
         {
             Console.WriteLine("Class 2 constructor");
         }
@@ -18,7 +18,7 @@
     {
         static void Main(string[] args)
         {
-            ClassTwo classTwo = new ClassTwo();
+            ClassTwo classTwo = new ClassTwo("From Second Constructor");
         }
     }
 }
