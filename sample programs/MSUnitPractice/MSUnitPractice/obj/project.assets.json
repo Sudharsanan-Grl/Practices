@@ -6777,11 +6777,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Data\\C#\\sample programs\\MSUnitPractice\\MSUnitPractice\\MSUnitPractice.csproj",
+      "projectUniqueName": "E:\\Apps\\Practices\\sample programs\\MSUnitPractice\\MSUnitPractice\\MSUnitPractice.csproj",
       "projectName": "MSUnitPractice",
-      "projectPath": "E:\\Data\\C#\\sample programs\\MSUnitPractice\\MSUnitPractice\\MSUnitPractice.csproj",
+      "projectPath": "E:\\Apps\\Practices\\sample programs\\MSUnitPractice\\MSUnitPractice\\MSUnitPractice.csproj",
       "packagesPath": "C:\\Users\\GRL\\.nuget\\packages\\",
-      "outputPath": "E:\\Data\\C#\\sample programs\\MSUnitPractice\\MSUnitPractice\\obj\\",
+      "outputPath": "E:\\Apps\\Practices\\sample programs\\MSUnitPractice\\MSUnitPractice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\GRL\\AppData\\Roaming\\NuGet\\NuGet.Config",

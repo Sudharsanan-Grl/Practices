@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1M5QbYEhP0Eo3+7wTE01u4Af6N8xvIMOJHht2skTDit++y7hNU6e4tnrBOqjz29N861gOb/xK4G7+suXx+hWTw==",
+  "dgSpecHash": "8CJIOj0DFtY1YPUt7MB4aPQZJqld9u3iubwJFYnegZ/B7BBEU8drNfFTcHrvbD7fyLOBpP0b8RxtOYlLIIHoxg==",
   "success": true,
-  "projectFilePath": "E:\\Data\\C#\\sample programs\\MSUnitPractice\\MSUnitPractice\\MSUnitPractice.csproj",
+  "projectFilePath": "E:\\Apps\\Practices\\sample programs\\MSUnitPractice\\MSUnitPractice\\MSUnitPractice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GRL\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\GRL\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

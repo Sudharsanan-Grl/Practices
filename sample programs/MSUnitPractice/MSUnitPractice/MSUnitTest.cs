@@ -2,9 +2,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MSUnitPractice
 {
-    [TestClass]
+    // this is the class
+    
     public class MSUnitTest
     {
+
         [TestMethod]
         public void MSTestMethod1()
         {
