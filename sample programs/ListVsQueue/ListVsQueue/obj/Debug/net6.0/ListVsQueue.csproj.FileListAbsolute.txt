@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\bin\Debug\net6.0\ListVsQueue.exe
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\bin\Debug\net6.0\ListVsQueue.deps.json
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\bin\Debug\net6.0\ListVsQueue.runtimeconfig.json
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\bin\Debug\net6.0\ListVsQueue.dll
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\bin\Debug\net6.0\ListVsQueue.pdb
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ListVsQueue.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ListVsQueue.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ListVsQueue.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ListVsQueue.AssemblyInfo.cs
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ListVsQueue.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ListVsQueue.dll
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\refint\ListVsQueue.dll
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ListVsQueue.pdb
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ListVsQueue.genruntimeconfig.cache
+E:\Data\C#\sample programs\ListVsQueue\ListVsQueue\obj\Debug\net6.0\ref\ListVsQueue.dll
