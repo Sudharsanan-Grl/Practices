@@ -1,0 +1,15 @@
+E:\Data\C#\sample programs\Enum\Enum\bin\Debug\net6.0\Enum.exe
+E:\Data\C#\sample programs\Enum\Enum\bin\Debug\net6.0\Enum.deps.json
+E:\Data\C#\sample programs\Enum\Enum\bin\Debug\net6.0\Enum.runtimeconfig.json
+E:\Data\C#\sample programs\Enum\Enum\bin\Debug\net6.0\Enum.dll
+E:\Data\C#\sample programs\Enum\Enum\bin\Debug\net6.0\Enum.pdb
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\Enum.csproj.AssemblyReference.cache
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\Enum.GeneratedMSBuildEditorConfig.editorconfig
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\Enum.AssemblyInfoInputs.cache
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\Enum.AssemblyInfo.cs
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\Enum.csproj.CoreCompileInputs.cache
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\Enum.dll
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\refint\Enum.dll
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\Enum.pdb
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\Enum.genruntimeconfig.cache
+E:\Data\C#\sample programs\Enum\Enum\obj\Debug\net6.0\ref\Enum.dll
