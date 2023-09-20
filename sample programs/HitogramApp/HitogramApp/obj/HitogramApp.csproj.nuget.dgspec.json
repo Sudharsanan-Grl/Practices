@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Apps\\Practices\\sample programs\\CsvFile\\CSVFILE\\CsvFile.csproj": {}
+    "E:\\Apps\\Practices\\sample programs\\HitogramApp\\HitogramApp\\HitogramApp.csproj": {}
   },
   "projects": {
-    "E:\\Apps\\Practices\\sample programs\\CsvFile\\CSVFILE\\CsvFile.csproj": {
+    "E:\\Apps\\Practices\\sample programs\\HitogramApp\\HitogramApp\\HitogramApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Apps\\Practices\\sample programs\\CsvFile\\CSVFILE\\CsvFile.csproj",
-        "projectName": "CsvFile",
-        "projectPath": "E:\\Apps\\Practices\\sample programs\\CsvFile\\CSVFILE\\CsvFile.csproj",
+        "projectUniqueName": "E:\\Apps\\Practices\\sample programs\\HitogramApp\\HitogramApp\\HitogramApp.csproj",
+        "projectName": "HitogramApp",
+        "projectPath": "E:\\Apps\\Practices\\sample programs\\HitogramApp\\HitogramApp\\HitogramApp.csproj",
         "packagesPath": "C:\\Users\\GRL\\.nuget\\packages\\",
-        "outputPath": "E:\\Apps\\Practices\\sample programs\\CSVFILE\\CSVFILE\\obj\\",
+        "outputPath": "E:\\Apps\\Practices\\sample programs\\HitogramApp\\HitogramApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\GRL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[30.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

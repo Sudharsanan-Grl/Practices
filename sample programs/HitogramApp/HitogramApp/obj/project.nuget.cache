@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yIzxMyqVzkPdAhzAKPNASGyPZREMlXHl1eOvsFvU56nOVBoWV0ru3jiBdi76xSmV7I9FtwZkXVZEG38qHrnycg==",
+  "success": true,
+  "projectFilePath": "E:\\Apps\\Practices\\sample programs\\HitogramApp\\HitogramApp\\HitogramApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\GRL\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
