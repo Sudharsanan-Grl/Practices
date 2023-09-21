@@ -1,0 +1,185 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "HitogramApp/1.0.0": {
+        "dependencies": {
+          "CsvHelper": "30.0.1",
+          "DocumentFormat.OpenXml": "2.20.0",
+          "Microsoft.AspNet.WebPages": "3.3.0-preview1",
+          "OxyPlot.Core": "2.1.2",
+          "OxyPlot.Wpf": "2.1.2",
+          "OxyPlot.Wpf.Shared": "2.1.2"
+        },
+        "runtime": {
+          "HitogramApp.dll": {}
+        }
+      },
+      "CsvHelper/30.0.1": {
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
+            "assemblyVersion": "30.0.0.0",
+            "fileVersion": "30.0.1.0"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml/2.20.0": {
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "runtime": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
+            "assemblyVersion": "2.20.0.0",
+            "fileVersion": "2.20.0.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.Razor/3.3.0-preview1": {
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61130.51"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.3.0-preview1": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.3.0-preview1",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61130.51"
+          },
+          "lib/net45/System.Web.WebPages.Deployment.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61130.51"
+          },
+          "lib/net45/System.Web.WebPages.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61130.51"
+          },
+          "lib/net45/System.Web.WebPages.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61130.51"
+          }
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.20105.407"
+          }
+        }
+      },
+      "OxyPlot.Core/2.1.2": {
+        "runtime": {
+          "lib/netstandard2.0/OxyPlot.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.0"
+          }
+        }
+      },
+      "OxyPlot.Wpf/2.1.2": {
+        "dependencies": {
+          "OxyPlot.Core": "2.1.2",
+          "OxyPlot.Wpf.Shared": "2.1.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OxyPlot.Wpf.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.0"
+          }
+        }
+      },
+      "OxyPlot.Wpf.Shared/2.1.2": {
+        "dependencies": {
+          "OxyPlot.Core": "2.1.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OxyPlot.Wpf.Shared.dll": {
+            "assemblyVersion": "2.1.2.0",
+            "fileVersion": "2.1.2.0"
+          }
+        }
+      },
+      "System.IO.Packaging/4.7.0": {}
+    }
+  },
+  "libraries": {
+    "HitogramApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CsvHelper/30.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg==",
+      "path": "csvhelper/30.0.1",
+      "hashPath": "csvhelper.30.0.1.nupkg.sha512"
+    },
+    "DocumentFormat.OpenXml/2.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+oFMsEppo/W6KpGTRXaJl2jTFYn9zeon4FaZuDoCijQ1/0JaPENaCef7d4Y3f8v116eKhVBwd4Ya+/NDglxkjw==",
+      "path": "documentformat.openxml/2.20.0",
+      "hashPath": "documentformat.openxml.2.20.0.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Razor/3.3.0-preview1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZpBaNT8E8hQ1wIPh84tud9U3t14UK1OFUo0znnUyasmmO1oydhrZMmc+NXYHRJPEQ36nPp69653ZcNn1zUeu/A==",
+      "path": "microsoft.aspnet.razor/3.3.0-preview1",
+      "hashPath": "microsoft.aspnet.razor.3.3.0-preview1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages/3.3.0-preview1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L6ALbvp6YdqT6vtqQ+1kE5DOfpXCUPtBiH5qwbbUUjGFY550UHAhYdFf+1aEuKaDMiM0rm8X6gyHJcVgzjUhqw==",
+      "path": "microsoft.aspnet.webpages/3.3.0-preview1",
+      "hashPath": "microsoft.aspnet.webpages.3.3.0-preview1.nupkg.sha512"
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "hashPath": "microsoft.web.infrastructure.1.0.0.nupkg.sha512"
+    },
+    "OxyPlot.Core/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/BuPL1Wa7ZhpKA2DBe72md+S8PgIHF+UP/NsKfO9BiheXnbns1/tqS7s2MWIR1xFy5i+PWVC67KziGPY48mNgA==",
+      "path": "oxyplot.core/2.1.2",
+      "hashPath": "oxyplot.core.2.1.2.nupkg.sha512"
+    },
+    "OxyPlot.Wpf/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-udX9T1YC5BnnTZkVSNgJqvzXLaBcZDYG32YHWlDELk1UDWQeJi0Z2jBLoIiv4hcW16N4ptYO5cGC3e8m5/z0hw==",
+      "path": "oxyplot.wpf/2.1.2",
+      "hashPath": "oxyplot.wpf.2.1.2.nupkg.sha512"
+    },
+    "OxyPlot.Wpf.Shared/2.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6Cj7UET7AS5gVf77+avKG+PzaKQhTdqRYbyBTCPWW9JEbAsojpNdLICjVXO+5o/HP+DjshZJ6oCFw8eyRnHtCA==",
+      "path": "oxyplot.wpf.shared/2.1.2",
+      "hashPath": "oxyplot.wpf.shared.2.1.2.nupkg.sha512"
+    },
+    "System.IO.Packaging/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "path": "system.io.packaging/4.7.0",
+      "hashPath": "system.io.packaging.4.7.0.nupkg.sha512"
+    }
+  }
+}

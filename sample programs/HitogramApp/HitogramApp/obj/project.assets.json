@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net6.0-windows7.0": {
       "CsvHelper/30.0.1": {
         "type": "package",
         "compile": {
@@ -11,6 +11,144 @@
         },
         "runtime": {
           "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml/2.20.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "compile": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/DocumentFormat.OpenXml.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNet.Razor/3.3.0-preview1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Web.Razor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.3.0-preview1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "[3.3.0-preview1, 3.3.0)",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Helpers.dll": {
+            "related": ".xml"
+          },
+          "lib/net45/System.Web.WebPages.Deployment.dll": {
+            "related": ".xml"
+          },
+          "lib/net45/System.Web.WebPages.Razor.dll": {
+            "related": ".xml"
+          },
+          "lib/net45/System.Web.WebPages.dll": {
+            "related": ".Deployment.xml;.Razor.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {
+            "related": ".xml"
+          },
+          "lib/net45/System.Web.WebPages.Deployment.dll": {
+            "related": ".xml"
+          },
+          "lib/net45/System.Web.WebPages.Razor.dll": {
+            "related": ".xml"
+          },
+          "lib/net45/System.Web.WebPages.dll": {
+            "related": ".Deployment.xml;.Razor.xml;.xml"
+          }
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        }
+      },
+      "OxyPlot.Core/2.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/OxyPlot.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/OxyPlot.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "OxyPlot.Wpf/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "OxyPlot.Core": "2.1.2",
+          "OxyPlot.Wpf.Shared": "2.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OxyPlot.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OxyPlot.Wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "OxyPlot.Wpf.Shared/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "OxyPlot.Core": "2.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OxyPlot.Wpf.Shared.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OxyPlot.Wpf.Shared.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "System.IO.Packaging/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.IO.Packaging.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.IO.Packaging.dll": {
             "related": ".xml"
           }
         }
@@ -41,11 +179,175 @@
         "lib/netstandard2.1/CsvHelper.dll",
         "lib/netstandard2.1/CsvHelper.xml"
       ]
+    },
+    "DocumentFormat.OpenXml/2.20.0": {
+      "sha512": "+oFMsEppo/W6KpGTRXaJl2jTFYn9zeon4FaZuDoCijQ1/0JaPENaCef7d4Y3f8v116eKhVBwd4Ya+/NDglxkjw==",
+      "type": "package",
+      "path": "documentformat.openxml/2.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "documentformat.openxml.2.20.0.nupkg.sha512",
+        "documentformat.openxml.nuspec",
+        "icon.png",
+        "lib/net35/DocumentFormat.OpenXml.dll",
+        "lib/net35/DocumentFormat.OpenXml.xml",
+        "lib/net40/DocumentFormat.OpenXml.dll",
+        "lib/net40/DocumentFormat.OpenXml.xml",
+        "lib/net46/DocumentFormat.OpenXml.dll",
+        "lib/net46/DocumentFormat.OpenXml.xml",
+        "lib/net6.0/DocumentFormat.OpenXml.dll",
+        "lib/net6.0/DocumentFormat.OpenXml.xml",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.dll",
+        "lib/netstandard1.3/DocumentFormat.OpenXml.xml",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.dll",
+        "lib/netstandard2.0/DocumentFormat.OpenXml.xml"
+      ]
+    },
+    "Microsoft.AspNet.Razor/3.3.0-preview1": {
+      "sha512": "ZpBaNT8E8hQ1wIPh84tud9U3t14UK1OFUo0znnUyasmmO1oydhrZMmc+NXYHRJPEQ36nPp69653ZcNn1zUeu/A==",
+      "type": "package",
+      "path": "microsoft.aspnet.razor/3.3.0-preview1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NET.icon.png",
+        "NET_Library_EULA_ENU.txt",
+        "lib/net45/System.Web.Razor.dll",
+        "lib/net45/System.Web.Razor.xml",
+        "microsoft.aspnet.razor.3.3.0-preview1.nupkg.sha512",
+        "microsoft.aspnet.razor.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebPages/3.3.0-preview1": {
+      "sha512": "L6ALbvp6YdqT6vtqQ+1kE5DOfpXCUPtBiH5qwbbUUjGFY550UHAhYdFf+1aEuKaDMiM0rm8X6gyHJcVgzjUhqw==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages/3.3.0-preview1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Web.config.install.xdt",
+        "Content/Web.config.uninstall.xdt",
+        "NET.icon.png",
+        "NET_Library_EULA_ENU.txt",
+        "lib/net45/System.Web.Helpers.dll",
+        "lib/net45/System.Web.Helpers.xml",
+        "lib/net45/System.Web.WebPages.Deployment.dll",
+        "lib/net45/System.Web.WebPages.Deployment.xml",
+        "lib/net45/System.Web.WebPages.Razor.dll",
+        "lib/net45/System.Web.WebPages.Razor.xml",
+        "lib/net45/System.Web.WebPages.dll",
+        "lib/net45/System.Web.WebPages.xml",
+        "microsoft.aspnet.webpages.3.3.0-preview1.nupkg.sha512",
+        "microsoft.aspnet.webpages.nuspec"
+      ]
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "sha512": "FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "type": "package",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.Web.Infrastructure.dll",
+        "microsoft.web.infrastructure.1.0.0.nupkg.sha512",
+        "microsoft.web.infrastructure.nuspec"
+      ]
+    },
+    "OxyPlot.Core/2.1.2": {
+      "sha512": "/BuPL1Wa7ZhpKA2DBe72md+S8PgIHF+UP/NsKfO9BiheXnbns1/tqS7s2MWIR1xFy5i+PWVC67KziGPY48mNgA==",
+      "type": "package",
+      "path": "oxyplot.core/2.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "OxyPlot_128.png",
+        "lib/net40/OxyPlot.dll",
+        "lib/net40/OxyPlot.xml",
+        "lib/net45/OxyPlot.dll",
+        "lib/net45/OxyPlot.xml",
+        "lib/netstandard1.0/OxyPlot.dll",
+        "lib/netstandard1.0/OxyPlot.xml",
+        "lib/netstandard2.0/OxyPlot.dll",
+        "lib/netstandard2.0/OxyPlot.xml",
+        "oxyplot.core.2.1.2.nupkg.sha512",
+        "oxyplot.core.nuspec"
+      ]
+    },
+    "OxyPlot.Wpf/2.1.2": {
+      "sha512": "udX9T1YC5BnnTZkVSNgJqvzXLaBcZDYG32YHWlDELk1UDWQeJi0Z2jBLoIiv4hcW16N4ptYO5cGC3e8m5/z0hw==",
+      "type": "package",
+      "path": "oxyplot.wpf/2.1.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "OxyPlot_128.png",
+        "lib/net40/OxyPlot.Wpf.dll",
+        "lib/net40/OxyPlot.Wpf.xml",
+        "lib/net45/OxyPlot.Wpf.dll",
+        "lib/net45/OxyPlot.Wpf.xml",
+        "lib/netcoreapp3.1/OxyPlot.Wpf.dll",
+        "lib/netcoreapp3.1/OxyPlot.Wpf.xml",
+        "oxyplot.wpf.2.1.2.nupkg.sha512",
+        "oxyplot.wpf.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "OxyPlot.Wpf.Shared/2.1.2": {
+      "sha512": "6Cj7UET7AS5gVf77+avKG+PzaKQhTdqRYbyBTCPWW9JEbAsojpNdLICjVXO+5o/HP+DjshZJ6oCFw8eyRnHtCA==",
+      "type": "package",
+      "path": "oxyplot.wpf.shared/2.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "OxyPlot_128.png",
+        "lib/net40/OxyPlot.Wpf.Shared.dll",
+        "lib/net40/OxyPlot.Wpf.Shared.xml",
+        "lib/net45/OxyPlot.Wpf.Shared.dll",
+        "lib/net45/OxyPlot.Wpf.Shared.xml",
+        "lib/netcoreapp3.1/OxyPlot.Wpf.Shared.dll",
+        "lib/netcoreapp3.1/OxyPlot.Wpf.Shared.xml",
+        "oxyplot.wpf.shared.2.1.2.nupkg.sha512",
+        "oxyplot.wpf.shared.nuspec"
+      ]
+    },
+    "System.IO.Packaging/4.7.0": {
+      "sha512": "9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "type": "package",
+      "path": "system.io.packaging/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.IO.Packaging.dll",
+        "lib/net46/System.IO.Packaging.xml",
+        "lib/netstandard1.3/System.IO.Packaging.dll",
+        "lib/netstandard1.3/System.IO.Packaging.xml",
+        "lib/netstandard2.0/System.IO.Packaging.dll",
+        "lib/netstandard2.0/System.IO.Packaging.xml",
+        "ref/net46/System.IO.Packaging.dll",
+        "ref/net46/System.IO.Packaging.xml",
+        "ref/netstandard1.3/System.IO.Packaging.dll",
+        "ref/netstandard1.3/System.IO.Packaging.xml",
+        "ref/netstandard2.0/System.IO.Packaging.dll",
+        "ref/netstandard2.0/System.IO.Packaging.xml",
+        "system.io.packaging.4.7.0.nupkg.sha512",
+        "system.io.packaging.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "CsvHelper >= 30.0.1"
+    "net6.0-windows7.0": [
+      "CsvHelper >= 30.0.1",
+      "DocumentFormat.OpenXml >= 2.20.0",
+      "Microsoft.AspNet.WebPages >= 3.3.0-preview1",
+      "OxyPlot.Core >= 2.1.2",
+      "OxyPlot.Wpf >= 2.1.2",
+      "OxyPlot.Wpf.Shared >= 2.1.2"
     ]
   },
   "packageFolders": {
@@ -65,15 +367,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
           "projectReferences": {}
         }
       },
@@ -84,12 +386,32 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
         "dependencies": {
           "CsvHelper": {
             "target": "Package",
             "version": "[30.0.1, )"
+          },
+          "DocumentFormat.OpenXml": {
+            "target": "Package",
+            "version": "[2.20.0, )"
+          },
+          "Microsoft.AspNet.WebPages": {
+            "target": "Package",
+            "version": "[3.3.0-preview1, )"
+          },
+          "OxyPlot.Core": {
+            "target": "Package",
+            "version": "[2.1.2, )"
+          },
+          "OxyPlot.Wpf": {
+            "target": "Package",
+            "version": "[2.1.2, )"
+          },
+          "OxyPlot.Wpf.Shared": {
+            "target": "Package",
+            "version": "[2.1.2, )"
           }
         },
         "imports": [
@@ -111,5 +433,37 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Razor 3.3.0-preview1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Razor",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebPages 3.3.0-preview1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebPages",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Web.Infrastructure",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }
