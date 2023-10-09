@@ -20,7 +20,6 @@ namespace HitogramApp
 
             int numIntervals = histogramCreate.numIntervals;
 
-
             int[] histogram = histogramCreate.CreateHistogram(signalData);
 
             string histogramCsvFilePath = @"E:\Cap0\HistogramData.csv";
@@ -35,27 +34,13 @@ namespace HitogramApp
 
                 }
             }
-
             // Display a message indicating where the CSV is saved
             Console.WriteLine($"Histogram data saved to: {histogramCsvFilePath}");
         }
         public void HistrogramWriteHTML()
         {
-
             HistogramCreate histogramCreate = new HistogramCreate();
-
             int numIntervals = histogramCreate.numIntervals;
-
-            // Find the minimum and maximum voltage levels
-            double minVoltage = signalData.Min();
-            double maxVoltage = signalData.Max();
-
-
-
-            // Calculate the interval width
-            double intervalWidth = (maxVoltage - minVoltage) / numIntervals;
-
-
             int[] histogram = histogramCreate.CreateHistogram(signalData);
             string htmlFilePath = @"E:\Cap0\HistogramChart.html";
             using (var writer = new StreamWriter(htmlFilePath))
@@ -73,17 +58,13 @@ namespace HitogramApp
                 writer.WriteLine("        ['Interval', 'Count'],");
                 for (int i = 0; i < numIntervals; i++)
                 {
-                    double intervalStart = minVoltage + i * intervalWidth;
-                    double intervalEnd = maxVoltage + (i + 1) * intervalWidth;
-                    writer.WriteLine($"        ['{intervalStart}-{intervalEnd}', {histogram[i]}],");
+                    writer.WriteLine($"        ['{i}', {histogram[i]}],");
                 }
                 writer.WriteLine("      ]);");
-
                 writer.WriteLine("      var options = {");
                 writer.WriteLine("        title: 'Histogram of Voltage Levels',");
                 writer.WriteLine("        legend: { position: 'none' },");
                 writer.WriteLine("      };");
-
                 writer.WriteLine("      var chart = new google.visualization.Histogram(document.getElementById('chart_div'));");
                 writer.WriteLine("      chart.draw(data, options);");
                 writer.WriteLine("    }");
@@ -94,7 +75,6 @@ namespace HitogramApp
                 writer.WriteLine("</body>");
                 writer.WriteLine("</html>");
             }
-
             // Display a message indicating where the HTML file is saved
             Console.WriteLine($"Histogram chart saved to: {htmlFilePath}");
         }
