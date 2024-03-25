@@ -47,6 +47,8 @@ namespace wss
             app.UseStaticFiles();
 
             app.UseRouting();
+          
+            
 
             var wsOptions = new WebSocketOptions { KeepAliveInterval = TimeSpan.FromSeconds(120) };
             app.UseWebSockets(wsOptions);
