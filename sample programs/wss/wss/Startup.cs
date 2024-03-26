@@ -31,6 +31,8 @@ namespace wss
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // Check if the application is running in the development environment
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -47,40 +49,55 @@ namespace wss
             app.UseStaticFiles();
 
             app.UseRouting();
-          
-            
+
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            // Middleware for handling WebSocket requests
 
             var wsOptions = new WebSocketOptions { KeepAliveInterval = TimeSpan.FromSeconds(120) };
             app.UseWebSockets(wsOptions);
             app.Use(async (context, next) =>
             {
-                if (context.Request.Path == "/Send")
+                if (context.Request.Path == "/Send")// Check if the request path is for WebSocket communication
                 {
-                    if (context.WebSockets.IsWebSocketRequest)
+                    if (context.WebSockets.IsWebSocketRequest) // Check if the request is a WebSocket request
                     {
                         using (WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync())
                         {
-                            await Send(context, webSocket);
+                            await Send(context, webSocket);// Handle WebSocket communication
                         }
                     }
                     else
                     {
-                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest; // Return bad request status code if not a WebSocket request
                     }
                 }
                 else
                 {
-                    await next();
+                    await next();// Pass the request to the next middleware
                 }
             });
 
 
            
         }
-
+        /// <summary>
+        ///   Method to handle WebSocket communication
+       /// </summary>
+        /// <param name="context"> ainfo about HTTP</param>
+        /// <param name="webSocket"> Send and recieve data</param>
+        /// <returns></returns>
         private async Task Send(HttpContext context,WebSocket webSocket)
         {
             var buffer = new byte[1024 *4];
+            // Receive data from the WebSocket client
+
             WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer),System.Threading.CancellationToken.None);
             if(result != null)
             {
@@ -88,12 +105,14 @@ namespace wss
                 {
                     string message = Encoding.UTF8.GetString(new ArraySegment<byte>(buffer,0,result.Count));
                     Console.WriteLine($"Received message from client { message}");
+                    // Send response to the WebSocket client
                     await webSocket.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes($"Server : {DateTime.UtcNow:f} ")), result.MessageType, result.EndOfMessage,System.Threading.CancellationToken.None);
-                    result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), System.Threading.CancellationToken.None);
-                 //   Console.WriteLine(result);
+                    // Receive next data from the WebSocket client
+                   result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), System.Threading.CancellationToken.None);
 
                 }
             }
+            // Close the WebSocket connection
             await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, System.Threading.CancellationToken.None);
         }
     }
